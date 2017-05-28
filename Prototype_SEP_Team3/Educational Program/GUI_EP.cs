@@ -219,32 +219,32 @@ namespace Prototype_SEP_Team3.Educational_Program
         //Hàm vẽ list view
         private void ShowMuctieudaotao()
         {
-            lwĐàotạo_view.Items.Add("I/ Mục tiêu chung: ");
+            lwĐàotạo_view.Items.Add("+ Mục tiêu chung: ");
             for (int i = 0; i < mtc.Count; i++)
             {
                 lwĐàotạo_view.Items.Add("\n     - " + mtc[i]);
             }
-            lwĐàotạo_view.Items.Add("II/ Mục tiêu cụ thể: ");
+            lwĐàotạo_view.Items.Add("+ Mục tiêu cụ thể: ");
             lwĐàotạo_view.Items.Add("\n     1. Phẩm chất");
             for (int i = 0; i < mtct_pc.Count; i++)
             {
-                lwĐàotạo_view.Items.Add("\n         - " + mtct_pc[i]);
+                lwĐàotạo_view.Items.Add("\n         1."+(i+1)+"  " + mtct_pc[i]);
             }
             lwĐàotạo_view.Items.Add("\n     2. Kiến thức");
             for (int i = 0; i < mtct_kt.Count; i++)
             {
-                lwĐàotạo_view.Items.Add("\n         - " + mtct_kt[i]);
+                lwĐàotạo_view.Items.Add("\n         2." + (i + 1) + "  " + mtct_kt[i]);
             }
             lwĐàotạo_view.Items.Add("\n     3. Kĩ năng");
             for (int i = 0; i < mtct_kn.Count; i++)
             {
-                lwĐàotạo_view.Items.Add("\n         - " + mtct_kn[i]);
+                lwĐàotạo_view.Items.Add("\n         3." + (i + 1) + "  " + mtct_kn[i]);
             }
 
             lwĐàotạo_view.Items.Add("\n     4. Thái độ");
             for (int i = 0; i < mtct_td.Count; i++)
             {
-                lwĐàotạo_view.Items.Add("\n         - " + mtct_td[i]);
+                lwĐàotạo_view.Items.Add("\n         4." + (i + 1) + "  " + mtct_td[i]);
             }
         }
 
@@ -254,15 +254,12 @@ namespace Prototype_SEP_Team3.Educational_Program
         {
             if (lwĐàotạo_view.SelectedItems.Count == 1)
             {
-                if ((lwĐàotạo_view.SelectedItem.ToString() != "I/ Mục tiêu chung: ") && (lwĐàotạo_view.SelectedItem.ToString() != "II/ Mục tiêu cụ thể: ") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     1. Phẩm chất") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     2. Kiến thức") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     3. Kĩ năng") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     4. Thái độ"))
+                if ((lwĐàotạo_view.SelectedItem.ToString() != "+ Mục tiêu chung: ") && (lwĐàotạo_view.SelectedItem.ToString() != "+ Mục tiêu cụ thể: ") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     1. Phẩm chất") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     2. Kiến thức") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     3. Kĩ năng") && (lwĐàotạo_view.SelectedItem.ToString() != "\n     4. Thái độ"))
                 {
                     btnMụctiêu_sửa.Visible = true;
                     btnMụctiêu_hủy.Visible = true;
                     btnĐàotạo_add.Text = "Xóa";
 
-                    txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n     - ", "").Replace("\n         - ", "");
-
-                    itemcontent = lwĐàotạo_view.SelectedItem.ToString().Replace("\n     - ", "").Replace("\n         - ", "");
                     itemposition = lwĐàotạo_view.SelectedIndex;
 
                     int s1 = 0;
@@ -282,21 +279,49 @@ namespace Prototype_SEP_Team3.Educational_Program
                             if (i == 0)
                             {
                                 selectindex = 0;
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n     - ", "");
                                 break;
                             }
                             if (i == 1)
                             {
                                 selectindex = 1;
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");                                
+                                if (txtĐàotạo_content.Text.Substring(3, 1) == " ")
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(5, txtĐàotạo_content.Text.Length - 5);
+                                }
+                                else
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(6, txtĐàotạo_content.Text.Length - 6);
+                                }
                                 break;
                             }
                             if (i == 2)
                             {
                                 selectindex = 2;
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");
+                                if (txtĐàotạo_content.Text.Substring(3, 1) == " ")
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(5, txtĐàotạo_content.Text.Length - 5);
+                                }
+                                else
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(6, txtĐàotạo_content.Text.Length - 6);
+                                }
                                 break;
                             }
                             if (i == 3)
                             {
                                 selectindex = 3;
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");
+                                if (txtĐàotạo_content.Text.Substring(3, 1) == " ")
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(5, txtĐàotạo_content.Text.Length - 5);
+                                }
+                                else
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(6, txtĐàotạo_content.Text.Length - 6);
+                                }
                                 break;
                             }
 
@@ -306,10 +331,21 @@ namespace Prototype_SEP_Team3.Educational_Program
                             if (i == 3)
                             {
                                 selectindex = 4;
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");
+                                if (txtĐàotạo_content.Text.Substring(3, 1) == " ")
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(5, txtĐàotạo_content.Text.Length - 5);
+                                }
+                                else
+                                {
+                                    txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(6, txtĐàotạo_content.Text.Length - 6);
+                                }
                             }
                         }
                     }
 
+                    itemcontent = txtĐàotạo_content.Text;
+                    
                     cboĐàotạo_level.SelectedIndex = selectindex;
                 }
 
