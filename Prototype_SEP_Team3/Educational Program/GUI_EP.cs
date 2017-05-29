@@ -148,23 +148,23 @@ namespace Prototype_SEP_Team3.Educational_Program
                     {
                         if (lv == "Mục tiêu chung")
                         {
-                            mtc.Add(txtĐàotạo_content.Text);
+                            mtc.Add(txtĐàotạo_content.Text.Trim());
                         }
                         if (lv == "Mục tiêu cụ thể - Phẩm chất")
                         {
-                            mtct_pc.Add(txtĐàotạo_content.Text);
+                            mtct_pc.Add(txtĐàotạo_content.Text.Trim());
                         }
                         if (lv == "Mục tiêu cụ thể - Kiến thức")
                         {
-                            mtct_kt.Add(txtĐàotạo_content.Text);
+                            mtct_kt.Add(txtĐàotạo_content.Text.Trim());
                         }
                         if (lv == "Mục tiêu cụ thể - Kĩ năng")
                         {
-                            mtct_kn.Add(txtĐàotạo_content.Text);
+                            mtct_kn.Add(txtĐàotạo_content.Text.Trim());
                         }
                         if (lv == "Mục tiêu cụ thể - Thái độ")
                         {
-                            mtct_td.Add(txtĐàotạo_content.Text);
+                            mtct_td.Add(txtĐàotạo_content.Text.Trim());
                         }
                         //show list view 
                         ShowMuctieudaotao();
@@ -344,7 +344,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                         }
                     }
 
-                    itemcontent = txtĐàotạo_content.Text;
+                    itemcontent = txtĐàotạo_content.Text.Trim();
                     
                     cboĐàotạo_level.SelectedIndex = selectindex;
                 }
@@ -454,31 +454,31 @@ namespace Prototype_SEP_Team3.Educational_Program
             //Trường hợp edit list cũ
             if ((cbo.SelectedIndex == editint) && (editint == 0))
             {
-                work[position - 1] = txtĐàotạo_content.Text;
+                work[position - 1] = txtĐàotạo_content.Text.Trim();
             }
             else
             {
                 if ((cbo.SelectedIndex == editint) && (editint == 1))
                 {
-                    work[position - (3 + mtc.Count)] = txtĐàotạo_content.Text;
+                    work[position - (3 + mtc.Count)] = txtĐàotạo_content.Text.Trim();
                 }
                 else
                 {
                     if ((cbo.SelectedIndex == editint) && (editint == 2))
                     {
-                        work[position - (4 + mtc.Count + mtct_pc.Count)] = txtĐàotạo_content.Text;
+                        work[position - (4 + mtc.Count + mtct_pc.Count)] = txtĐàotạo_content.Text.Trim();
                     }
                     else
                     {
                         if ((cbo.SelectedIndex == editint) && (editint == 3))
                         {
-                            work[position - (5 + mtc.Count + mtct_pc.Count + mtct_kt.Count)] = txtĐàotạo_content.Text;
+                            work[position - (5 + mtc.Count + mtct_pc.Count + mtct_kt.Count)] = txtĐàotạo_content.Text.Trim();
                         }
                         else
                         {
                             if ((cbo.SelectedIndex == editint) && (editint == 4))
                             {
-                                work[position - (6 + mtc.Count + mtct_pc.Count + mtct_kt.Count + mtct_kn.Count)] = txtĐàotạo_content.Text;
+                                work[position - (6 + mtc.Count + mtct_pc.Count + mtct_kt.Count + mtct_kn.Count)] = txtĐàotạo_content.Text.Trim();
                             }
                             
                         }
@@ -491,7 +491,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             if (cbo.SelectedIndex != editint)
             {
                 DeleteItem(itemcontent, itemposition);
-                sum_arr[cbo.SelectedIndex].Add(txtĐàotạo_content.Text);
+                sum_arr[cbo.SelectedIndex].Add(txtĐàotạo_content.Text.Trim());
 
             }
 
@@ -499,6 +499,8 @@ namespace Prototype_SEP_Team3.Educational_Program
 
         }
 
+        //MỤC TIÊU ĐÀO TẠO
+        //Nút sửa
         private void btnMụctiêu_sửa_Click(object sender, EventArgs e)
         {
             DialogResult a = MessageBox.Show("Bạn có muốn sửa đối tượng này không?", "Thông báo", MessageBoxButtons.OKCancel);
