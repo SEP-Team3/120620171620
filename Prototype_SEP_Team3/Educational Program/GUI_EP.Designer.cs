@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnQuanlimonhoc_add = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.dgwQuảnlí = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label43 = new System.Windows.Forms.Label();
@@ -155,6 +153,7 @@
             // panel5
             // 
             this.panel5.AutoScroll = true;
+            this.panel5.Controls.Add(this.btnQuanlimonhoc_add);
             this.panel5.Controls.Add(this.label75);
             this.panel5.Controls.Add(this.dgwQuảnlí);
             this.panel5.Controls.Add(this.label9);
@@ -163,6 +162,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1343, 575);
             this.panel5.TabIndex = 2;
+            // 
+            // btnQuanlimonhoc_add
+            // 
+            this.btnQuanlimonhoc_add.Location = new System.Drawing.Point(19, 72);
+            this.btnQuanlimonhoc_add.Name = "btnQuanlimonhoc_add";
+            this.btnQuanlimonhoc_add.Size = new System.Drawing.Size(159, 29);
+            this.btnQuanlimonhoc_add.TabIndex = 52;
+            this.btnQuanlimonhoc_add.Text = "Tạo mới môn học";
+            this.btnQuanlimonhoc_add.UseVisualStyleBackColor = true;
+            this.btnQuanlimonhoc_add.Click += new System.EventHandler(this.btnQuanlimonhoc_add_Click);
             // 
             // label75
             // 
@@ -176,36 +185,11 @@
             // dgwQuảnlí
             // 
             this.dgwQuảnlí.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwQuảnlí.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.dgwQuảnlí.Location = new System.Drawing.Point(62, 114);
             this.dgwQuảnlí.Name = "dgwQuảnlí";
             this.dgwQuảnlí.Size = new System.Drawing.Size(1257, 418);
             this.dgwQuảnlí.TabIndex = 50;
             this.dgwQuảnlí.DoubleClick += new System.EventHandler(this.dgwQuảnlí_DoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã môn học";
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 200;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.HeaderText = "Tên môn học";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 514;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giảng viên phụ trách";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 500;
             // 
             // label9
             // 
@@ -1203,9 +1187,7 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.DataGridView dgwQuảnlí;
         private System.Windows.Forms.WebBrowser wbKhốilượngkt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnQuanlimonhoc_add;
     }
 }

@@ -54,3 +54,7 @@ D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Tea
 D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Login.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Properties.Resources.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csproj.GenerateResource.Cache
+D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\bin\Debug\EntityFramework.dll
+D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\bin\Debug\EntityFramework.SqlServer.dll
+D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\bin\Debug\EntityFramework.xml
+D:\Data\Dữ liệu cũ\CMU\SEP\SEP Github\Educational-Program\Prototype_SEP_Team3\bin\Debug\EntityFramework.SqlServer.xml

@@ -17,11 +17,13 @@ namespace Prototype_SEP_Team3.Educational_Program
         private List<string> mtct_pc = new List<string>();
         private List<string> mtct_kt = new List<string>();
         private List<string> mtct_kn = new List<string>();
-        private List<string> mtct_td = new List<string>();
+        private List<string> mtct_td = new List<string>();     
 
         string itemcontent = "";
         int itemposition = 0;
-        public GUI_EP()
+
+        int idctdt;
+        public GUI_EP(int id)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -35,6 +37,12 @@ namespace Prototype_SEP_Team3.Educational_Program
 
             btnMụctiêu_hủy.Visible = false;
             btnMụctiêu_sửa.Visible = false;
+            idctdt = id;
+
+            DBEntities db = new DBEntities();
+            ChuongTrinhDaoTao load = db.ChuongTrinhDaoTaos.Single(x => x.Id == idctdt);
+            txtTên.Text = load.TenCTDT.ToString();
+            loadCourseview();
         }
 
         //SET UP MỤC LỤC
@@ -539,26 +547,60 @@ namespace Prototype_SEP_Team3.Educational_Program
 
         }
 
+        
+       
+
         //QUẢN LÍ MÔN HỌC
         //Mở giao diện quản lí môn học
+        //Lấy course từ giao diện quán lí môn học
+        private void btnQuanlimonhoc_add_Click(object sender, EventArgs e)
+        {
+            // Mở giao diện
+            
+                GUI_Course a = new GUI_Course("", 1, 4);
+                a.ShowDialog();
+                loadCourseview();
+            
+        }
+
+        //QUẢN LÍ MÔN HỌC
+        //Load lại bảng môn học
+
+        private void loadCourseview()
+        {
+            DBEntities db = new DBEntities();
+            List<SP_MONHOC_VIEW_Result> arr = db.SP_MONHOC_VIEW(1).ToList();
+            dgwQuảnlí.DataSource = arr;
+
+            dgwQuảnlí.Columns[0].HeaderText = "Mã môn học";
+            dgwQuảnlí.Columns[1].HeaderText = "Mã Chương trình đào tạo";
+            dgwQuảnlí.Columns[2].HeaderText = "Tên môn học";
+            dgwQuảnlí.Columns[3].HeaderText = "Tên tiếng Anh";
+            dgwQuảnlí.Columns[4].HeaderText = "Loại kiến thức";
+            dgwQuảnlí.Columns[5].HeaderText = "Số tín chỉ";
+            dgwQuảnlí.Columns[6].HeaderText = "Học kỳ giảng dạy";
+            dgwQuảnlí.Columns[7].HeaderText = "Giảng viên phụ trách";
+            dgwQuảnlí.Columns[8].HeaderText = "Nội dung vắn tắt";
+            dgwQuảnlí.Columns[9].HeaderText = "Số giờ lý thuyết";
+            dgwQuảnlí.Columns[10].HeaderText = "Số giờ thực hành";
+        }
+
+        //QUẢN LÍ MÔN HỌC
+        //Mở gian diện quản lí môn học khi edit
         private void dgwQuảnlí_DoubleClick(object sender, EventArgs e)
         {
             if (dgwQuảnlí.SelectedRows.Count == 1)
             {
-                var row = dgwQuảnlí.SelectedRows[0];
-                var cell = row.Cells["Column1"];
-                string id = "";
-                if (cell.Value != null)
-                {
-                    id = cell.Value.ToString();
-                }
-                GUI_Course a = new GUI_Course(id);
+                var rs = dgwQuảnlí.SelectedRows[0];
+                var cell = rs.Cells["Id"];
+                string id = (string)cell.Value;
+                GUI_Course a = new GUI_Course(id, 1, 4);
                 a.ShowDialog();
+                loadCourseview();
             }
         }
+       
 
-        //
-
-
+        
     }
 }
