@@ -10,16 +10,12 @@
 namespace Prototype_SEP_Team3
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class MonTienQuyet
+    public partial class SP_MONTIENQUYET_GET_Result
     {
-        public int Id { get; set; }
-        public string Monhoc_Id { get; set; }
-        public string Montienquyet_Id { get; set; }
-        public bool Status { get; set; }
-    
-        public virtual MonHoc MonHoc { get; set; }
-        public virtual MonHoc MonHoc1 { get; set; }
+        public string Id { get; set; }
+        public string TenMonHoc { get; set; }
+        public string TenTiengAnh { get; set; }
+        public string Ten { get; set; }
     }
 }

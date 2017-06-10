@@ -23,6 +23,7 @@ namespace Prototype_SEP_Team3.Educational_Program
         int itemposition = 0;
 
         int idctdt;
+
         public GUI_EP(int id)
         {
             InitializeComponent();
@@ -556,10 +557,17 @@ namespace Prototype_SEP_Team3.Educational_Program
         private void btnQuanlimonhoc_add_Click(object sender, EventArgs e)
         {
             // Mở giao diện
-            
-                GUI_Course a = new GUI_Course("", 1, 4);
+            if (nThờigian_năm.Value != 0)
+            {
+                GUI_Course a = new GUI_Course("", idctdt, (int)(nThờigian_năm.Value*2));
                 a.ShowDialog();
                 loadCourseview();
+            }
+            else
+            {
+                MessageBox.Show("Thời gian đào tạo chưa được cập nhật");
+            }
+                
             
         }
 
@@ -569,7 +577,7 @@ namespace Prototype_SEP_Team3.Educational_Program
         private void loadCourseview()
         {
             DBEntities db = new DBEntities();
-            List<SP_MONHOC_VIEW_Result> arr = db.SP_MONHOC_VIEW(1).ToList();
+            List<SP_MONHOC_VIEW_Result> arr = db.SP_MONHOC_VIEW(idctdt).ToList();
             dgwQuảnlí.DataSource = arr;
 
             dgwQuảnlí.Columns[0].HeaderText = "Mã môn học";
@@ -583,6 +591,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             dgwQuảnlí.Columns[8].HeaderText = "Nội dung vắn tắt";
             dgwQuảnlí.Columns[9].HeaderText = "Số giờ lý thuyết";
             dgwQuảnlí.Columns[10].HeaderText = "Số giờ thực hành";
+
+            dgwQuảnlí.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         //QUẢN LÍ MÔN HỌC
@@ -594,9 +604,17 @@ namespace Prototype_SEP_Team3.Educational_Program
                 var rs = dgwQuảnlí.SelectedRows[0];
                 var cell = rs.Cells["Id"];
                 string id = (string)cell.Value;
-                GUI_Course a = new GUI_Course(id, 1, 4);
-                a.ShowDialog();
-                loadCourseview();
+                if (nThờigian_năm.Value!=0)
+                {
+                    GUI_Course a = new GUI_Course(id, idctdt, (int)(nThờigian_năm.Value * 2));
+                    a.ShowDialog();
+                    loadCourseview();
+                }
+                else
+                {
+                    MessageBox.Show("Thời gian đào tạo chưa được cập nhật");
+                }
+                
             }
         }
        

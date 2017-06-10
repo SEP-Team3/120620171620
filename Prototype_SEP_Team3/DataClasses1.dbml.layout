@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="2961372e-3467-4512-bd05-cb943486074d" absoluteBounds="3.5, 1, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DataClasses1DataContext/MonHocLINQ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="357d0c40-f590-4d9b-94d2-3f7619603a4a" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03baf8ce-f081-4ca1-8c2b-80368dd97d83" absoluteBounds="6.25, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClasses1DataContext/MonTienQuyetLINQ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ceeeb0c2-7bd9-4663-bb5e-b4931455e904" absoluteBounds="6.265, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52191a06-7fea-48e7-9587-800a9ee3a123" absoluteBounds="0.75, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClasses1DataContext/TaiKhoanLINQ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d7809ba-e472-44bd-9e0a-2ee946d41e20" absoluteBounds="0.765, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.41429768880208); (6.25 : 2.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/MonHocLINQ/MonHoc_MonTienQuyet" />
+      <nodes>
+        <classShapeMoniker Id="2961372e-3467-4512-bd05-cb943486074d" />
+        <classShapeMoniker Id="03baf8ce-f081-4ca1-8c2b-80368dd97d83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.95714884440104); (6.25 : 1.95714884440104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/MonHocLINQ/MonHoc_MonTienQuyet1" />
+      <nodes>
+        <classShapeMoniker Id="2961372e-3467-4512-bd05-cb943486074d" />
+        <classShapeMoniker Id="03baf8ce-f081-4ca1-8c2b-80368dd97d83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.41429768880208); (3.5 : 2.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/TaiKhoanLINQ/TaiKhoan_MonHoc" />
+      <nodes>
+        <classShapeMoniker Id="52191a06-7fea-48e7-9587-800a9ee3a123" />
+        <classShapeMoniker Id="2961372e-3467-4512-bd05-cb943486074d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

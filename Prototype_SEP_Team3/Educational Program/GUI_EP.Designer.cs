@@ -839,6 +839,12 @@
             // 
             // nThờigian_năm
             // 
+            this.nThờigian_năm.DecimalPlaces = 1;
+            this.nThờigian_năm.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.nThờigian_năm.Location = new System.Drawing.Point(293, 62);
             this.nThờigian_năm.Name = "nThờigian_năm";
             this.nThờigian_năm.Size = new System.Drawing.Size(135, 26);
