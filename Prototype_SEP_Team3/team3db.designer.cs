@@ -23,7 +23,7 @@ namespace Prototype_SEP_Team3
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="team3")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	public partial class team3dbDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -41,31 +41,31 @@ namespace Prototype_SEP_Team3
     partial void DeleteTaiKhoanLINQ(TaiKhoanLINQ instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
+		public team3dbDataContext() : 
 				base(global::Prototype_SEP_Team3.Properties.Settings.Default.team3ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public team3dbDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public team3dbDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public team3dbDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public team3dbDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -94,13 +94,6 @@ namespace Prototype_SEP_Team3
 				return this.GetTable<TaiKhoanLINQ>();
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_MONTIENQUYET_GET")]
-		public ISingleResult<SP_MONTIENQUYET_GETResult> SP_MONTIENQUYET_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ctdt, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> hk, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ctdt, hk, id);
-			return ((ISingleResult<SP_MONTIENQUYET_GETResult>)(result.ReturnValue));
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonHoc")]
@@ -109,7 +102,7 @@ namespace Prototype_SEP_Team3
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Id;
+		private int _Id;
 		
 		private int _ChuongTrinhDaoTao_Id;
 		
@@ -117,31 +110,33 @@ namespace Prototype_SEP_Team3
 		
 		private string _TenTiengAnh;
 		
-		private System.Nullable<int> _LoaiKienThuc;
+		private int _LoaiKienThuc;
 		
-		private System.Nullable<int> _SoTinChi;
+		private int _SoTinChi;
 		
-		private System.Nullable<int> _HocKy;
+		private int _HocKy;
 		
-		private System.Nullable<int> _GiangVienPhuTrach_Id;
+		private int _GiangVienPhuTrach_Id;
 		
 		private string _NoiDungVanTat;
 		
-		private System.Nullable<int> _SoGioLyThuyet;
+		private int _SoGioLyThuyet;
 		
-		private System.Nullable<int> _SoGioThucHanh;
+		private int _SoGioThucHanh;
+		
+		private string _Monhoc_Id;
 		
 		private EntitySet<MonTienQuyetLINQ> _MonTienQuyets;
 		
-		private EntitySet<MonTienQuyetLINQ> _MonTienQuyets1;
+		private EntitySet<MonTienQuyetLINQ> _MonTienQuyetLINQs;
 		
-		private EntityRef<TaiKhoanLINQ> _TaiKhoan;
+		private EntityRef<TaiKhoanLINQ> _TaiKhoanLINQ;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(string value);
+    partial void OnIdChanging(int value);
     partial void OnIdChanged();
     partial void OnChuongTrinhDaoTao_IdChanging(int value);
     partial void OnChuongTrinhDaoTao_IdChanged();
@@ -149,32 +144,34 @@ namespace Prototype_SEP_Team3
     partial void OnTenMonHocChanged();
     partial void OnTenTiengAnhChanging(string value);
     partial void OnTenTiengAnhChanged();
-    partial void OnLoaiKienThucChanging(System.Nullable<int> value);
+    partial void OnLoaiKienThucChanging(int value);
     partial void OnLoaiKienThucChanged();
-    partial void OnSoTinChiChanging(System.Nullable<int> value);
+    partial void OnSoTinChiChanging(int value);
     partial void OnSoTinChiChanged();
-    partial void OnHocKyChanging(System.Nullable<int> value);
+    partial void OnHocKyChanging(int value);
     partial void OnHocKyChanged();
-    partial void OnGiangVienPhuTrach_IdChanging(System.Nullable<int> value);
+    partial void OnGiangVienPhuTrach_IdChanging(int value);
     partial void OnGiangVienPhuTrach_IdChanged();
     partial void OnNoiDungVanTatChanging(string value);
     partial void OnNoiDungVanTatChanged();
-    partial void OnSoGioLyThuyetChanging(System.Nullable<int> value);
+    partial void OnSoGioLyThuyetChanging(int value);
     partial void OnSoGioLyThuyetChanged();
-    partial void OnSoGioThucHanhChanging(System.Nullable<int> value);
+    partial void OnSoGioThucHanhChanging(int value);
     partial void OnSoGioThucHanhChanged();
+    partial void OnMonhoc_IdChanging(string value);
+    partial void OnMonhoc_IdChanged();
     #endregion
 		
 		public MonHocLINQ()
 		{
 			this._MonTienQuyets = new EntitySet<MonTienQuyetLINQ>(new Action<MonTienQuyetLINQ>(this.attach_MonTienQuyets), new Action<MonTienQuyetLINQ>(this.detach_MonTienQuyets));
-			this._MonTienQuyets1 = new EntitySet<MonTienQuyetLINQ>(new Action<MonTienQuyetLINQ>(this.attach_MonTienQuyets1), new Action<MonTienQuyetLINQ>(this.detach_MonTienQuyets1));
-			this._TaiKhoan = default(EntityRef<TaiKhoanLINQ>);
+			this._MonTienQuyetLINQs = new EntitySet<MonTienQuyetLINQ>(new Action<MonTienQuyetLINQ>(this.attach_MonTienQuyetLINQs), new Action<MonTienQuyetLINQ>(this.detach_MonTienQuyetLINQs));
+			this._TaiKhoanLINQ = default(EntityRef<TaiKhoanLINQ>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
@@ -233,7 +230,7 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTiengAnh", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTiengAnh", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 		public string TenTiengAnh
 		{
 			get
@@ -253,8 +250,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiKienThuc", DbType="Int")]
-		public System.Nullable<int> LoaiKienThuc
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiKienThuc", DbType="Int NOT NULL")]
+		public int LoaiKienThuc
 		{
 			get
 			{
@@ -273,8 +270,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTinChi", DbType="Int")]
-		public System.Nullable<int> SoTinChi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTinChi", DbType="Int NOT NULL")]
+		public int SoTinChi
 		{
 			get
 			{
@@ -293,8 +290,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HocKy", DbType="Int")]
-		public System.Nullable<int> HocKy
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HocKy", DbType="Int NOT NULL")]
+		public int HocKy
 		{
 			get
 			{
@@ -313,8 +310,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiangVienPhuTrach_Id", DbType="Int")]
-		public System.Nullable<int> GiangVienPhuTrach_Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiangVienPhuTrach_Id", DbType="Int NOT NULL")]
+		public int GiangVienPhuTrach_Id
 		{
 			get
 			{
@@ -324,7 +321,7 @@ namespace Prototype_SEP_Team3
 			{
 				if ((this._GiangVienPhuTrach_Id != value))
 				{
-					if (this._TaiKhoan.HasLoadedOrAssignedValue)
+					if (this._TaiKhoanLINQ.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -337,7 +334,7 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiDungVanTat", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiDungVanTat", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
 		public string NoiDungVanTat
 		{
 			get
@@ -357,8 +354,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoGioLyThuyet", DbType="Int")]
-		public System.Nullable<int> SoGioLyThuyet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoGioLyThuyet", DbType="Int NOT NULL")]
+		public int SoGioLyThuyet
 		{
 			get
 			{
@@ -377,8 +374,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoGioThucHanh", DbType="Int")]
-		public System.Nullable<int> SoGioThucHanh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoGioThucHanh", DbType="Int NOT NULL")]
+		public int SoGioThucHanh
 		{
 			get
 			{
@@ -397,6 +394,26 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Monhoc_Id", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Monhoc_Id
+		{
+			get
+			{
+				return this._Monhoc_Id;
+			}
+			set
+			{
+				if ((this._Monhoc_Id != value))
+				{
+					this.OnMonhoc_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Monhoc_Id = value;
+					this.SendPropertyChanged("Monhoc_Id");
+					this.OnMonhoc_IdChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonHoc_MonTienQuyet", Storage="_MonTienQuyets", ThisKey="Id", OtherKey="Monhoc_Id")]
 		public EntitySet<MonTienQuyetLINQ> MonTienQuyets
 		{
@@ -410,39 +427,39 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonHoc_MonTienQuyet1", Storage="_MonTienQuyets1", ThisKey="Id", OtherKey="Montienquyet_Id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonHoc_MonTienQuyet1", Storage="_MonTienQuyetLINQs", ThisKey="Id", OtherKey="Montienquyet_Id")]
 		public EntitySet<MonTienQuyetLINQ> MonTienQuyetLINQs
 		{
 			get
 			{
-				return this._MonTienQuyets1;
+				return this._MonTienQuyetLINQs;
 			}
 			set
 			{
-				this._MonTienQuyets1.Assign(value);
+				this._MonTienQuyetLINQs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaiKhoan_MonHoc", Storage="_TaiKhoan", ThisKey="GiangVienPhuTrach_Id", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaiKhoan_MonHoc", Storage="_TaiKhoanLINQ", ThisKey="GiangVienPhuTrach_Id", OtherKey="Id", IsForeignKey=true)]
 		public TaiKhoanLINQ TaiKhoanLINQ
 		{
 			get
 			{
-				return this._TaiKhoan.Entity;
+				return this._TaiKhoanLINQ.Entity;
 			}
 			set
 			{
-				TaiKhoanLINQ previousValue = this._TaiKhoan.Entity;
+				TaiKhoanLINQ previousValue = this._TaiKhoanLINQ.Entity;
 				if (((previousValue != value) 
-							|| (this._TaiKhoan.HasLoadedOrAssignedValue == false)))
+							|| (this._TaiKhoanLINQ.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TaiKhoan.Entity = null;
+						this._TaiKhoanLINQ.Entity = null;
 						previousValue.MonHocLINQs.Remove(this);
 					}
-					this._TaiKhoan.Entity = value;
+					this._TaiKhoanLINQ.Entity = value;
 					if ((value != null))
 					{
 						value.MonHocLINQs.Add(this);
@@ -450,7 +467,7 @@ namespace Prototype_SEP_Team3
 					}
 					else
 					{
-						this._GiangVienPhuTrach_Id = default(Nullable<int>);
+						this._GiangVienPhuTrach_Id = default(int);
 					}
 					this.SendPropertyChanged("TaiKhoanLINQ");
 				}
@@ -489,13 +506,13 @@ namespace Prototype_SEP_Team3
 			entity.MonHoc = null;
 		}
 		
-		private void attach_MonTienQuyets1(MonTienQuyetLINQ entity)
+		private void attach_MonTienQuyetLINQs(MonTienQuyetLINQ entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonHocLINQ = this;
 		}
 		
-		private void detach_MonTienQuyets1(MonTienQuyetLINQ entity)
+		private void detach_MonTienQuyetLINQs(MonTienQuyetLINQ entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonHocLINQ = null;
@@ -510,15 +527,15 @@ namespace Prototype_SEP_Team3
 		
 		private int _Id;
 		
-		private string _Monhoc_Id;
+		private int _Monhoc_Id;
 		
-		private string _Montienquyet_Id;
+		private int _Montienquyet_Id;
 		
 		private bool _Status;
 		
 		private EntityRef<MonHocLINQ> _MonHoc;
 		
-		private EntityRef<MonHocLINQ> _MonHoc1;
+		private EntityRef<MonHocLINQ> _MonHocLINQ;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -526,9 +543,9 @@ namespace Prototype_SEP_Team3
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnMonhoc_IdChanging(string value);
+    partial void OnMonhoc_IdChanging(int value);
     partial void OnMonhoc_IdChanged();
-    partial void OnMontienquyet_IdChanging(string value);
+    partial void OnMontienquyet_IdChanging(int value);
     partial void OnMontienquyet_IdChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
@@ -537,7 +554,7 @@ namespace Prototype_SEP_Team3
 		public MonTienQuyetLINQ()
 		{
 			this._MonHoc = default(EntityRef<MonHocLINQ>);
-			this._MonHoc1 = default(EntityRef<MonHocLINQ>);
+			this._MonHocLINQ = default(EntityRef<MonHocLINQ>);
 			OnCreated();
 		}
 		
@@ -561,8 +578,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Monhoc_Id", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Monhoc_Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Monhoc_Id", DbType="Int NOT NULL")]
+		public int Monhoc_Id
 		{
 			get
 			{
@@ -585,8 +602,8 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Montienquyet_Id", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Montienquyet_Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Montienquyet_Id", DbType="Int NOT NULL")]
+		public int Montienquyet_Id
 		{
 			get
 			{
@@ -596,7 +613,7 @@ namespace Prototype_SEP_Team3
 			{
 				if ((this._Montienquyet_Id != value))
 				{
-					if (this._MonHoc1.HasLoadedOrAssignedValue)
+					if (this._MonHocLINQ.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -656,33 +673,33 @@ namespace Prototype_SEP_Team3
 					}
 					else
 					{
-						this._Monhoc_Id = default(string);
+						this._Monhoc_Id = default(int);
 					}
 					this.SendPropertyChanged("MonHoc");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonHoc_MonTienQuyet1", Storage="_MonHoc1", ThisKey="Montienquyet_Id", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonHoc_MonTienQuyet1", Storage="_MonHocLINQ", ThisKey="Montienquyet_Id", OtherKey="Id", IsForeignKey=true)]
 		public MonHocLINQ MonHocLINQ
 		{
 			get
 			{
-				return this._MonHoc1.Entity;
+				return this._MonHocLINQ.Entity;
 			}
 			set
 			{
-				MonHocLINQ previousValue = this._MonHoc1.Entity;
+				MonHocLINQ previousValue = this._MonHocLINQ.Entity;
 				if (((previousValue != value) 
-							|| (this._MonHoc1.HasLoadedOrAssignedValue == false)))
+							|| (this._MonHocLINQ.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._MonHoc1.Entity = null;
+						this._MonHocLINQ.Entity = null;
 						previousValue.MonTienQuyetLINQs.Remove(this);
 					}
-					this._MonHoc1.Entity = value;
+					this._MonHocLINQ.Entity = value;
 					if ((value != null))
 					{
 						value.MonTienQuyetLINQs.Add(this);
@@ -690,7 +707,7 @@ namespace Prototype_SEP_Team3
 					}
 					else
 					{
-						this._Montienquyet_Id = default(string);
+						this._Montienquyet_Id = default(int);
 					}
 					this.SendPropertyChanged("MonHocLINQ");
 				}
@@ -732,7 +749,7 @@ namespace Prototype_SEP_Team3
 		
 		private string _MatKhau;
 		
-		private EntitySet<MonHocLINQ> _MonHocs;
+		private EntitySet<MonHocLINQ> _MonHocLINQs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -750,7 +767,7 @@ namespace Prototype_SEP_Team3
 		
 		public TaiKhoanLINQ()
 		{
-			this._MonHocs = new EntitySet<MonHocLINQ>(new Action<MonHocLINQ>(this.attach_MonHocs), new Action<MonHocLINQ>(this.detach_MonHocs));
+			this._MonHocLINQs = new EntitySet<MonHocLINQ>(new Action<MonHocLINQ>(this.attach_MonHocLINQs), new Action<MonHocLINQ>(this.detach_MonHocLINQs));
 			OnCreated();
 		}
 		
@@ -834,16 +851,16 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaiKhoan_MonHoc", Storage="_MonHocs", ThisKey="Id", OtherKey="GiangVienPhuTrach_Id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaiKhoan_MonHoc", Storage="_MonHocLINQs", ThisKey="Id", OtherKey="GiangVienPhuTrach_Id")]
 		public EntitySet<MonHocLINQ> MonHocLINQs
 		{
 			get
 			{
-				return this._MonHocs;
+				return this._MonHocLINQs;
 			}
 			set
 			{
-				this._MonHocs.Assign(value);
+				this._MonHocLINQs.Assign(value);
 			}
 		}
 		
@@ -867,96 +884,16 @@ namespace Prototype_SEP_Team3
 			}
 		}
 		
-		private void attach_MonHocs(MonHocLINQ entity)
+		private void attach_MonHocLINQs(MonHocLINQ entity)
 		{
 			this.SendPropertyChanging();
 			entity.TaiKhoanLINQ = this;
 		}
 		
-		private void detach_MonHocs(MonHocLINQ entity)
+		private void detach_MonHocLINQs(MonHocLINQ entity)
 		{
 			this.SendPropertyChanging();
 			entity.TaiKhoanLINQ = null;
-		}
-	}
-	
-	public partial class SP_MONTIENQUYET_GETResult
-	{
-		
-		private string _Id;
-		
-		private string _TenMonHoc;
-		
-		private string _TenTiengAnh;
-		
-		private string _Ten;
-		
-		public SP_MONTIENQUYET_GETResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenMonHoc", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string TenMonHoc
-		{
-			get
-			{
-				return this._TenMonHoc;
-			}
-			set
-			{
-				if ((this._TenMonHoc != value))
-				{
-					this._TenMonHoc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTiengAnh", DbType="VarChar(100)")]
-		public string TenTiengAnh
-		{
-			get
-			{
-				return this._TenTiengAnh;
-			}
-			set
-			{
-				if ((this._TenTiengAnh != value))
-				{
-					this._TenTiengAnh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Ten
-		{
-			get
-			{
-				return this._Ten;
-			}
-			set
-			{
-				if ((this._Ten != value))
-				{
-					this._Ten = value;
-				}
-			}
 		}
 	}
 }

@@ -15,8 +15,8 @@ namespace Prototype_SEP_Team3
     public partial class MonTienQuyet
     {
         public int Id { get; set; }
-        public string Monhoc_Id { get; set; }
-        public string Montienquyet_Id { get; set; }
+        public int Monhoc_Id { get; set; }
+        public int Montienquyet_Id { get; set; }
         public bool Status { get; set; }
     
         public virtual MonHoc MonHoc { get; set; }

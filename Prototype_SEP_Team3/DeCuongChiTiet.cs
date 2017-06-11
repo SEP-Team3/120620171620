@@ -27,7 +27,7 @@ namespace Prototype_SEP_Team3
         public int Id { get; set; }
         public string TenDCCT { get; set; }
         public string TenTiengAnh { get; set; }
-        public string MonHoc_Id { get; set; }
+        public int MonHoc_Id { get; set; }
         public string TrinhDo { get; set; }
         public string PhanBoThoiGian { get; set; }
         public int MonTienQuyet_Id { get; set; }

@@ -559,7 +559,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             // Mở giao diện
             if (nThờigian_năm.Value != 0)
             {
-                GUI_Course a = new GUI_Course("", idctdt, (int)(nThờigian_năm.Value*2));
+                GUI_Course a = new GUI_Course(0, idctdt, (int)(nThờigian_năm.Value*2));
                 a.ShowDialog();
                 loadCourseview();
             }
@@ -580,17 +580,19 @@ namespace Prototype_SEP_Team3.Educational_Program
             List<SP_MONHOC_VIEW_Result> arr = db.SP_MONHOC_VIEW(idctdt).ToList();
             dgwQuảnlí.DataSource = arr;
 
-            dgwQuảnlí.Columns[0].HeaderText = "Mã môn học";
-            dgwQuảnlí.Columns[1].HeaderText = "Mã Chương trình đào tạo";
-            dgwQuảnlí.Columns[2].HeaderText = "Tên môn học";
-            dgwQuảnlí.Columns[3].HeaderText = "Tên tiếng Anh";
-            dgwQuảnlí.Columns[4].HeaderText = "Loại kiến thức";
-            dgwQuảnlí.Columns[5].HeaderText = "Số tín chỉ";
-            dgwQuảnlí.Columns[6].HeaderText = "Học kỳ giảng dạy";
-            dgwQuảnlí.Columns[7].HeaderText = "Giảng viên phụ trách";
-            dgwQuảnlí.Columns[8].HeaderText = "Nội dung vắn tắt";
-            dgwQuảnlí.Columns[9].HeaderText = "Số giờ lý thuyết";
-            dgwQuảnlí.Columns[10].HeaderText = "Số giờ thực hành";
+            dgwQuảnlí.Columns[0].Visible = false;
+
+            dgwQuảnlí.Columns[1].HeaderText = "Mã môn học";
+            dgwQuảnlí.Columns[2].HeaderText = "Mã Chương trình đào tạo";
+            dgwQuảnlí.Columns[3].HeaderText = "Tên môn học";
+            dgwQuảnlí.Columns[4].HeaderText = "Tên tiếng Anh";
+            dgwQuảnlí.Columns[5].HeaderText = "Loại kiến thức";
+            dgwQuảnlí.Columns[6].HeaderText = "Số tín chỉ";
+            dgwQuảnlí.Columns[7].HeaderText = "Học kỳ giảng dạy";
+            dgwQuảnlí.Columns[8].HeaderText = "Giảng viên phụ trách";
+            dgwQuảnlí.Columns[9].HeaderText = "Nội dung vắn tắt";
+            dgwQuảnlí.Columns[10].HeaderText = "Số giờ lý thuyết";
+            dgwQuảnlí.Columns[11].HeaderText = "Số giờ thực hành";
 
             dgwQuảnlí.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -603,7 +605,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             {
                 var rs = dgwQuảnlí.SelectedRows[0];
                 var cell = rs.Cells["Id"];
-                string id = (string)cell.Value;
+                int id = (int)cell.Value;
                 if (nThờigian_năm.Value!=0)
                 {
                     GUI_Course a = new GUI_Course(id, idctdt, (int)(nThờigian_năm.Value * 2));
@@ -616,6 +618,13 @@ namespace Prototype_SEP_Team3.Educational_Program
                 }
                 
             }
+        }
+
+        //NHIỀU MỤC
+        //Xử lí khi người dùng thay đổi thời gian đào tạo của chương trình
+        private void nThờigian_năm_ValueChanged(object sender, EventArgs e)
+        {
+
         }
        
 

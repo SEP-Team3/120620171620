@@ -30,7 +30,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenDCCT" Type="nvarchar" MaxLength="100" />
           <Property Name="TenTiengAnh" Type="varchar" MaxLength="100" />
-          <Property Name="MonHoc_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MonHoc_Id" Type="int" Nullable="false" />
           <Property Name="TrinhDo" Type="nvarchar" MaxLength="200" />
           <Property Name="PhanBoThoiGian" Type="nvarchar" MaxLength="200" />
           <Property Name="MonTienQuyet_Id" Type="int" Nullable="false" />
@@ -86,25 +86,26 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ChuongTrinhDaoTao_Id" Type="int" Nullable="false" />
           <Property Name="TenMonHoc" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="TenTiengAnh" Type="varchar" MaxLength="100" />
-          <Property Name="LoaiKienThuc" Type="int" />
-          <Property Name="SoTinChi" Type="int" />
-          <Property Name="HocKy" Type="int" />
-          <Property Name="GiangVienPhuTrach_Id" Type="int" />
-          <Property Name="NoiDungVanTat" Type="nvarchar" MaxLength="500" />
-          <Property Name="SoGioLyThuyet" Type="int" />
-          <Property Name="SoGioThucHanh" Type="int" />
+          <Property Name="TenTiengAnh" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LoaiKienThuc" Type="int" Nullable="false" />
+          <Property Name="SoTinChi" Type="int" Nullable="false" />
+          <Property Name="HocKy" Type="int" Nullable="false" />
+          <Property Name="GiangVienPhuTrach_Id" Type="int" Nullable="false" />
+          <Property Name="NoiDungVanTat" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SoGioLyThuyet" Type="int" Nullable="false" />
+          <Property Name="SoGioThucHanh" Type="int" Nullable="false" />
+          <Property Name="Monhoc_Id" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MonTienQuyet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Monhoc_Id" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Montienquyet_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Monhoc_Id" Type="int" Nullable="false" />
+          <Property Name="Montienquyet_Id" Type="int" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MucTieuDaoTao">
@@ -195,9 +196,9 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Property Name="TrinhDo" Type="nvarchar" MaxLength="50" />
           <Property Name="Nganh" Type="nvarchar" MaxLength="100" />
           <Property Name="LoaiHinh" Type="nvarchar" MaxLength="100" />
-          <Property Name="ThoiGianDaoTao" Type="date" />
-          <Property Name="ThangDiem" Type="float" />
-          <Property Name="KhoiLuongKienThucToanKhoa" Type="nvarchar" MaxLength="200" />
+          <Property Name="ThoiGianDaoTao" Type="float" />
+          <Property Name="ThangDiem" Type="int" />
+          <Property Name="KhoiLuongKienThucToanKhoa" Type="nvarchar" MaxLength="100" />
           <Property Name="DoiTuongTuyenSinh" Type="nvarchar" MaxLength="100" />
           <Property Name="QuyTrinhDaoTao" Type="nvarchar" MaxLength="200" />
           <Property Name="CoSoVatChat" Type="nvarchar" MaxLength="200" />
@@ -335,7 +336,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MonHoc_TaiKhoan">
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
           <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaiKhoan">
@@ -459,11 +460,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
-        <Function Name="SP_GG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ctdt" Type="varchar" Mode="In" />
-          <Parameter Name="hk" Type="int" Mode="In" />
-          <Parameter Name="id" Type="varchar" Mode="In" />
-        </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -475,10 +471,13 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
         <Function Name="SP_MONHOC_VIEW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ctdt" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_MONTIENQUYET_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idmonhoc" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_MONTIENQUYET_GET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ctdt" Type="int" Mode="In" />
           <Parameter Name="hk" Type="int" Mode="In" />
-          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -630,7 +629,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenDCCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TenTiengAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MonHoc_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MonHoc_Id" Type="Int32" Nullable="false" />
           <Property Name="TrinhDo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="PhanBoThoiGian" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MonTienQuyet_Id" Type="Int32" Nullable="false" />
@@ -700,17 +699,18 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ChuongTrinhDaoTao_Id" Type="Int32" Nullable="false" />
           <Property Name="TenMonHoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenTiengAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="LoaiKienThuc" Type="Int32" />
-          <Property Name="SoTinChi" Type="Int32" />
-          <Property Name="HocKy" Type="Int32" />
-          <Property Name="GiangVienPhuTrach_Id" Type="Int32" />
-          <Property Name="NoiDungVanTat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SoGioLyThuyet" Type="Int32" />
-          <Property Name="SoGioThucHanh" Type="Int32" />
+          <Property Name="TenTiengAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoaiKienThuc" Type="Int32" Nullable="false" />
+          <Property Name="SoTinChi" Type="Int32" Nullable="false" />
+          <Property Name="HocKy" Type="Int32" Nullable="false" />
+          <Property Name="GiangVienPhuTrach_Id" Type="Int32" Nullable="false" />
+          <Property Name="NoiDungVanTat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoGioLyThuyet" Type="Int32" Nullable="false" />
+          <Property Name="SoGioThucHanh" Type="Int32" Nullable="false" />
+          <Property Name="Monhoc_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ChuongTrinhDaoTao" Relationship="Self.FK_MonHoc_ChuongTrinhDaoTao" FromRole="MonHoc" ToRole="ChuongTrinhDaoTao" />
           <NavigationProperty Name="DeCuongChiTiets" Relationship="Self.FK_DeCuongChiTiet_MonHoc" FromRole="MonHoc" ToRole="DeCuongChiTiet" />
           <NavigationProperty Name="DeCuongChiTiets1" Relationship="Self.FK_DeCuongChiTiet_MonHoc1" FromRole="MonHoc" ToRole="DeCuongChiTiet" />
@@ -723,8 +723,8 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Monhoc_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Montienquyet_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Monhoc_Id" Type="Int32" Nullable="false" />
+          <Property Name="Montienquyet_Id" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="MonHoc" Relationship="Self.FK_MonTienQuyet_MonHoc" FromRole="MonTienQuyet" ToRole="MonHoc" />
           <NavigationProperty Name="MonHoc1" Relationship="Self.FK_MonTienQuyet_MonHoc1" FromRole="MonTienQuyet" ToRole="MonHoc" />
@@ -813,9 +813,9 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Property Name="TrinhDo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nganh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LoaiHinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ThoiGianDaoTao" Type="DateTime" Precision="0" />
-          <Property Name="ThangDiem" Type="Double" />
-          <Property Name="KhoiLuongKienThucToanKhoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGianDaoTao" Type="Double" />
+          <Property Name="ThangDiem" Type="Int32" />
+          <Property Name="KhoiLuongKienThucToanKhoa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DoiTuongTuyenSinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="QuyTrinhDaoTao" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CoSoVatChat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -1026,7 +1026,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MonHoc_TaiKhoan">
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
           <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaiKhoan">
@@ -1187,11 +1187,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_GG" ReturnType="Collection(team3Model.SP_GG_Result)">
-            <Parameter Name="ctdt" Mode="In" Type="String" />
-            <Parameter Name="hk" Mode="In" Type="Int32" />
-            <Parameter Name="id" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(team3Model.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -1203,10 +1198,13 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <FunctionImport Name="SP_MONHOC_VIEW" ReturnType="Collection(team3Model.SP_MONHOC_VIEW_Result)">
             <Parameter Name="ctdt" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SP_MONTIENQUYET_DEL">
+            <Parameter Name="idmonhoc" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="SP_MONTIENQUYET_GET" ReturnType="Collection(team3Model.SP_MONTIENQUYET_GET_Result)">
             <Parameter Name="ctdt" Mode="In" Type="Int32" />
             <Parameter Name="hk" Mode="In" Type="Int32" />
-            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1215,12 +1213,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="SP_GG_Result">
-          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="TenTiengAnh" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
-        </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -1233,22 +1225,24 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_MONHOC_VIEW_Result">
-          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Monhoc_Id" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="ChuongTrinhDaoTao_Id" Nullable="false" />
           <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="TenTiengAnh" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="LoaiKienThuc" Nullable="true" />
-          <Property Type="Int32" Name="SoTinChi" Nullable="true" />
-          <Property Type="Int32" Name="HocKy" Nullable="true" />
+          <Property Type="String" Name="TenTiengAnh" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LoaiKienThuc" Nullable="false" />
+          <Property Type="Int32" Name="SoTinChi" Nullable="false" />
+          <Property Type="Int32" Name="HocKy" Nullable="false" />
           <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="NoiDungVanTat" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="SoGioLyThuyet" Nullable="true" />
-          <Property Type="Int32" Name="SoGioThucHanh" Nullable="true" />
+          <Property Type="String" Name="NoiDungVanTat" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="SoGioLyThuyet" Nullable="false" />
+          <Property Type="Int32" Name="SoGioThucHanh" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_MONTIENQUYET_GET_Result">
-          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Monhoc_Id" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="TenTiengAnh" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenTiengAnh" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
         </ComplexType>
       </Schema>
@@ -1355,6 +1349,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
                 <ScalarProperty Name="NoiDungVanTat" ColumnName="NoiDungVanTat" />
                 <ScalarProperty Name="SoGioLyThuyet" ColumnName="SoGioLyThuyet" />
                 <ScalarProperty Name="SoGioThucHanh" ColumnName="SoGioThucHanh" />
+                <ScalarProperty Name="Monhoc_Id" ColumnName="Monhoc_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1470,16 +1465,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="team3Model.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="team3Model.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="team3Model.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="SP_GG" FunctionName="team3Model.Store.SP_GG">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="team3Model.SP_GG_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
-                <ScalarProperty Name="TenTiengAnh" ColumnName="TenTiengAnh" />
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="team3Model.Store.sp_helpdiagramdefinition">
             <ResultMapping>
               <ComplexTypeMapping TypeName="team3Model.sp_helpdiagramdefinition_Result">
@@ -1503,6 +1488,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
             <ResultMapping>
               <ComplexTypeMapping TypeName="team3Model.SP_MONHOC_VIEW_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Monhoc_Id" ColumnName="Monhoc_Id" />
                 <ScalarProperty Name="ChuongTrinhDaoTao_Id" ColumnName="ChuongTrinhDaoTao_Id" />
                 <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
                 <ScalarProperty Name="TenTiengAnh" ColumnName="TenTiengAnh" />
@@ -1516,10 +1502,12 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_MONTIENQUYET_DEL" FunctionName="team3Model.Store.SP_MONTIENQUYET_DEL" />
           <FunctionImportMapping FunctionImportName="SP_MONTIENQUYET_GET" FunctionName="team3Model.Store.SP_MONTIENQUYET_GET">
             <ResultMapping>
               <ComplexTypeMapping TypeName="team3Model.SP_MONTIENQUYET_GET_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Monhoc_Id" ColumnName="Monhoc_Id" />
                 <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
                 <ScalarProperty Name="TenTiengAnh" ColumnName="TenTiengAnh" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />

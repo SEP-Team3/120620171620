@@ -21,8 +21,8 @@ namespace Prototype_SEP_Team3
         public string TrinhDo { get; set; }
         public string Nganh { get; set; }
         public string LoaiHinh { get; set; }
-        public Nullable<System.DateTime> ThoiGianDaoTao { get; set; }
-        public Nullable<double> ThangDiem { get; set; }
+        public Nullable<double> ThoiGianDaoTao { get; set; }
+        public Nullable<int> ThangDiem { get; set; }
         public string KhoiLuongKienThucToanKhoa { get; set; }
         public string DoiTuongTuyenSinh { get; set; }
         public string QuyTrinhDaoTao { get; set; }

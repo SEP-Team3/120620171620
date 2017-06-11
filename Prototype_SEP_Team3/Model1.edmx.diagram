@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="415f63d4f09543ebb6aa2b1d68bc80c0" Name="Diagram1">
-        <EntityTypeShape EntityType="team3Model.ChuanDauRaMonHoc" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+      <Diagram DiagramId="8a608104ed8e436caf6474298b09ae1c" Name="Diagram1">
+        <EntityTypeShape EntityType="team3Model.ChuanDauRaMonHoc" Width="1.5" PointX="9.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.ChuongTrinhDaoTao" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.DeCuongChiTiet" Width="1.5" PointX="7.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.KeHoachGDHTCuThe" Width="1.5" PointX="9.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.DeCuongChiTiet" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.KeHoachGDHTCuThe" Width="1.5" PointX="9.75" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.KeHoanKiemTra" Width="1.5" PointX="9.75" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MaTran_CDRMH_CDRCTDT" Width="1.5" PointX="12" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MaTran_CDRMH_CDRCTDT" Width="1.5" PointX="12" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.MaTran_ChuanDauRaMH_HDGDPPDG" Width="1.5" PointX="12" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MonHoc" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MonHoc" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.MonTienQuyet" Width="1.5" PointX="7.5" PointY="33.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MucTieuDaoTao" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MucTieuDaoTao" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.MucTieuMonHoc" Width="1.5" PointX="9.75" PointY="18.375" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.PhanQuyenTaiKhoan" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.PPDanhGiaKQHT" Width="1.5" PointX="9.75" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.TaiKhoan" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.ThongTinChung_CTDT" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.ThongTinChung_CTDT" Width="1.5" PointX="5.25" PointY="23.125" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.TaiLieuMonHoc" Width="1.5" PointX="9.75" PointY="24.375" IsExpanded="true" />
         <AssociationConnector Association="team3Model.FK_ChuanDauRaMonHoc_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_MaTran_CDRMH_CDRCTDT_ChuanDauRaMonHoc" ManuallyRouted="false" />

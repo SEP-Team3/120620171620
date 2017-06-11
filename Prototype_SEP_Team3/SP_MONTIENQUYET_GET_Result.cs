@@ -13,7 +13,8 @@ namespace Prototype_SEP_Team3
     
     public partial class SP_MONTIENQUYET_GET_Result
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string Monhoc_Id { get; set; }
         public string TenMonHoc { get; set; }
         public string TenTiengAnh { get; set; }
         public string Ten { get; set; }

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="team3" Class="team3dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-BR562NE\SQLEXPRESS;Initial Catalog=team3;Integrated Security=True" SettingsObjectName="Prototype_SEP_Team3.Properties.Settings" SettingsPropertyName="team3ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MonHoc" Member="MonHocLINQs">
+    <Type Name="MonHocLINQ">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChuongTrinhDaoTao_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenMonHoc" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenTiengAnh" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LoaiKienThuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoTinChi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HocKy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GiangVienPhuTrach_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoiDungVanTat" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SoGioLyThuyet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoGioThucHanh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Monhoc_Id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MonHoc_MonTienQuyet" Member="MonTienQuyets" ThisKey="Id" OtherKey="Monhoc_Id" Type="MonTienQuyetLINQ" />
+      <Association Name="MonHoc_MonTienQuyet1" Member="MonTienQuyetLINQs" ThisKey="Id" OtherKey="Montienquyet_Id" Type="MonTienQuyetLINQ" />
+      <Association Name="TaiKhoan_MonHoc" Member="TaiKhoanLINQ" ThisKey="GiangVienPhuTrach_Id" OtherKey="Id" Type="TaiKhoanLINQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MonTienQuyet" Member="MonTienQuyetLINQs">
+    <Type Name="MonTienQuyetLINQ">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Monhoc_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Montienquyet_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="MonHoc_MonTienQuyet" Member="MonHoc" ThisKey="Monhoc_Id" OtherKey="Id" Type="MonHocLINQ" IsForeignKey="true" />
+      <Association Name="MonHoc_MonTienQuyet1" Member="MonHocLINQ" ThisKey="Montienquyet_Id" OtherKey="Id" Type="MonHocLINQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoanLINQs">
+    <Type Name="TaiKhoanLINQ">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TaiKhoan_MonHoc" Member="MonHocLINQs" ThisKey="Id" OtherKey="GiangVienPhuTrach_Id" Type="MonHocLINQ" />
+    </Type>
+  </Table>
+</Database>

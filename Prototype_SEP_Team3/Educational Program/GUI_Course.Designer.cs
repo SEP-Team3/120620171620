@@ -211,6 +211,7 @@
             this.cboQuảnlí_họckỳ.Name = "cboQuảnlí_họckỳ";
             this.cboQuảnlí_họckỳ.Size = new System.Drawing.Size(107, 28);
             this.cboQuảnlí_họckỳ.TabIndex = 77;
+            this.cboQuảnlí_họckỳ.SelectedIndexChanged += new System.EventHandler(this.cboQuảnlí_họckỳ_SelectedIndexChanged);
             // 
             // label25
             // 

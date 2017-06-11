@@ -100,23 +100,6 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<SP_GG_Result> SP_GG(string ctdt, Nullable<int> hk, string id)
-        {
-            var ctdtParameter = ctdt != null ?
-                new ObjectParameter("ctdt", ctdt) :
-                new ObjectParameter("ctdt", typeof(string));
-    
-            var hkParameter = hk.HasValue ?
-                new ObjectParameter("hk", hk) :
-                new ObjectParameter("hk", typeof(int));
-    
-            var idParameter = id != null ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GG_Result>("SP_GG", ctdtParameter, hkParameter, idParameter);
-        }
-    
         public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
@@ -152,7 +135,16 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MONHOC_VIEW_Result>("SP_MONHOC_VIEW", ctdtParameter);
         }
     
-        public virtual ObjectResult<SP_MONTIENQUYET_GET_Result> SP_MONTIENQUYET_GET(Nullable<int> ctdt, Nullable<int> hk, string id)
+        public virtual int SP_MONTIENQUYET_DEL(Nullable<int> idmonhoc)
+        {
+            var idmonhocParameter = idmonhoc.HasValue ?
+                new ObjectParameter("idmonhoc", idmonhoc) :
+                new ObjectParameter("idmonhoc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MONTIENQUYET_DEL", idmonhocParameter);
+        }
+    
+        public virtual ObjectResult<SP_MONTIENQUYET_GET_Result> SP_MONTIENQUYET_GET(Nullable<int> ctdt, Nullable<int> hk, Nullable<int> id)
         {
             var ctdtParameter = ctdt.HasValue ?
                 new ObjectParameter("ctdt", ctdt) :
@@ -162,9 +154,9 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("hk", hk) :
                 new ObjectParameter("hk", typeof(int));
     
-            var idParameter = id != null ?
+            var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(string));
+                new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MONTIENQUYET_GET_Result>("SP_MONTIENQUYET_GET", ctdtParameter, hkParameter, idParameter);
         }

@@ -22,17 +22,18 @@ namespace Prototype_SEP_Team3
             this.MonTienQuyets1 = new HashSet<MonTienQuyet>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public int ChuongTrinhDaoTao_Id { get; set; }
         public string TenMonHoc { get; set; }
         public string TenTiengAnh { get; set; }
-        public Nullable<int> LoaiKienThuc { get; set; }
-        public Nullable<int> SoTinChi { get; set; }
-        public Nullable<int> HocKy { get; set; }
-        public Nullable<int> GiangVienPhuTrach_Id { get; set; }
+        public int LoaiKienThuc { get; set; }
+        public int SoTinChi { get; set; }
+        public int HocKy { get; set; }
+        public int GiangVienPhuTrach_Id { get; set; }
         public string NoiDungVanTat { get; set; }
-        public Nullable<int> SoGioLyThuyet { get; set; }
-        public Nullable<int> SoGioThucHanh { get; set; }
+        public int SoGioLyThuyet { get; set; }
+        public int SoGioThucHanh { get; set; }
+        public string Monhoc_Id { get; set; }
     
         public virtual ChuongTrinhDaoTao ChuongTrinhDaoTao { get; set; }
         public virtual ICollection<DeCuongChiTiet> DeCuongChiTiets { get; set; }
