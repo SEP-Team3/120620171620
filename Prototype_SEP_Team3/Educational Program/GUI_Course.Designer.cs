@@ -237,6 +237,11 @@
             // 
             this.nQuảnlí_sốgiờthựchành.Location = new System.Drawing.Point(901, 379);
             this.nQuảnlí_sốgiờthựchành.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nQuảnlí_sốgiờthựchành.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.nQuảnlí_sốgiờthựchành.Name = "nQuảnlí_sốgiờthựchành";
             this.nQuảnlí_sốgiờthựchành.Size = new System.Drawing.Size(84, 26);
             this.nQuảnlí_sốgiờthựchành.TabIndex = 74;
@@ -255,6 +260,11 @@
             // 
             this.nQuảnlí_sốgiờlýthuyết.Location = new System.Drawing.Point(532, 381);
             this.nQuảnlí_sốgiờlýthuyết.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nQuảnlí_sốgiờlýthuyết.Maximum = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            0});
             this.nQuảnlí_sốgiờlýthuyết.Name = "nQuảnlí_sốgiờlýthuyết";
             this.nQuảnlí_sốgiờlýthuyết.Size = new System.Drawing.Size(126, 26);
             this.nQuảnlí_sốgiờlýthuyết.TabIndex = 72;

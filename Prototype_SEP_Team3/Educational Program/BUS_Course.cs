@@ -18,44 +18,44 @@ namespace Prototype_SEP_Team3.Educational_Program
 
 
         //Lấy môn tiên quyết của course
-        public object getCourse_MTQ(int ctdt, int id)
-        {
-            team3dbDataContext editlinq = new team3dbDataContext();
-            object rs = from tq in editlinq.MonTienQuyetLINQs
-                        where tq.Monhoc_Id == id
-                        select new
-                        {
-                            ID = tq.Id,
-                            Montqid = tq.Montienquyet_Id,
-                            Status = tq.Status
-                        }
-                            into newsl
-                            from m in editlinq.MonHocLINQs
-                            where newsl.Montqid == m.Id
-                            select new
-                            {
-                                ID = m.Id,
-                                Mamh = m.Monhoc_Id,
-                                Ten = m.TenMonHoc,
-                                TenES = m.TenTiengAnh,
-                                Giangvien = m.GiangVienPhuTrach_Id,
-                                Status = newsl.Status
-                            }
-                                into newsl2
-                                from tk in editlinq.TaiKhoanLINQs
-                                where newsl2.Giangvien == tk.Id
-                                select new
-                                {
-                                    ID = newsl2.ID,
-                                    Mamh = newsl2.Mamh,
-                                    Ten = newsl2.Ten,
-                                    TenES = newsl2.TenES,
-                                    Giangvien = tk.Ten,
-                                    Status = newsl2.Status
-                                };
+        //public object getCourse_MTQ(int ctdt, int id)
+        //{
+        //    team3dbDataContext editlinq = new team3dbDataContext();
+        //    object rs = from tq in editlinq.MonTienQuyetLINQs
+        //                where tq.Monhoc_Id == id
+        //                select new
+        //                {
+        //                    ID = tq.Id,
+        //                    Montqid = tq.Montienquyet_Id,
+        //                    Status = tq.Status
+        //                }
+        //                    into newsl
+        //                    from m in editlinq.MonHocLINQs
+        //                    where newsl.Montqid == m.Id
+        //                    select new
+        //                    {
+        //                        ID = m.Id,
+        //                        Mamh = m.Monhoc_Id,
+        //                        Ten = m.TenMonHoc,
+        //                        TenES = m.TenTiengAnh,
+        //                        Giangvien = m.GiangVienPhuTrach_Id,
+        //                        Status = newsl.Status
+        //                    }
+        //                        into newsl2
+        //                        from tk in editlinq.TaiKhoanLINQs
+        //                        where newsl2.Giangvien == tk.Id
+        //                        select new
+        //                        {
+        //                            ID = newsl2.ID,
+        //                            Mamh = newsl2.Mamh,
+        //                            Ten = newsl2.Ten,
+        //                            TenES = newsl2.TenES,
+        //                            Giangvien = tk.Ten,
+        //                            Status = newsl2.Status
+        //                        };
 
-            return rs;
-        }
+        //    return rs;
+        //}
 
         //Check lỗi input trước khi thêm Môn học
         public string checkCourse(TextBox txtQuảnlí_tên, TextBox txtQuảnlí_tênES, TextBox txtQuảnlí_mã,
@@ -114,7 +114,8 @@ namespace Prototype_SEP_Team3.Educational_Program
         }
 
         //Check học kì môn học
-        public bool checkCourseHK(int id,int nhk){
+        public bool checkCourseHK(int id, int nhk)
+        {
             DBEntities db = new DBEntities();
             if (nhk == db.MonHocs.Single(x => x.Id == id).HocKy)
             {
@@ -179,17 +180,17 @@ namespace Prototype_SEP_Team3.Educational_Program
                 List<SP_MONTIENQUYET_GET_Result> find = db.SP_MONTIENQUYET_GET(idctdt, hk, id).ToList();
                 //thêm mới môn tiên quyết
                 for (int i = 0; i < dtgwQuảnlí_môntiênquyết.RowCount; i++)
-                {                   
+                {
                     if (dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value != null)
                     {
                         if ((bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value == true)
-                        {                            
-                                MonTienQuyet mtq = new MonTienQuyet();
-                                mtq.Monhoc_Id = id;
-                                mtq.Montienquyet_Id = find[i].Id;
-                                mtq.Status = true;
-                                db.MonTienQuyets.Add(mtq);
-                                db.SaveChanges();
+                        {
+                            MonTienQuyet mtq = new MonTienQuyet();
+                            mtq.Monhoc_Id = id;
+                            mtq.Montienquyet_Id = find[i].Id;
+                            mtq.Status = true;
+                            db.MonTienQuyets.Add(mtq);
+                            db.SaveChanges();
                         }
 
                     }
@@ -270,6 +271,8 @@ namespace Prototype_SEP_Team3.Educational_Program
 
                 MonHoc edit = db.MonHocs.Single(x => x.Id == id);
 
+                int oldhk = edit.HocKy;
+
                 edit.ChuongTrinhDaoTao_Id = idctdt;
                 edit.TenMonHoc = ten;
                 edit.TenTiengAnh = tenes;
@@ -281,77 +284,154 @@ namespace Prototype_SEP_Team3.Educational_Program
                 edit.HocKy = hk;
                 edit.GiangVienPhuTrach_Id = giaovienid;
                 edit.NoiDungVanTat = ndvt;
-                
+
 
 
                 //edit môn tiên quyết
-                if (checkCourseHK(id,hk) == true)
+                if (checkCourseHK(id, hk) == true)
                 {
-                    for (int i = 0; i < dtgwQuảnlí_môntiênquyết.RowCount; i++)
-                    {
-                        if (dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value != null)
-                        {
-                            if ((bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value == true)
-                            {
-                                int idmtq = int.Parse(dtgwQuảnlí_môntiênquyết.Rows[i].Cells[0].Value.ToString());
-                                MonTienQuyet mtq = db.MonTienQuyets.Single(x => x.Montienquyet_Id == idmtq&& x.Monhoc_Id==id);
-                                mtq.Status = true;
-                                db.SaveChanges();
-                            }
-                            else
-                            {
-                                int idmtq = int.Parse(dtgwQuảnlí_môntiênquyết.Rows[i].Cells[0].Value.ToString());
-                                MonTienQuyet mtq = db.MonTienQuyets.Single(x => x.Montienquyet_Id == idmtq && x.Monhoc_Id==id);
-                                mtq.Status = false;
-                                db.SaveChanges();
-                            }
-                        }
-
-                    }
+                    editMTQ_Id(id, dtgwQuảnlí_môntiênquyết, db);
+                    db.SaveChanges();
                 }
                 else
                 {
-                    db.SP_MONTIENQUYET_DEL(id);
+                    //db.SP_MONTIENQUYET_DEL(id);
 
-                    List<SP_MONTIENQUYET_GET_Result> find = db.SP_MONTIENQUYET_GET(idctdt, hk, id).ToList();
-                    //thêm mới môn tiên quyết
-                    for (int i = 0; i < dtgwQuảnlí_môntiênquyết.RowCount; i++)
+                    //List<SP_MONTIENQUYET_GET_Result> find = db.SP_MONTIENQUYET_GET(idctdt, hk, id).ToList();
+                    ////thêm mới môn tiên quyết
+                    //for (int i = 0; i < dtgwQuảnlí_môntiênquyết.RowCount; i++)
+                    //{
+                    //    if (dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value != null)
+                    //    {
+                    //        if ((bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value == true)
+                    //        {
+                    //            MonTienQuyet mtq = new MonTienQuyet();
+                    //            mtq.Monhoc_Id = id;
+                    //            mtq.Montienquyet_Id = find[i].Id;
+                    //            mtq.Status = true;
+                    //            db.MonTienQuyets.Add(mtq);
+                    //            db.SaveChanges();
+                    //        }
+
+                    //    }
+                    //    else
+                    //    {
+                    //        MonTienQuyet mtq = new MonTienQuyet();
+                    //        mtq.Monhoc_Id = id;
+                    //        mtq.Montienquyet_Id = find[i].Id;
+                    //        mtq.Status = false;
+                    //        db.MonTienQuyets.Add(mtq);
+                    //        db.SaveChanges();
+                    //    }
+                    //}
+
+                    //Lưu các thành phần ở trên
+                    db.SaveChanges();
+                    //Xóa, thêm vào bảng Montienquyet theo hoc kì môn học
+                    //List<MonHoc> dellowerlst = db.MonHocs.Where(x => x.HocKy < oldhk).ToList();
+                    //for (int i = 0; i < dellowerlst.Count; i++)
+                    //{
+                    //    if (dellowerlst[i].Id != id)
+                    //    {
+                    //        int itmtq = dellowerlst[i].Id;
+                    //        MonTienQuyet a = db.MonTienQuyets.Single(x=>x.Monhoc_Id==id && x.Montienquyet_Id==itmtq);                
+                    //        db.MonTienQuyets.Remove(a);
+                    //        db.SaveChanges();
+
+
+                    //    }
+                    //}
+                    //List<MonHoc> delhigherlst = db.MonHocs.Where(x => x.HocKy > oldhk).ToList();
+                    //for (int i = 0; i < delhigherlst.Count; i++)
+                    //{
+                    //    if (delhigherlst[i].Id != id)
+                    //    {
+                    //        int idmtq = delhigherlst[i].Id;
+                    //        MonTienQuyet a = db.MonTienQuyets.Single(x => x.Monhoc_Id == idmtq && x.Montienquyet_Id == id);
+                    //        db.MonTienQuyets.Remove(a);
+                    //        db.SaveChanges();
+
+
+                    //    }
+                    //}
+
+                    List<MonTienQuyet> delllst = db.MonTienQuyets.Where(x => x.Monhoc_Id == id || x.Montienquyet_Id==id).ToList();
+                    foreach (MonTienQuyet a in delllst)
                     {
-                        if (dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value != null)
-                        {
-                            if ((bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Check"].Value == true)
-                            {
-                                MonTienQuyet mtq = new MonTienQuyet();
-                                mtq.Monhoc_Id = id;
-                                mtq.Montienquyet_Id = find[i].Id;
-                                mtq.Status = true;
-                                db.MonTienQuyets.Add(mtq);
-                                db.SaveChanges();
-                            }
-
-                        }
-                        else
-                        {
-                            MonTienQuyet mtq = new MonTienQuyet();
-                            mtq.Monhoc_Id = id;
-                            mtq.Montienquyet_Id = find[i].Id;
-                            mtq.Status = false;
-                            db.MonTienQuyets.Add(mtq);
-                            db.SaveChanges();
-                        }
+                        db.MonTienQuyets.Remove(a);
+                        db.SaveChanges();
+                    }
+                    
+                    List<MonHoc> editlowerlst = db.MonHocs.Where(x => x.HocKy < hk).ToList();
+                    for (int i = 0; i < editlowerlst.Count; i++)
+                    {
+                        MonTienQuyet a = new MonTienQuyet();
+                        a.Monhoc_Id = id;
+                        a.Montienquyet_Id = editlowerlst[i].Id;
+                        a.Status = false;
+                        db.MonTienQuyets.Add(a);
+                        db.SaveChanges();
                     }
 
+                    List<MonHoc> edithigherlst = db.MonHocs.Where(x => x.HocKy > hk).ToList();
+                    for (int i = 0; i < edithigherlst.Count; i++)
+                    {
+                        MonTienQuyet a = new MonTienQuyet();
+                        a.Monhoc_Id = edithigherlst[i].Id;
+                        a.Montienquyet_Id = id;
+                        a.Status = false;
+                        db.MonTienQuyets.Add(a);
+                        db.SaveChanges();
+                    }
+                    
+
+                    //Set true, false cho trong bảng Montienquyet theo id
+                    editMTQ_Id(id, dtgwQuảnlí_môntiênquyết, db);
                 }
 
-                db.SaveChanges();
+
                 return checkrs;
             }
             else
             {
-                checkrs.Replace("\nMã môn học đã tồn tại", "").Replace("\nMã môn học không được để trống","");
+                checkrs.Replace("\nMã môn học đã tồn tại", "").Replace("\nMã môn học không được để trống", "");
                 return checkrs;
             }
 
+        }
+
+        private static void editMTQ_Id(int id, DataGridView dtgwQuảnlí_môntiênquyết, DBEntities db)
+        {
+            try
+            {
+                MonTienQuyet del = db.MonTienQuyets.Single(x => x.Monhoc_Id == id && x.Montienquyet_Id == id);
+                db.MonTienQuyets.Remove(del);
+            }
+            catch
+            {
+
+            }
+            for (int i = 0; i < dtgwQuảnlí_môntiênquyết.RowCount; i++)
+            {
+                if (dtgwQuảnlí_môntiênquyết.Rows[i].Cells[5].Value != null)
+                {
+                    if ((bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells[5].Value == true)
+                    {
+                        int idmtq = int.Parse(dtgwQuảnlí_môntiênquyết.Rows[i].Cells[0].Value.ToString());
+                        MonTienQuyet mtq = db.MonTienQuyets.Single(x => x.Montienquyet_Id == idmtq && x.Monhoc_Id == id);
+                        mtq.Status = true;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        int idmtq = int.Parse(dtgwQuảnlí_môntiênquyết.Rows[i].Cells[0].Value.ToString());
+                        MonTienQuyet mtq = db.MonTienQuyets.Single(x => x.Montienquyet_Id == idmtq && x.Monhoc_Id == id);
+                        mtq.Status = false;
+                        db.SaveChanges();
+                    }
+                }
+
+            }
         }
 
 

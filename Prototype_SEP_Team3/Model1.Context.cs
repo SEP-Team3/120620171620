@@ -161,6 +161,15 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MONTIENQUYET_GET_Result>("SP_MONTIENQUYET_GET", ctdtParameter, hkParameter, idParameter);
         }
     
+        public virtual int SP_MUCTIEUDAOTAO_DEL(Nullable<int> ctdt)
+        {
+            var ctdtParameter = ctdt.HasValue ?
+                new ObjectParameter("ctdt", ctdt) :
+                new ObjectParameter("ctdt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MUCTIEUDAOTAO_DEL", ctdtParameter);
+        }
+    
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
         {
             var diagramnameParameter = diagramname != null ?
@@ -176,6 +185,24 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("new_diagramname", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual ObjectResult<SP_TEXT_Result> SP_TEXT(Nullable<int> idmonhoc)
+        {
+            var idmonhocParameter = idmonhoc.HasValue ?
+                new ObjectParameter("idmonhoc", idmonhoc) :
+                new ObjectParameter("idmonhoc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_TEXT_Result>("SP_TEXT", idmonhocParameter);
+        }
+    
+        public virtual int SP_THOIGIANDAOTAO_HANDLE(Nullable<int> ctdt)
+        {
+            var ctdtParameter = ctdt.HasValue ?
+                new ObjectParameter("ctdt", ctdt) :
+                new ObjectParameter("ctdt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_THOIGIANDAOTAO_HANDLE", ctdtParameter);
         }
     
         public virtual int sp_upgraddiagrams()

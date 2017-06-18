@@ -162,34 +162,49 @@ namespace Prototype_SEP_Team3.Educational_Program
                 //Khi hk mới là hk cũ
                 if (buscourse.checkCourseHK(idcourse, cboQuảnlí_họckỳ.SelectedIndex + 1) == true)
                 {
-                    //Xóa các cột có sẵn trong bảng
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Id"]);
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"]);
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"]);
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"]);
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Ten"]);
-                    dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Check"]);
-
-                    //Load lại môn tiên quyết
-                    loadMTQtoDGV_Id_Id(idcourse);
-                }
-                //Khi học kì mới khác học kì cũ
-                else
-                {
-                    DialogResult rsms = MessageBox.Show("Việc thay đổi học kì giảng dạy sẽ hủy bỏ hết các môn tiên quyết đã chọn của môn học này. Bạn có chắc chắn muốn thay đổi không?", "Cảnh báo", MessageBoxButtons.OKCancel);
-                    if (rsms == DialogResult.OK)
+                    //Xóa các cột có sẵn trong bảng cho đẹp
+                    try
                     {
-                        //Xóa các cột có sẵn trong bảng
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Id"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Ten"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Check"]);
-
-                        //Load lại dnah sách môn học theo học kì
-                        loadMTQtoDGV(idcourse);
                     }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Status"]);
+                    }
+                    catch
+                    {
+
+                    }
+                    //Load lại môn tiên quyết
+                    loadMTQtoDGV_Id_Id(idcourse);
+                }
+                //Khi học kì mới khác học kì cũ
+                else
+                {
+
+                    //Xóa các cột có sẵn trong bảng
+                    try
+                    {
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Id"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Ten"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Check"]);
+                    }
+                    catch
+                    {
+                    }
+                    //Load lại dnah sách môn học theo học kì
+                    loadMTQtoDGV(idcourse);
                 }
 
             }
@@ -202,52 +217,60 @@ namespace Prototype_SEP_Team3.Educational_Program
         //Hàm load danh sách môn tiên quyết của môn học theo id
         private void loadMTQtoDGV_Id_Id(int id)
         {
-            dtgwQuảnlí_môntiênquyết.DataSource = buscourse.getCourse_MTQ(idctdt, id);
+            //dtgwQuảnlí_môntiênquyết.DataSource = buscourse.getCourse_MTQ(idctdt, id);
 
-            List<Montienquyet_dtgv> alst = new List<Montienquyet_dtgv>();
-            for (int i = 0; i < dtgwQuảnlí_môntiênquyết.Rows.Count; i++)
-            {
-                int aid = (int)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["ID"].Value;
-                string amanh = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Mamh"].Value;
-                string at = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Ten"].Value;
-                string ates = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["TenES"].Value;
-                string agv = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Giangvien"].Value;
-                bool ac = (bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Status"].Value;
-                alst.Add(new Montienquyet_dtgv(aid, amanh, at, ates, agv, ac));
-            }
-            dtgwQuảnlí_môntiênquyết.DataSource = null;
-            DataGridViewTextBoxColumn a1 = new DataGridViewTextBoxColumn();
-            a1.Name = "Id";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a1);
-            DataGridViewTextBoxColumn a2 = new DataGridViewTextBoxColumn();
-            a2.Name = "Monhoc_Id";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a2);
-            DataGridViewTextBoxColumn a3 = new DataGridViewTextBoxColumn();
-            a3.Name = "Tenmonhoc";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a3);
-            DataGridViewTextBoxColumn a4 = new DataGridViewTextBoxColumn();
-            a4.Name = "TenTiengAnh";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a4);
-            DataGridViewTextBoxColumn a5 = new DataGridViewTextBoxColumn();
-            a5.Name = "Ten";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a5);
-            DataGridViewCheckBoxColumn a6 = new DataGridViewCheckBoxColumn();
-            a6.Name = "Check";
-            dtgwQuảnlí_môntiênquyết.Columns.Add(a6);
-            foreach (Montienquyet_dtgv i in alst)
-            {
+            //List<Montienquyet_dtgv> alst = new List<Montienquyet_dtgv>();
+            //for (int i = 0; i < dtgwQuảnlí_môntiênquyết.Rows.Count; i++)
+            //{
+            //    int aid = (int)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["ID"].Value;
+            //    string amanh = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Mamh"].Value;
+            //    string at = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Ten"].Value;
+            //    string ates = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["TenES"].Value;
+            //    string agv = (string)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Giangvien"].Value;
+            //    bool ac = (bool)dtgwQuảnlí_môntiênquyết.Rows[i].Cells["Status"].Value;
+            //    alst.Add(new Montienquyet_dtgv(aid, amanh, at, ates, agv, ac));
+            //}
+            //dtgwQuảnlí_môntiênquyết.DataSource = null;
+            //DataGridViewTextBoxColumn a1 = new DataGridViewTextBoxColumn();
+            //a1.Name = "Id";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a1);
+            //DataGridViewTextBoxColumn a2 = new DataGridViewTextBoxColumn();
+            //a2.Name = "Monhoc_Id";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a2);
+            //DataGridViewTextBoxColumn a3 = new DataGridViewTextBoxColumn();
+            //a3.Name = "Tenmonhoc";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a3);
+            //DataGridViewTextBoxColumn a4 = new DataGridViewTextBoxColumn();
+            //a4.Name = "TenTiengAnh";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a4);
+            //DataGridViewTextBoxColumn a5 = new DataGridViewTextBoxColumn();
+            //a5.Name = "Ten";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a5);
+            //DataGridViewCheckBoxColumn a6 = new DataGridViewCheckBoxColumn();
+            //a6.Name = "Check";
+            //dtgwQuảnlí_môntiênquyết.Columns.Add(a6);
+            //foreach (Montienquyet_dtgv i in alst)
+            //{
 
-                dtgwQuảnlí_môntiênquyết.Rows.Add(i.id.ToString(), i.mamh, i.name, i.namees, i.teacher, i.check);
-            }
+            //    dtgwQuảnlí_môntiênquyết.Rows.Add(i.id.ToString(), i.mamh, i.name, i.namees, i.teacher, i.check);
+            //}
+            //dtgwQuảnlí_môntiênquyết.Columns[0].Visible = false;
+            //dtgwQuảnlí_môntiênquyết.Columns[1].HeaderText = "Mã môn học";
+            //dtgwQuảnlí_môntiênquyết.Columns[1].ReadOnly = true;
+            //dtgwQuảnlí_môntiênquyết.Columns[2].HeaderText = "Tên môn học";
+            //dtgwQuảnlí_môntiênquyết.Columns[2].ReadOnly = true;
+            //dtgwQuảnlí_môntiênquyết.Columns[3].HeaderText = "Tên tiếng Anh";
+            //dtgwQuảnlí_môntiênquyết.Columns[3].ReadOnly = true;
+            //dtgwQuảnlí_môntiênquyết.Columns[4].HeaderText = "Giảng viên phụ trách";
+            //dtgwQuảnlí_môntiênquyết.Columns[4].ReadOnly = true;
+            //dtgwQuảnlí_môntiênquyết.Columns[5].HeaderText = "Môn tiên quyết";
+            DBEntities db = new DBEntities();
+            dtgwQuảnlí_môntiênquyết.DataSource = db.SP_TEXT(id).ToList();
             dtgwQuảnlí_môntiênquyết.Columns[0].Visible = false;
             dtgwQuảnlí_môntiênquyết.Columns[1].HeaderText = "Mã môn học";
-            dtgwQuảnlí_môntiênquyết.Columns[1].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns[2].HeaderText = "Tên môn học";
-            dtgwQuảnlí_môntiênquyết.Columns[2].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns[3].HeaderText = "Tên tiếng Anh";
-            dtgwQuảnlí_môntiênquyết.Columns[3].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns[4].HeaderText = "Giảng viên phụ trách";
-            dtgwQuảnlí_môntiênquyết.Columns[4].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns[5].HeaderText = "Môn tiên quyết";
         }
 
@@ -274,7 +297,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"].ReadOnly = true;
-            dtgwQuảnlí_môntiênquyết.Columns["Ten"].ReadOnly = true;           
+            dtgwQuảnlí_môntiênquyết.Columns["Ten"].ReadOnly = true;
         }
 
 
