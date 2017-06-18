@@ -5,7 +5,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
+    <Property Name="DeCuongChiTiet_Id" Type="int" />
     <Property Name="STT" Type="int" />
     <Property Name="NoiDung" Type="nvarchar(max)" />
   </EntityType>
@@ -25,14 +25,25 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenDCCT" Type="nvarchar" MaxLength="100" />
     <Property Name="TenTiengAnh" Type="varchar" MaxLength="100" />
-    <Property Name="MonHoc_Id" Type="int" Nullable="false" />
+    <Property Name="MonHoc_Id" Type="int" />
     <Property Name="TrinhDo" Type="nvarchar" MaxLength="200" />
     <Property Name="PhanBoThoiGian" Type="nvarchar" MaxLength="200" />
-    <Property Name="MonTienQuyet_Id" Type="int" Nullable="false" />
+    <Property Name="MonTienQuyet_Id" Type="int" />
     <Property Name="YeuCauMonHoc" Type="nvarchar" MaxLength="500" />
-    <Property Name="GiangVienPhuTrach_Id" Type="int" Nullable="false" />
+    <Property Name="GiangVienPhuTrach" Type="nvarchar(max)" />
     <Property Name="KhoiKienThuc" Type="int" />
-    <Property Name="GiangVienGiangDay" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="GiangVienGiangDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeCuongChiTiet_Id" Type="int" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TroGiang_Id" Type="int" />
+    <Property Name="ThoiGian" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="KeHoachGDHTCuThe">
     <Key>
@@ -63,19 +74,20 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="ChuanDauRaMonHoc_Id" Type="int" Nullable="false" />
-    <Property Name="MucTieuDaoTao_Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChuanDauRaMonHoc_Id" Type="int" />
+    <Property Name="MucTieuDaoTao_Id" Type="int" />
+    <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="MaTran_ChuanDauRaMH_HDGDPPDG">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ChuanDauRaMonHoc_Id" Type="int" Nullable="false" />
-    <Property Name="PhuongPhapDanhGia" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="HoatDongDanhGia" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="STT" Type="int" Nullable="false" />
+    <Property Name="ChuanDauRaMonHoc_Id" Type="int" />
+    <Property Name="PhuongPhapDanhGia" Type="nvarchar" MaxLength="200" />
+    <Property Name="HoatDongDanhGia" Type="nvarchar" MaxLength="200" />
+    <Property Name="STT" Type="int" />
   </EntityType>
   <EntityType Name="MonHoc">
     <Key>
@@ -92,15 +104,15 @@
     <Property Name="NoiDungVanTat" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="SoGioLyThuyet" Type="int" Nullable="false" />
     <Property Name="SoGioThucHanh" Type="int" Nullable="false" />
-    <Property Name="Monhoc_Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MonHoc_Id" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="MonTienQuyet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Monhoc_Id" Type="int" Nullable="false" />
-    <Property Name="Montienquyet_Id" Type="int" Nullable="false" />
+    <Property Name="MonHoc_Id" Type="int" Nullable="false" />
+    <Property Name="MonTienQuyet_Id" Type="int" Nullable="false" />
     <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="MucTieuDaoTao">
@@ -118,7 +130,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
+    <Property Name="DeCuongChiTiet_Id" Type="int" />
     <Property Name="Loai" Type="nvarchar" MaxLength="100" />
     <Property Name="NoiDung" Type="nvarchar" MaxLength="500" />
     <Property Name="STT" Type="int" />
@@ -162,19 +174,16 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TaiLieuMonHoc">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="DeCuongChiTiet_Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
     <Property Name="Loai" Type="nvarchar" MaxLength="100" />
     <Property Name="NoiDung" Type="nvarchar" MaxLength="1000" />
@@ -193,13 +202,13 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     <Property Name="LoaiHinh" Type="nvarchar" MaxLength="100" />
     <Property Name="ThoiGianDaoTao" Type="float" />
     <Property Name="ThangDiem" Type="int" />
-    <Property Name="KhoiLuongKienThucToanKhoa" Type="nvarchar" MaxLength="100" />
+    <Property Name="KhoiLuongKienThucToanKhoa" Type="nvarchar" MaxLength="200" />
     <Property Name="DoiTuongTuyenSinh" Type="nvarchar" MaxLength="100" />
     <Property Name="QuyTrinhDaoTao" Type="nvarchar" MaxLength="200" />
     <Property Name="CoSoVatChat" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <Association Name="FK_ChuanDauRaMonHoc_DeCuongChiTiet">
-    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="1" />
+    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="0..1" />
     <End Role="ChuanDauRaMonHoc" Type="Self.ChuanDauRaMonHoc" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DeCuongChiTiet">
@@ -223,7 +232,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DeCuongChiTiet_MonHoc">
-    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
+    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
     <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MonHoc">
@@ -234,27 +243,15 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DeCuongChiTiet_MonHoc1">
-    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
-    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MonHoc">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DeCuongChiTiet">
-        <PropertyRef Name="MonHoc_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DeCuongChiTiet_TaiKhoan">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
-    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="*" />
+  <Association Name="FK_GiangVienGiangDay_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="GiangVienGiangDay" Type="Self.GiangVienGiangDay" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaiKhoan">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="DeCuongChiTiet">
-        <PropertyRef Name="GiangVienPhuTrach_Id" />
+      <Dependent Role="GiangVienGiangDay">
+        <PropertyRef Name="TroGiang_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -283,7 +280,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MaTran_CDRMH_CDRCTDT_ChuanDauRaMonHoc">
-    <End Role="ChuanDauRaMonHoc" Type="Self.ChuanDauRaMonHoc" Multiplicity="1" />
+    <End Role="ChuanDauRaMonHoc" Type="Self.ChuanDauRaMonHoc" Multiplicity="0..1" />
     <End Role="MaTran_CDRMH_CDRCTDT" Type="Self.MaTran_CDRMH_CDRCTDT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ChuanDauRaMonHoc">
@@ -295,7 +292,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MaTran_CDRMH_CDRCTDT_MucTieuDaoTao">
-    <End Role="MucTieuDaoTao" Type="Self.MucTieuDaoTao" Multiplicity="1" />
+    <End Role="MucTieuDaoTao" Type="Self.MucTieuDaoTao" Multiplicity="0..1" />
     <End Role="MaTran_CDRMH_CDRCTDT" Type="Self.MaTran_CDRMH_CDRCTDT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MucTieuDaoTao">
@@ -307,7 +304,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MaTran_ChuanDauRaMH_HDGDPPDG_ChuanDauRaMonHoc">
-    <End Role="ChuanDauRaMonHoc" Type="Self.ChuanDauRaMonHoc" Multiplicity="1" />
+    <End Role="ChuanDauRaMonHoc" Type="Self.ChuanDauRaMonHoc" Multiplicity="0..1" />
     <End Role="MaTran_ChuanDauRaMH_HDGDPPDG" Type="Self.MaTran_ChuanDauRaMH_HDGDPPDG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ChuanDauRaMonHoc">
@@ -315,30 +312,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
       </Principal>
       <Dependent Role="MaTran_ChuanDauRaMH_HDGDPPDG">
         <PropertyRef Name="ChuanDauRaMonHoc_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MonHoc_ChuongTrinhDaoTao">
-    <End Role="ChuongTrinhDaoTao" Type="Self.ChuongTrinhDaoTao" Multiplicity="1" />
-    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChuongTrinhDaoTao">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MonHoc">
-        <PropertyRef Name="ChuongTrinhDaoTao_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MonHoc_TaiKhoan">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
-    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TaiKhoan">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MonHoc">
-        <PropertyRef Name="GiangVienPhuTrach_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -350,7 +323,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="MonTienQuyet">
-        <PropertyRef Name="Monhoc_Id" />
+        <PropertyRef Name="MonHoc_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -362,7 +335,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="MonTienQuyet">
-        <PropertyRef Name="Montienquyet_Id" />
+        <PropertyRef Name="MonTienQuyet_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -379,7 +352,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MucTieuMonHoc_DeCuongChiTiet">
-    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="1" />
+    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="0..1" />
     <End Role="MucTieuMonHoc" Type="Self.MucTieuMonHoc" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DeCuongChiTiet">
@@ -438,7 +411,64 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_DeCuongChiTiet_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="TenDCCT" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenTiengAnh" Type="varchar" Mode="In" />
+    <Parameter Name="TrinhDo" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhanBoThoiGian" Type="nvarchar" Mode="In" />
+    <Parameter Name="YeuCauMonHoc" Type="nvarchar" Mode="In" />
+    <Parameter Name="KhoiKienThuc" Type="int" Mode="In" />
+    <Parameter Name="GiangVienPhuTrach" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="HinhThuc" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar" Mode="In" />
+    <Parameter Name="ThoiDiem" Type="nvarchar" Mode="In" />
+    <Parameter Name="CongCuKT" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_MaTran_CDRMH_CDRCTDT_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChuanDauRaMonHoc_Id" Type="int" Mode="In" />
+    <Parameter Name="MucTieuDaoTao_Id" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChuanDauRaMonHoc_Id" Type="int" Mode="In" />
+    <Parameter Name="PhuongPhapDanhGia" Type="nvarchar" Mode="In" />
+    <Parameter Name="HoatDongDanhGia" Type="nvarchar" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MonHoc_Id_Bang" Type="int" Mode="In" />
+    <Parameter Name="MonHoc_id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="Loai" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_PPDanhGia_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="LoaiNoiDung" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoLanDanhGia" Type="varchar" Mode="In" />
+    <Parameter Name="TrongSo" Type="varchar" Mode="In" />
+    <Parameter Name="HinhThucDanhGia" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="Loai" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+  </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="LoadChuanDauRaCTDTTheoMonHoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -493,6 +523,7 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     <EntitySet Name="ChuanDauRaMonHoc" EntityType="Self.ChuanDauRaMonHoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChuongTrinhDaoTao" EntityType="Self.ChuongTrinhDaoTao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeCuongChiTiet" EntityType="Self.DeCuongChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiangVienGiangDay" EntityType="Self.GiangVienGiangDay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeHoachGDHTCuThe" EntityType="Self.KeHoachGDHTCuThe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeHoanKiemTra" EntityType="Self.KeHoanKiemTra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaTran_CDRMH_CDRCTDT" EntityType="Self.MaTran_CDRMH_CDRCTDT" Schema="dbo" store:Type="Tables" />
@@ -505,16 +536,8 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     <EntitySet Name="PPDanhGiaKQHT" EntityType="Self.PPDanhGiaKQHT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiLieuMonHoc" EntityType="Self.TaiLieuMonHoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongTinChung_CTDT" EntityType="Self.ThongTinChung_CTDT" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TaiLieuMonHoc" EntityType="Self.TaiLieuMonHoc" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TaiLieuMonHoc].[Id] AS [Id], 
-    [TaiLieuMonHoc].[DeCuongChiTiet_Id] AS [DeCuongChiTiet_Id], 
-    [TaiLieuMonHoc].[Loai] AS [Loai], 
-    [TaiLieuMonHoc].[NoiDung] AS [NoiDung], 
-    [TaiLieuMonHoc].[STT] AS [STT]
-    FROM [dbo].[TaiLieuMonHoc] AS [TaiLieuMonHoc]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_ChuanDauRaMonHoc_DeCuongChiTiet" Association="Self.FK_ChuanDauRaMonHoc_DeCuongChiTiet">
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
       <End Role="ChuanDauRaMonHoc" EntitySet="ChuanDauRaMonHoc" />
@@ -527,13 +550,9 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
       <End Role="MonHoc" EntitySet="MonHoc" />
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
     </AssociationSet>
-    <AssociationSet Name="FK_DeCuongChiTiet_MonHoc1" Association="Self.FK_DeCuongChiTiet_MonHoc1">
-      <End Role="MonHoc" EntitySet="MonHoc" />
-      <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DeCuongChiTiet_TaiKhoan" Association="Self.FK_DeCuongChiTiet_TaiKhoan">
+    <AssociationSet Name="FK_GiangVienGiangDay_TaiKhoan" Association="Self.FK_GiangVienGiangDay_TaiKhoan">
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-      <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
+      <End Role="GiangVienGiangDay" EntitySet="GiangVienGiangDay" />
     </AssociationSet>
     <AssociationSet Name="FK_KeHoachGDHTCuThe_DeCuongChiTiet" Association="Self.FK_KeHoachGDHTCuThe_DeCuongChiTiet">
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
@@ -554,14 +573,6 @@ warning 6002: The table/view 'team3.dbo.TaiLieuMonHoc' does not have a primary k
     <AssociationSet Name="FK_MaTran_ChuanDauRaMH_HDGDPPDG_ChuanDauRaMonHoc" Association="Self.FK_MaTran_ChuanDauRaMH_HDGDPPDG_ChuanDauRaMonHoc">
       <End Role="ChuanDauRaMonHoc" EntitySet="ChuanDauRaMonHoc" />
       <End Role="MaTran_ChuanDauRaMH_HDGDPPDG" EntitySet="MaTran_ChuanDauRaMH_HDGDPPDG" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MonHoc_ChuongTrinhDaoTao" Association="Self.FK_MonHoc_ChuongTrinhDaoTao">
-      <End Role="ChuongTrinhDaoTao" EntitySet="ChuongTrinhDaoTao" />
-      <End Role="MonHoc" EntitySet="MonHoc" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MonHoc_TaiKhoan" Association="Self.FK_MonHoc_TaiKhoan">
-      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-      <End Role="MonHoc" EntitySet="MonHoc" />
     </AssociationSet>
     <AssociationSet Name="FK_MonTienQuyet_MonHoc" Association="Self.FK_MonTienQuyet_MonHoc">
       <End Role="MonHoc" EntitySet="MonHoc" />

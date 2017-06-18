@@ -16,7 +16,6 @@ namespace Prototype_SEP_Team3
     {
         public ChuongTrinhDaoTao()
         {
-            this.MonHocs = new HashSet<MonHoc>();
             this.MucTieuDaoTaos = new HashSet<MucTieuDaoTao>();
             this.ThongTinChung_CTDT = new HashSet<ThongTinChung_CTDT>();
         }
@@ -27,7 +26,6 @@ namespace Prototype_SEP_Team3
         public Nullable<int> CopyTuCTDT { get; set; }
     
         public virtual TaiKhoan TaiKhoan { get; set; }
-        public virtual ICollection<MonHoc> MonHocs { get; set; }
         public virtual ICollection<MucTieuDaoTao> MucTieuDaoTaos { get; set; }
         public virtual ICollection<ThongTinChung_CTDT> ThongTinChung_CTDT { get; set; }
     }

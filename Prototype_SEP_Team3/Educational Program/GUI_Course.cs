@@ -46,7 +46,7 @@ namespace Prototype_SEP_Team3.Educational_Program
 
                 txtQuảnlí_tên.Text = editobject.TenMonHoc;
                 txtQuảnlí_tênES.Text = editobject.TenTiengAnh;
-                txtQuảnlí_mã.Text = editobject.Monhoc_Id;
+                txtQuảnlí_mã.Text = editobject.MonHoc_Id;
                 cboQuảnlí_loạikt_1.SelectedIndex = int.Parse(editobject.LoaiKienThuc.ToString().Substring(0, 1)) - 1;
                 cboQuảnlí_loạikt_2.SelectedIndex = int.Parse(editobject.LoaiKienThuc.ToString().Substring(1, 1)) - 1;
                 int lkt3 = int.Parse(editobject.LoaiKienThuc.ToString().Substring(2, 1)) - 1;
@@ -166,7 +166,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                     try
                     {
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Id"]);
-                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["MonHoc_Id"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Ten"]);
@@ -194,7 +194,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                     try
                     {
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Id"]);
-                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"]);
+                        dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["MonHoc_Id"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"]);
                         dtgwQuảnlí_môntiênquyết.Columns.Remove(dtgwQuảnlí_môntiênquyết.Columns["Ten"]);
@@ -235,7 +235,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             //a1.Name = "Id";
             //dtgwQuảnlí_môntiênquyết.Columns.Add(a1);
             //DataGridViewTextBoxColumn a2 = new DataGridViewTextBoxColumn();
-            //a2.Name = "Monhoc_Id";
+            //a2.Name = "MonHoc_Id";
             //dtgwQuảnlí_môntiênquyết.Columns.Add(a2);
             //DataGridViewTextBoxColumn a3 = new DataGridViewTextBoxColumn();
             //a3.Name = "Tenmonhoc";
@@ -282,7 +282,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             List<SP_MONTIENQUYET_GET_Result> arr = db.SP_MONTIENQUYET_GET(idctdt, inputarrhk, id).ToList();
             dtgwQuảnlí_môntiênquyết.DataSource = arr;
             dtgwQuảnlí_môntiênquyết.Columns["Id"].Visible = false;
-            dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"].HeaderText = "Mã môn học";
+            dtgwQuảnlí_môntiênquyết.Columns["MonHoc_Id"].HeaderText = "Mã môn học";
             dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"].HeaderText = "Tên môn học";
             dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"].HeaderText = "Tên tiếng Anh";
             dtgwQuảnlí_môntiênquyết.Columns["Ten"].HeaderText = "Giảng viên phụ trách";
@@ -294,7 +294,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 dtgwQuảnlí_môntiênquyết.Columns.Add(ck);
             }
 
-            dtgwQuảnlí_môntiênquyết.Columns["Monhoc_Id"].ReadOnly = true;
+            dtgwQuảnlí_môntiênquyết.Columns["MonHoc_Id"].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns["Tenmonhoc"].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns["TenTiengAnh"].ReadOnly = true;
             dtgwQuảnlí_môntiênquyết.Columns["Ten"].ReadOnly = true;

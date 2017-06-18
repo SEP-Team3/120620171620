@@ -59,7 +59,7 @@ namespace Prototype_SEP_Team3.Educational_Program
         //LOAD FORM
         private void loadCTDT()
         {
-            load = db.ThongTinChung_CTDT.Single(x => x.Id == idctdt);
+            load = db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == idctdt);
             //Thông tin chung
             txtTên.Text = load.TenChuongTrinh;
             txtTênEL.Text = load.TenTiengAnh;
@@ -102,8 +102,19 @@ namespace Prototype_SEP_Team3.Educational_Program
             ShowMuctieudaotao();
 
             //Nhiều mục
-            nThờigian_năm.Value = (decimal)load.ThoiGianDaoTao.Value;
-            nThangđiểm.Value = (decimal)load.ThangDiem;
+            try
+            {
+                nThờigian_năm.Value = (decimal)load.ThoiGianDaoTao.Value;
+
+                nThangđiểm.Value = (decimal)load.ThangDiem;
+            }
+            catch
+            {
+
+            }
+                
+            
+            
                  
             //quản lí môn học
             loadCourseview();
@@ -270,14 +281,21 @@ namespace Prototype_SEP_Team3.Educational_Program
             }
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
+                try
+                {
+                    object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
+                    object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
+                    object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
+                    object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
+                    object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
+                    object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
+                    object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
+                    object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
+                }
+                catch
+                {
+
+                }
 
                 checkck = 1;
             }
@@ -763,6 +781,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 else
                 {
                     MessageBox.Show("Thời gian đào tạo chưa được cập nhật");
+
                 }
                 
             }
@@ -782,9 +801,14 @@ namespace Prototype_SEP_Team3.Educational_Program
                }
                nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
             }
-            else
+            if(rs=="true")
             {
                 nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+            }
+            if (rs == "null")
+            {
+                MessageBox.Show("Thời gian đào tạo phải khác 0");
+                nThờigian_năm.Value =(decimal) (nThờigian_họckì.Value / 2);
             }
         }
 

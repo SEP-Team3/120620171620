@@ -27,19 +27,16 @@ namespace Prototype_SEP_Team3
         public int Id { get; set; }
         public string TenDCCT { get; set; }
         public string TenTiengAnh { get; set; }
-        public int MonHoc_Id { get; set; }
+        public Nullable<int> MonHoc_Id { get; set; }
         public string TrinhDo { get; set; }
         public string PhanBoThoiGian { get; set; }
-        public int MonTienQuyet_Id { get; set; }
+        public Nullable<int> MonTienQuyet_Id { get; set; }
         public string YeuCauMonHoc { get; set; }
-        public int GiangVienPhuTrach_Id { get; set; }
+        public string GiangVienPhuTrach { get; set; }
         public Nullable<int> KhoiKienThuc { get; set; }
-        public string GiangVienGiangDay { get; set; }
     
         public virtual ICollection<ChuanDauRaMonHoc> ChuanDauRaMonHocs { get; set; }
         public virtual MonHoc MonHoc { get; set; }
-        public virtual MonHoc MonHoc1 { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
         public virtual ICollection<KeHoachGDHTCuThe> KeHoachGDHTCuThes { get; set; }
         public virtual ICollection<KeHoanKiemTra> KeHoanKiemTras { get; set; }
         public virtual ICollection<MucTieuMonHoc> MucTieuMonHocs { get; set; }

@@ -15,10 +15,10 @@ namespace Prototype_SEP_Team3
     public partial class MaTran_ChuanDauRaMH_HDGDPPDG
     {
         public int Id { get; set; }
-        public int ChuanDauRaMonHoc_Id { get; set; }
+        public Nullable<int> ChuanDauRaMonHoc_Id { get; set; }
         public string PhuongPhapDanhGia { get; set; }
         public string HoatDongDanhGia { get; set; }
-        public int STT { get; set; }
+        public Nullable<int> STT { get; set; }
     
         public virtual ChuanDauRaMonHoc ChuanDauRaMonHoc { get; set; }
     }

@@ -21,7 +21,7 @@ namespace Prototype_SEP_Team3
         }
     
         public int Id { get; set; }
-        public int DeCuongChiTiet_Id { get; set; }
+        public Nullable<int> DeCuongChiTiet_Id { get; set; }
         public Nullable<int> STT { get; set; }
         public string NoiDung { get; set; }
     

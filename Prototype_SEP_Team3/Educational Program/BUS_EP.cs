@@ -10,10 +10,10 @@ namespace Prototype_SEP_Team3.Educational_Program
     class BUS_EP
     {
         //kiểm tra thời gian đào tạo
-        public bool getThoigiandaotao(double newtime,int ctdt)
+        public bool getThoigiandaotao(double newtime, int ctdt)
         {
             DBEntities db = new DBEntities();
-            ThongTinChung_CTDT check = db.ThongTinChung_CTDT.Single(x=>x.ChuongTrinhDaoTao_Id==ctdt);
+            ThongTinChung_CTDT check = db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == ctdt);
             if (newtime == check.ThoiGianDaoTao)
             {
                 return true;
@@ -28,16 +28,29 @@ namespace Prototype_SEP_Team3.Educational_Program
         public string checkThoigiandaotao(double newtime, int ctdt)
         {
             DBEntities db = new DBEntities();
-            ThongTinChung_CTDT find = db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == ctdt);
-            List<MonHoc> findcourse = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == ctdt).ToList();
-            if ((newtime != find.ThoiGianDaoTao)&&(findcourse.Count>0))
+            if (newtime != 0)
             {
-                return "false";
+
+
+                ThongTinChung_CTDT find = db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == ctdt);
+                List<MonHoc> findcourse = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == ctdt).ToList();
+                if ((newtime != find.ThoiGianDaoTao) && (findcourse.Count > 0))
+                {
+                    return "false";
+                }
+                else
+                {
+                    ThongTinChung_CTDT edit = db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == ctdt);
+                    edit.ThoiGianDaoTao = newtime;
+                    db.SaveChanges();
+                    return "true";
+                }
             }
             else
             {
-                return "true";
+                return "null";
             }
+
         }
 
         // xu li khi thoi gian thay doi
@@ -80,7 +93,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 int check2 = int.Parse(ilst.Rows[i].Cells[5].Value.ToString().Substring(1, 1));
                 if ((check1 == 1) && (check2 == 1))
                 {
-                    NDCTpanel.Controls.Add(new TextBox() { Text = stt.ToString(),ReadOnly=true,BorderStyle=BorderStyle.None },0,row);
+                    NDCTpanel.Controls.Add(new TextBox() { Text = stt.ToString(), ReadOnly = true, BorderStyle = BorderStyle.None }, 0, row);
                     NDCTpanel.Controls.Add(new TextBox() { Text = ilst.Rows[i].Cells[1].Value.ToString(), ReadOnly = true, BorderStyle = BorderStyle.None }, 1, row);
                     NDCTpanel.Controls.Add(new TextBox() { Text = ilst.Rows[i].Cells[3].Value.ToString(), ReadOnly = true, BorderStyle = BorderStyle.None }, 2, row);
                     NDCTpanel.Controls.Add(new TextBox() { Text = ilst.Rows[i].Cells[6].Value.ToString(), ReadOnly = true, BorderStyle = BorderStyle.None }, 3, row);
@@ -94,12 +107,12 @@ namespace Prototype_SEP_Team3.Educational_Program
             lblktdctc.Text = tc.ToString();
             NDCTpanel.Controls.Add(lblktdctc, 3, 2);
             NDCTpanel.SetRowSpan(lblktdc, 2);
-            
 
-            
+
+
 
         }
-        
-        
+
+
     }
 }

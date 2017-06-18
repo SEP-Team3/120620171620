@@ -17,7 +17,6 @@ namespace Prototype_SEP_Team3
         public MonHoc()
         {
             this.DeCuongChiTiets = new HashSet<DeCuongChiTiet>();
-            this.DeCuongChiTiets1 = new HashSet<DeCuongChiTiet>();
             this.MonTienQuyets = new HashSet<MonTienQuyet>();
             this.MonTienQuyets1 = new HashSet<MonTienQuyet>();
         }
@@ -33,12 +32,9 @@ namespace Prototype_SEP_Team3
         public string NoiDungVanTat { get; set; }
         public int SoGioLyThuyet { get; set; }
         public int SoGioThucHanh { get; set; }
-        public string Monhoc_Id { get; set; }
+        public string MonHoc_Id { get; set; }
     
-        public virtual ChuongTrinhDaoTao ChuongTrinhDaoTao { get; set; }
         public virtual ICollection<DeCuongChiTiet> DeCuongChiTiets { get; set; }
-        public virtual ICollection<DeCuongChiTiet> DeCuongChiTiets1 { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
         public virtual ICollection<MonTienQuyet> MonTienQuyets { get; set; }
         public virtual ICollection<MonTienQuyet> MonTienQuyets1 { get; set; }
     }

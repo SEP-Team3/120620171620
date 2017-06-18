@@ -32,9 +32,21 @@
           <ScalarProperty Name="PhanBoThoiGian" ColumnName="PhanBoThoiGian" />
           <ScalarProperty Name="MonTienQuyet_Id" ColumnName="MonTienQuyet_Id" />
           <ScalarProperty Name="YeuCauMonHoc" ColumnName="YeuCauMonHoc" />
-          <ScalarProperty Name="GiangVienPhuTrach_Id" ColumnName="GiangVienPhuTrach_Id" />
+          <ScalarProperty Name="GiangVienPhuTrach" ColumnName="GiangVienPhuTrach" />
           <ScalarProperty Name="KhoiKienThuc" ColumnName="KhoiKienThuc" />
-          <ScalarProperty Name="GiangVienGiangDay" ColumnName="GiangVienGiangDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiangVienGiangDays">
+      <EntityTypeMapping TypeName="team3Model.GiangVienGiangDay">
+        <MappingFragment StoreEntitySet="GiangVienGiangDay">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TroGiang_Id" ColumnName="TroGiang_Id" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,6 +83,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ChuanDauRaMonHoc_Id" ColumnName="ChuanDauRaMonHoc_Id" />
           <ScalarProperty Name="MucTieuDaoTao_Id" ColumnName="MucTieuDaoTao_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,7 +112,7 @@
           <ScalarProperty Name="NoiDungVanTat" ColumnName="NoiDungVanTat" />
           <ScalarProperty Name="SoGioLyThuyet" ColumnName="SoGioLyThuyet" />
           <ScalarProperty Name="SoGioThucHanh" ColumnName="SoGioThucHanh" />
-          <ScalarProperty Name="Monhoc_Id" ColumnName="Monhoc_Id" />
+          <ScalarProperty Name="MonHoc_Id" ColumnName="MonHoc_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -107,8 +120,8 @@
       <EntityTypeMapping TypeName="team3Model.MonTienQuyet">
         <MappingFragment StoreEntitySet="MonTienQuyet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Monhoc_Id" ColumnName="Monhoc_Id" />
-          <ScalarProperty Name="Montienquyet_Id" ColumnName="Montienquyet_Id" />
+          <ScalarProperty Name="MonHoc_Id" ColumnName="MonHoc_Id" />
+          <ScalarProperty Name="MonTienQuyet_Id" ColumnName="MonTienQuyet_Id" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -182,6 +195,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TaiLieuMonHocs">
+      <EntityTypeMapping TypeName="team3Model.TaiLieuMonHoc">
+        <MappingFragment StoreEntitySet="TaiLieuMonHoc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ThongTinChung_CTDT">
       <EntityTypeMapping TypeName="team3Model.ThongTinChung_CTDT">
         <MappingFragment StoreEntitySet="ThongTinChung_CTDT">
@@ -201,17 +225,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TaiLieuMonHocs">
-      <EntityTypeMapping TypeName="team3Model.TaiLieuMonHoc">
-        <MappingFragment StoreEntitySet="TaiLieuMonHoc">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
-          <ScalarProperty Name="Loai" ColumnName="Loai" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_DeCuongChiTiet_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_DeCuongChiTiet_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MaTran_CDRMH_CDRCTDT_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MaTran_CDRMH_CDRCTDT_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_PPDanhGia_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_PPDanhGia_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="LoadChuanDauRaCTDTTheoMonHoc" FunctionName="team3Model.Store.LoadChuanDauRaCTDTTheoMonHoc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.LoadChuanDauRaCTDTTheoMonHoc_Result">
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
           <ScalarProperty Name="STT" ColumnName="STT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="team3Model.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="team3Model.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="team3Model.Store.sp_dropdiagram" />

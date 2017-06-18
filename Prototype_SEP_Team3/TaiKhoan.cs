@@ -17,8 +17,7 @@ namespace Prototype_SEP_Team3
         public TaiKhoan()
         {
             this.ChuongTrinhDaoTaos = new HashSet<ChuongTrinhDaoTao>();
-            this.DeCuongChiTiets = new HashSet<DeCuongChiTiet>();
-            this.MonHocs = new HashSet<MonHoc>();
+            this.GiangVienGiangDays = new HashSet<GiangVienGiangDay>();
             this.PhanQuyenTaiKhoans = new HashSet<PhanQuyenTaiKhoan>();
         }
     
@@ -28,8 +27,7 @@ namespace Prototype_SEP_Team3
         public string MatKhau { get; set; }
     
         public virtual ICollection<ChuongTrinhDaoTao> ChuongTrinhDaoTaos { get; set; }
-        public virtual ICollection<DeCuongChiTiet> DeCuongChiTiets { get; set; }
-        public virtual ICollection<MonHoc> MonHocs { get; set; }
+        public virtual ICollection<GiangVienGiangDay> GiangVienGiangDays { get; set; }
         public virtual ICollection<PhanQuyenTaiKhoan> PhanQuyenTaiKhoans { get; set; }
     }
 }

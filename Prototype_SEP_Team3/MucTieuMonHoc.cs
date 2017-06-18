@@ -15,7 +15,7 @@ namespace Prototype_SEP_Team3
     public partial class MucTieuMonHoc
     {
         public int Id { get; set; }
-        public int DeCuongChiTiet_Id { get; set; }
+        public Nullable<int> DeCuongChiTiet_Id { get; set; }
         public string Loai { get; set; }
         public string NoiDung { get; set; }
         public Nullable<int> STT { get; set; }

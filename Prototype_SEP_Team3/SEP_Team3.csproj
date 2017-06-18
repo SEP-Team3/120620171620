@@ -114,6 +114,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiangVienGiangDay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="GUI_Chinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +133,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="KeHoanKiemTra.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoadChuanDauRaCTDTTheoMonHoc_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MaTran_CDRMH_CDRCTDT.cs">
@@ -239,10 +245,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Educational Program\ckeditor\CHANGES.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -294,6 +296,10 @@
     <None Include="Educational Program\ckeditor\skins\moono-lisa\readme.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

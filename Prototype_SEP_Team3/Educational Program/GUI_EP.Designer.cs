@@ -245,7 +245,7 @@
             // tabQuảnlí
             // 
             this.tabQuảnlí.Controls.Add(this.panel5);
-            this.tabQuảnlí.Location = new System.Drawing.Point(4, 29);
+            this.tabQuảnlí.Location = new System.Drawing.Point(4, 4);
             this.tabQuảnlí.Name = "tabQuảnlí";
             this.tabQuảnlí.Padding = new System.Windows.Forms.Padding(3);
             this.tabQuảnlí.Size = new System.Drawing.Size(1349, 581);
@@ -385,7 +385,7 @@
             // tabCơsởvậtchất
             // 
             this.tabCơsởvậtchất.Controls.Add(this.panel14);
-            this.tabCơsởvậtchất.Location = new System.Drawing.Point(4, 29);
+            this.tabCơsởvậtchất.Location = new System.Drawing.Point(4, 4);
             this.tabCơsởvậtchất.Name = "tabCơsởvậtchất";
             this.tabCơsởvậtchất.Padding = new System.Windows.Forms.Padding(3);
             this.tabCơsởvậtchất.Size = new System.Drawing.Size(1349, 581);
@@ -416,7 +416,7 @@
             // tabĐộingũgiảngviên
             // 
             this.tabĐộingũgiảngviên.Controls.Add(this.panel10);
-            this.tabĐộingũgiảngviên.Location = new System.Drawing.Point(4, 29);
+            this.tabĐộingũgiảngviên.Location = new System.Drawing.Point(4, 4);
             this.tabĐộingũgiảngviên.Name = "tabĐộingũgiảngviên";
             this.tabĐộingũgiảngviên.Padding = new System.Windows.Forms.Padding(3);
             this.tabĐộingũgiảngviên.Size = new System.Drawing.Size(1349, 581);
@@ -447,7 +447,7 @@
             // tabMôtảvắntắt
             // 
             this.tabMôtảvắntắt.Controls.Add(this.panel9);
-            this.tabMôtảvắntắt.Location = new System.Drawing.Point(4, 29);
+            this.tabMôtảvắntắt.Location = new System.Drawing.Point(4, 4);
             this.tabMôtảvắntắt.Name = "tabMôtảvắntắt";
             this.tabMôtảvắntắt.Size = new System.Drawing.Size(1349, 581);
             this.tabMôtảvắntắt.TabIndex = 14;
@@ -477,7 +477,7 @@
             // tabKếhoạchgiảngdạy
             // 
             this.tabKếhoạchgiảngdạy.Controls.Add(this.panel8);
-            this.tabKếhoạchgiảngdạy.Location = new System.Drawing.Point(4, 29);
+            this.tabKếhoạchgiảngdạy.Location = new System.Drawing.Point(4, 4);
             this.tabKếhoạchgiảngdạy.Name = "tabKếhoạchgiảngdạy";
             this.tabKếhoạchgiảngdạy.Padding = new System.Windows.Forms.Padding(3);
             this.tabKếhoạchgiảngdạy.Size = new System.Drawing.Size(1349, 581);
@@ -508,7 +508,7 @@
             // tabNộidungchươngtrình
             // 
             this.tabNộidungchươngtrình.Controls.Add(this.panel7);
-            this.tabNộidungchươngtrình.Location = new System.Drawing.Point(4, 29);
+            this.tabNộidungchươngtrình.Location = new System.Drawing.Point(4, 4);
             this.tabNộidungchươngtrình.Name = "tabNộidungchươngtrình";
             this.tabNộidungchươngtrình.Padding = new System.Windows.Forms.Padding(3);
             this.tabNộidungchươngtrình.Size = new System.Drawing.Size(1349, 581);
@@ -554,7 +554,7 @@
             this.tabThôngtinchung.Controls.Add(this.txtTên);
             this.tabThôngtinchung.Controls.Add(this.label14);
             this.tabThôngtinchung.Controls.Add(this.label13);
-            this.tabThôngtinchung.Location = new System.Drawing.Point(4, 29);
+            this.tabThôngtinchung.Location = new System.Drawing.Point(4, 4);
             this.tabThôngtinchung.Name = "tabThôngtinchung";
             this.tabThôngtinchung.Padding = new System.Windows.Forms.Padding(3);
             this.tabThôngtinchung.Size = new System.Drawing.Size(1349, 581);
@@ -641,6 +641,7 @@
             // 
             // tclMain
             // 
+            this.tclMain.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tclMain.Controls.Add(this.tabThôngtinchung);
             this.tclMain.Controls.Add(this.tabMụctiêu);
             this.tclMain.Controls.Add(this.tabNhiềumục);
@@ -660,7 +661,7 @@
             // tabMụctiêu
             // 
             this.tabMụctiêu.Controls.Add(this.pnMụctiêu);
-            this.tabMụctiêu.Location = new System.Drawing.Point(4, 29);
+            this.tabMụctiêu.Location = new System.Drawing.Point(4, 4);
             this.tabMụctiêu.Name = "tabMụctiêu";
             this.tabMụctiêu.Padding = new System.Windows.Forms.Padding(3);
             this.tabMụctiêu.Size = new System.Drawing.Size(1349, 581);
@@ -780,7 +781,7 @@
             // tabNhiềumục
             // 
             this.tabNhiềumục.Controls.Add(this.pnThôngtinchung);
-            this.tabNhiềumục.Location = new System.Drawing.Point(4, 29);
+            this.tabNhiềumục.Location = new System.Drawing.Point(4, 4);
             this.tabNhiềumục.Name = "tabNhiềumục";
             this.tabNhiềumục.Size = new System.Drawing.Size(1349, 581);
             this.tabNhiềumục.TabIndex = 13;
