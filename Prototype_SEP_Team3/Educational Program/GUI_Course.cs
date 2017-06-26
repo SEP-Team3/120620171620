@@ -300,6 +300,18 @@ namespace Prototype_SEP_Team3.Educational_Program
             dtgwQuảnlí_môntiênquyết.Columns["Ten"].ReadOnly = true;
         }
 
+        private void btnQuảnlí_xóa_Click(object sender, EventArgs e)
+        {
+            DialogResult rs =  MessageBox.Show("Bạn muốn xóa môn học này?","Thông báo",MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes)
+            {
+                DBEntities db = new DBEntities();
+                db.SP_MONHOC_DELETE(idcourse);
+                MessageBox.Show("Xóa môn học thành công");
+                this.Close();
+            }
+        }
+
 
 
 

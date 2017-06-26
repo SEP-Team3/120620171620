@@ -243,6 +243,47 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh", deCuongChiTiet_IdParameter, loaiParameter, noiDungParameter, sTTParameter);
         }
     
+        public virtual ObjectResult<Load_DCCT_Thinh_Result> Load_DCCT_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_DCCT_Thinh_Result>("Load_DCCT_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<Load_KeHoachKiemTra_Thinh_Result> Load_KeHoachKiemTra_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_KeHoachKiemTra_Thinh_Result>("Load_KeHoachKiemTra_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<string> Load_LoaiTaiLieu_Thinh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Load_LoaiTaiLieu_Thinh");
+        }
+    
+        public virtual ObjectResult<Load_PPDanhGia_Thinh_Result> Load_PPDanhGia_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_PPDanhGia_Thinh_Result>("Load_PPDanhGia_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<Load_TaiLieuMonHoc_Thinh_Result> Load_TaiLieuMonHoc_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_TaiLieuMonHoc_Thinh_Result>("Load_TaiLieuMonHoc_Thinh", idParameter);
+        }
+    
         public virtual ObjectResult<LoadChuanDauRaCTDTTheoMonHoc_Result> LoadChuanDauRaCTDTTheoMonHoc()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoadChuanDauRaCTDTTheoMonHoc_Result>("LoadChuanDauRaCTDTTheoMonHoc");
@@ -327,6 +368,15 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("owner_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int SP_MONHOC_DELETE(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MONHOC_DELETE", idParameter);
         }
     
         public virtual ObjectResult<SP_MONHOC_VIEW_Result> SP_MONHOC_VIEW(Nullable<int> ctdt)

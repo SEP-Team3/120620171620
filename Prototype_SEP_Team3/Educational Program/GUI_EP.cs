@@ -22,7 +22,7 @@ namespace Prototype_SEP_Team3.Educational_Program
         private List<string> mtct_pc = new List<string>();
         private List<string> mtct_kt = new List<string>();
         private List<string> mtct_kn = new List<string>();
-        private List<string> mtct_td = new List<string>();     
+        private List<string> mtct_td = new List<string>();
 
         string itemcontent = "";
         int itemposition = 0;
@@ -37,7 +37,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             this.WindowState = FormWindowState.Maximized;
 
             string c = Directory.GetCurrentDirectory();
-            wbCơsởvậtchất.Navigate(Path.Combine(c,"Educational Program\\EPCkeditor.html"));
+            wbCơsởvậtchất.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
             wbKhốilượngkt.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
             wbĐốitượng.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
             wbQuytrình.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
@@ -48,13 +48,13 @@ namespace Prototype_SEP_Team3.Educational_Program
             idctdt = id;
 
             db = new DBEntities();
-           
+
             loadCTDT();
 
 
-            
-            
-            
+
+
+
         }
         //LOAD FORM
         private void loadCTDT()
@@ -76,7 +76,7 @@ namespace Prototype_SEP_Team3.Educational_Program
 
             //Mục tiêu đào tạo
             List<MucTieuDaoTao> muctieulst = db.MucTieuDaoTaos.ToList();
-            for(int i=0;i<muctieulst.Count;i++)
+            for (int i = 0; i < muctieulst.Count; i++)
             {
                 if (muctieulst[i].Loai == "Chung")
                 {
@@ -112,15 +112,15 @@ namespace Prototype_SEP_Team3.Educational_Program
             {
 
             }
-                
-            
-            
-                 
+
+
+
+
             //quản lí môn học
             loadCourseview();
             //load ckeditor
-            
-            
+
+
 
         }
 
@@ -235,31 +235,18 @@ namespace Prototype_SEP_Team3.Educational_Program
             }
         }
 
-        private void ClickNoidungchuongtrinh(object sender, EventArgs e)
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            tclMain.SelectedIndex = 3;
+        }
+        private void ClickCosovatchat(object sender, EventArgs e)
         {
             tclMain.SelectedIndex = 4;
         }
 
-        private void ClickHuongdanthuchien(object sender, EventArgs e)
-        {
-            tclMain.SelectedIndex = 6;
-        }
-
-        private void ClickDanhsachgiaovien(object sender, EventArgs e)
-        {
-            tclMain.SelectedIndex = 7;
-        }
-
-        private void ClickCosovatchat(object sender, EventArgs e)
-        {
-            tclMain.SelectedIndex = 8;
-        }
 
 
-        private void quảnLíMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tclMain.SelectedIndex = 3;
-        }
 
 
         //NÚT PREVIOUS
@@ -269,13 +256,33 @@ namespace Prototype_SEP_Team3.Educational_Program
             {
                 tclMain.SelectedIndex = tclMain.SelectedIndex - 1;
             }
+            if (checkck == 0)
+            {
+                try
+                {
+                    object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
+                    object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
+                    object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
+                    object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
+                    object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
+                    object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
+                    object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
+                    object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
+                }
+                catch
+                {
+
+                }
+
+                checkck = 1;
+            }
 
         }
 
         //NÚT NEXT
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (tclMain.SelectedIndex < 8)
+            if (tclMain.SelectedIndex < 4)
             {
                 tclMain.SelectedIndex = tclMain.SelectedIndex + 1;
             }
@@ -400,7 +407,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             lwĐàotạo_view.Items.Add("\n     1. Phẩm chất");
             for (int i = 0; i < mtct_pc.Count; i++)
             {
-                lwĐàotạo_view.Items.Add("\n         1."+(i+1)+"  " + mtct_pc[i]);
+                lwĐàotạo_view.Items.Add("\n         1." + (i + 1) + "  " + mtct_pc[i]);
             }
             lwĐàotạo_view.Items.Add("\n     2. Kiến thức");
             for (int i = 0; i < mtct_kt.Count; i++)
@@ -457,7 +464,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                             if (i == 1)
                             {
                                 selectindex = 1;
-                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");                                
+                                txtĐàotạo_content.Text = lwĐàotạo_view.SelectedItem.ToString().Replace("\n         ", "");
                                 if (txtĐàotạo_content.Text.Substring(3, 1) == " ")
                                 {
                                     txtĐàotạo_content.Text = txtĐàotạo_content.Text.Substring(5, txtĐàotạo_content.Text.Length - 5);
@@ -517,7 +524,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                     }
 
                     itemcontent = txtĐàotạo_content.Text.Trim();
-                    
+
                     cboĐàotạo_level.SelectedIndex = selectindex;
                 }
 
@@ -652,7 +659,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                             {
                                 work[position - (6 + mtc.Count + mtct_pc.Count + mtct_kt.Count + mtct_kn.Count)] = txtĐàotạo_content.Text.Trim();
                             }
-                            
+
                         }
                     }
                 }
@@ -704,15 +711,15 @@ namespace Prototype_SEP_Team3.Educational_Program
                 {
                     MessageBox.Show("Hãy điền nội dung");
                 }
-               
+
             }
 
 
 
         }
 
-        
-       
+
+
 
         //QUẢN LÍ MÔN HỌC
         //Mở giao diện quản lí môn học
@@ -722,7 +729,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             // Mở giao diện
             if (nThờigian_năm.Value != 0)
             {
-                GUI_Course a = new GUI_Course(0, idctdt, (int)(nThờigian_năm.Value*2));
+                GUI_Course a = new GUI_Course(0, idctdt, (int)(nThờigian_năm.Value * 2));
                 a.ShowDialog();
                 loadCourseview();
             }
@@ -730,8 +737,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             {
                 MessageBox.Show("Thời gian đào tạo chưa được cập nhật");
             }
-                
-            
+
+
         }
 
         //QUẢN LÍ MÔN HỌC
@@ -760,7 +767,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             dgwQuảnlí.Columns[11].HeaderText = "Số giờ thực hành";
 
             dgwQuảnlí.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
         }
 
         //QUẢN LÍ MÔN HỌC
@@ -772,7 +779,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 var rs = dgwQuảnlí.SelectedRows[0];
                 var cell = rs.Cells["Id"];
                 int id = (int)cell.Value;
-                if (nThờigian_năm.Value!=0)
+                if (nThờigian_năm.Value != 0)
                 {
                     GUI_Course a = new GUI_Course(id, idctdt, (int)(nThờigian_năm.Value * 2));
                     a.ShowDialog();
@@ -783,33 +790,47 @@ namespace Prototype_SEP_Team3.Educational_Program
                     MessageBox.Show("Thời gian đào tạo chưa được cập nhật");
 
                 }
-                
+
             }
         }
 
         //NHIỀU MỤC
         //Xử lí khi người dùng thay đổi thời gian đào tạo của chương trình
         private void nThờigian_năm_ValueChanged(object sender, EventArgs e)
-        {            
-            string rs = bus.checkThoigiandaotao((double)nThờigian_năm.Value,idctdt);
-            if (rs == "false")
+        {
+            if ((double)nThờigian_năm.Value % 0.5 == 0)
             {
-               DialogResult msrs =  MessageBox.Show("Nếu thay đổi đối tượng này, học kì giảng dạy của các môn học sẽ đưa về Học kì 1, đồng thời tất cả quan hệ môn tiên quyết cũng bị hủy. Bạn có chắc chắn muốn thực hiện điều này không?", "Cảnh báo", MessageBoxButtons.YesNo);
-               if (msrs == System.Windows.Forms.DialogResult.Yes)
-               {
-                   bus.handleThoigiandaotao(idctdt);
-               }
-               nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+                string rs = bus.checkThoigiandaotao((double)nThờigian_năm.Value, idctdt);
+                if (rs == "false")
+                {
+                    DialogResult msrs = MessageBox.Show("Nếu thay đổi đối tượng này, học kì giảng dạy của các môn học sẽ đưa về Học kì 1, đồng thời tất cả quan hệ môn tiên quyết cũng bị hủy. Bạn có chắc chắn muốn thực hiện điều này không?", "Cảnh báo", MessageBoxButtons.YesNo);
+                    if (msrs == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        bus.handleThoigiandaotao(idctdt);
+                        nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+                    }
+                    else
+                    {
+                        nThờigian_năm.Value = (decimal)(nThờigian_họckì.Value / 2);
+                    }
+
+                }
+                if (rs == "true")
+                {
+                    nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+                }
+                if (rs == "null")
+                {
+                    MessageBox.Show("Thời gian đào tạo phải khác 0");
+                    nThờigian_năm.Value = (decimal)(nThờigian_họckì.Value / 2);
+                }
             }
-            if(rs=="true")
+            else
             {
-                nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+                MessageBox.Show("Dữ liệu không đúng định dạng");
+                nThờigian_năm.Value = (decimal)(nThờigian_họckì.Value / 2);
             }
-            if (rs == "null")
-            {
-                MessageBox.Show("Thời gian đào tạo phải khác 0");
-                nThờigian_năm.Value =(decimal) (nThờigian_họckì.Value / 2);
-            }
+            
         }
 
         //Edit CTDT
@@ -818,7 +839,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             load.TenChuongTrinh = txtTên.Text;
             load.TenTiengAnh = txtTênEL.Text;
             load.TrinhDo = cboTrìnhđộ.Text;
-            load.Nganh = txtNgành.Text ;
+            load.Nganh = txtNgành.Text;
             load.LoaiHinh = txtLoạiđàotạo.Text;
 
             //Mục tiêu đào tạo
@@ -828,7 +849,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 MucTieuDaoTao add = new MucTieuDaoTao();
                 add.Loai = "Chung";
                 add.NoiDung = mtc[i];
-                add.STT = i+1;
+                add.STT = i + 1;
                 add.ChuongTrinhDaoTao_Id = idctdt;
                 db.MucTieuDaoTaos.Add(add);
                 db.SaveChanges();
@@ -893,12 +914,20 @@ namespace Prototype_SEP_Team3.Educational_Program
             this.Close();
         }
 
-        private void btnNhieumuc_Click(object sender, EventArgs e)
+        private void btnQuanli_view_Click(object sender, EventArgs e)
         {
-            
+            DBEntities db = new DBEntities();
+            List<MonHoc> ilst = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == idctdt).ToList();
+            TableLayoutPanel rs1 = bus.drawTableNoidung(ilst);
+            List<MonHoc> ilst2 = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == idctdt).ToList();
+            int ihk = (int)(db.ThongTinChung_CTDT.Single(x => x.ChuongTrinhDaoTao_Id == idctdt).ThoiGianDaoTao.Value * 2);
+            FlowLayoutPanel rs2 = bus.drawKHGD(ilst2, ihk);
+            List<MonHoc> ilst3 = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == idctdt).ToList();
+            List<TaiKhoan> ids = db.TaiKhoans.ToList();
+            TableLayoutPanel rs3 = bus.drawDSGD(ilst3, ids);
+            GUI_VIEW a = new GUI_VIEW(rs1, rs2,rs3);
+            a.ShowDialog();
         }
-       
 
-        
     }
 }

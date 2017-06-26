@@ -114,6 +114,7 @@
             this.btnQuảnlí_xóa.TabIndex = 87;
             this.btnQuảnlí_xóa.Text = "Xóa";
             this.btnQuảnlí_xóa.UseVisualStyleBackColor = true;
+            this.btnQuảnlí_xóa.Click += new System.EventHandler(this.btnQuảnlí_xóa_Click);
             // 
             // btnQuảnlí_lưu
             // 

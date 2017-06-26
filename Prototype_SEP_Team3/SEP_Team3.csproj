@@ -107,6 +107,12 @@
     <Compile Include="Educational Program\GUI_EP.Designer.cs">
       <DependentUpon>GUI_EP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Educational Program\GUI_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Educational Program\GUI_VIEW.Designer.cs">
+      <DependentUpon>GUI_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Educational Program\Montienquyet_dtgv.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -136,6 +142,18 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="LoadChuanDauRaCTDTTheoMonHoc_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_DCCT_Thinh_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_KeHoachKiemTra_Thinh_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_PPDanhGia_Thinh_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_TaiLieuMonHoc_Thinh_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MaTran_CDRMH_CDRCTDT.cs">
@@ -226,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Educational Program\GUI_EP.resx">
       <DependentUpon>GUI_EP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Educational Program\GUI_VIEW.resx">
+      <DependentUpon>GUI_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
