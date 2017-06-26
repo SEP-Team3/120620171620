@@ -475,8 +475,19 @@
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="Load_LoaiTaiLieu_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Load_MucTieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Loai" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="Load_PPDanhGia_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Load_TaiLieu_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Loai" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="Load_TaiLieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
@@ -533,6 +544,7 @@
   </Function>
   <Function Name="SP_THOIGIANDAOTAO_HANDLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ctdt" Type="int" Mode="In" />
+    <Parameter Name="tgdt" Type="float" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="team3ModelStoreContainer">

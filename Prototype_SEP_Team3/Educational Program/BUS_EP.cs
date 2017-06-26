@@ -55,10 +55,10 @@ namespace Prototype_SEP_Team3.Educational_Program
         }
 
         // xu li khi thoi gian thay doi
-        public void handleThoigiandaotao(int ctdt)
+        public void handleThoigiandaotao(int ctdt,double tgdt)
         {
             DBEntities db = new DBEntities();
-            db.SP_THOIGIANDAOTAO_HANDLE(ctdt);
+            db.SP_THOIGIANDAOTAO_HANDLE(ctdt,tgdt);
         }
 
         // ve table

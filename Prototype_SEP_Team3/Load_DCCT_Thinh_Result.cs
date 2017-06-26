@@ -30,5 +30,6 @@ namespace Prototype_SEP_Team3
         public int SoGioThucHanh { get; set; }
         public Nullable<int> MonTienQuyet_Id { get; set; }
         public string NoiDungVanTat { get; set; }
+        public string YeuCauMonHoc { get; set; }
     }
 }

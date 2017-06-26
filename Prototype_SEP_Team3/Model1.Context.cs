@@ -266,6 +266,28 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Load_LoaiTaiLieu_Thinh");
         }
     
+        public virtual ObjectResult<Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result> Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result>("Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<Load_MucTieuMonHoc_Thinh_Result> Load_MucTieuMonHoc_Thinh(Nullable<int> id, string loai)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var loaiParameter = loai != null ?
+                new ObjectParameter("Loai", loai) :
+                new ObjectParameter("Loai", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_MucTieuMonHoc_Thinh_Result>("Load_MucTieuMonHoc_Thinh", idParameter, loaiParameter);
+        }
+    
         public virtual ObjectResult<Load_PPDanhGia_Thinh_Result> Load_PPDanhGia_Thinh(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
@@ -273,6 +295,19 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_PPDanhGia_Thinh_Result>("Load_PPDanhGia_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<Load_TaiLieu_MonHoc_Thinh_Result> Load_TaiLieu_MonHoc_Thinh(Nullable<int> id, string loai)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var loaiParameter = loai != null ?
+                new ObjectParameter("Loai", loai) :
+                new ObjectParameter("Loai", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_TaiLieu_MonHoc_Thinh_Result>("Load_TaiLieu_MonHoc_Thinh", idParameter, loaiParameter);
         }
     
         public virtual ObjectResult<Load_TaiLieuMonHoc_Thinh_Result> Load_TaiLieuMonHoc_Thinh(Nullable<int> id)
@@ -449,13 +484,17 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_TEXT_Result>("SP_TEXT", idmonhocParameter);
         }
     
-        public virtual int SP_THOIGIANDAOTAO_HANDLE(Nullable<int> ctdt)
+        public virtual int SP_THOIGIANDAOTAO_HANDLE(Nullable<int> ctdt, Nullable<double> tgdt)
         {
             var ctdtParameter = ctdt.HasValue ?
                 new ObjectParameter("ctdt", ctdt) :
                 new ObjectParameter("ctdt", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_THOIGIANDAOTAO_HANDLE", ctdtParameter);
+            var tgdtParameter = tgdt.HasValue ?
+                new ObjectParameter("tgdt", tgdt) :
+                new ObjectParameter("tgdt", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_THOIGIANDAOTAO_HANDLE", ctdtParameter, tgdtParameter);
         }
     
         public virtual int sp_upgraddiagrams()

@@ -595,8 +595,19 @@
       <Parameter Name="id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Load_LoaiTaiLieu_Thinh" ReturnType="Collection(String)" />
+    <FunctionImport Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" ReturnType="Collection(team3Model.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Load_MucTieuMonHoc_Thinh" ReturnType="Collection(team3Model.Load_MucTieuMonHoc_Thinh_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Loai" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="Load_PPDanhGia_Thinh" ReturnType="Collection(team3Model.Load_PPDanhGia_Thinh_Result)">
       <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Load_TaiLieu_MonHoc_Thinh" ReturnType="Collection(team3Model.Load_TaiLieu_MonHoc_Thinh_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Loai" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Load_TaiLieuMonHoc_Thinh" ReturnType="Collection(team3Model.Load_TaiLieuMonHoc_Thinh_Result)">
       <Parameter Name="id" Mode="In" Type="Int32" />
@@ -653,6 +664,7 @@
     </FunctionImport>
     <FunctionImport Name="SP_THOIGIANDAOTAO_HANDLE">
       <Parameter Name="ctdt" Mode="In" Type="Int32" />
+      <Parameter Name="tgdt" Mode="In" Type="Double" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
@@ -674,6 +686,7 @@
     <Property Type="Int32" Name="SoGioThucHanh" Nullable="false" />
     <Property Type="Int32" Name="MonTienQuyet_Id" Nullable="true" />
     <Property Type="String" Name="NoiDungVanTat" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="YeuCauMonHoc" Nullable="true" MaxLength="500" />
   </ComplexType>
   <ComplexType Name="Load_KeHoachKiemTra_Thinh_Result">
     <Property Type="String" Name="HinhThuc" Nullable="true" MaxLength="200" />
@@ -681,11 +694,24 @@
     <Property Type="String" Name="ThoiDiem" Nullable="true" MaxLength="200" />
     <Property Type="String" Name="CongCuKT" Nullable="true" MaxLength="200" />
   </ComplexType>
+  <ComplexType Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result">
+    <Property Type="Int32" Name="STT" Nullable="true" />
+    <Property Type="String" Name="HoatDongDanhGia" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PhuongPhapDanhGia" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="Load_MucTieuMonHoc_Thinh_Result">
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="STT" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="Load_PPDanhGia_Thinh_Result">
     <Property Type="String" Name="LoaiNoiDung" Nullable="true" MaxLength="200" />
     <Property Type="String" Name="SoLanDanhGia" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="TrongSo" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="HinhThucDanhGia" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="Load_TaiLieu_MonHoc_Thinh_Result">
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="STT" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Load_TaiLieuMonHoc_Thinh_Result">
     <Property Type="String" Name="Loai" Nullable="true" MaxLength="100" />

@@ -806,8 +806,10 @@ namespace Prototype_SEP_Team3.Educational_Program
                     DialogResult msrs = MessageBox.Show("Nếu thay đổi đối tượng này, học kì giảng dạy của các môn học sẽ đưa về Học kì 1, đồng thời tất cả quan hệ môn tiên quyết cũng bị hủy. Bạn có chắc chắn muốn thực hiện điều này không?", "Cảnh báo", MessageBoxButtons.YesNo);
                     if (msrs == System.Windows.Forms.DialogResult.Yes)
                     {
-                        bus.handleThoigiandaotao(idctdt);
+                        bus.handleThoigiandaotao(idctdt,(double)nThờigian_năm.Value);
                         nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
+                        loadCourseview();
+                        
                     }
                     else
                     {

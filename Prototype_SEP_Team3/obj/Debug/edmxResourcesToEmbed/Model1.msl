@@ -254,6 +254,7 @@
           <ScalarProperty Name="SoGioThucHanh" ColumnName="SoGioThucHanh" />
           <ScalarProperty Name="MonTienQuyet_Id" ColumnName="MonTienQuyet_Id" />
           <ScalarProperty Name="NoiDungVanTat" ColumnName="NoiDungVanTat" />
+          <ScalarProperty Name="YeuCauMonHoc" ColumnName="YeuCauMonHoc" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -268,6 +269,23 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Load_LoaiTaiLieu_Thinh" FunctionName="team3Model.Store.Load_LoaiTaiLieu_Thinh" />
+    <FunctionImportMapping FunctionImportName="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" FunctionName="team3Model.Store.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="HoatDongDanhGia" ColumnName="HoatDongDanhGia" />
+          <ScalarProperty Name="PhuongPhapDanhGia" ColumnName="PhuongPhapDanhGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_MucTieuMonHoc_Thinh" FunctionName="team3Model.Store.Load_MucTieuMonHoc_Thinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Load_MucTieuMonHoc_Thinh_Result">
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Load_PPDanhGia_Thinh" FunctionName="team3Model.Store.Load_PPDanhGia_Thinh">
       <ResultMapping>
         <ComplexTypeMapping TypeName="team3Model.Load_PPDanhGia_Thinh_Result">
@@ -275,6 +293,14 @@
           <ScalarProperty Name="SoLanDanhGia" ColumnName="SoLanDanhGia" />
           <ScalarProperty Name="TrongSo" ColumnName="TrongSo" />
           <ScalarProperty Name="HinhThucDanhGia" ColumnName="HinhThucDanhGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_TaiLieu_MonHoc_Thinh" FunctionName="team3Model.Store.Load_TaiLieu_MonHoc_Thinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Load_TaiLieu_MonHoc_Thinh_Result">
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
