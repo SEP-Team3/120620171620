@@ -73,7 +73,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
             Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1000));
             Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
-            Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
+            Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
             Tablepanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
             Tablepanel.Controls.Add(new Label() { Text = "STT", AutoSize = true, Anchor = AnchorStyles.None }, 0, 0);
             Tablepanel.Controls.Add(new Label() { Text = "MÃ MH", AutoSize = true, Anchor = AnchorStyles.None }, 1, 0);
