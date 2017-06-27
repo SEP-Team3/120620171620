@@ -46,6 +46,36 @@ namespace Prototype_SEP_Team3
         public virtual DbSet<TaiLieuMonHoc> TaiLieuMonHocs { get; set; }
         public virtual DbSet<ThongTinChung_CTDT> ThongTinChung_CTDT { get; set; }
     
+        public virtual int DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang(Nullable<int> deCuongChiTiet_Id, string noiDung)
+        {
+            var deCuongChiTiet_IdParameter = deCuongChiTiet_Id.HasValue ?
+                new ObjectParameter("DeCuongChiTiet_Id", deCuongChiTiet_Id) :
+                new ObjectParameter("DeCuongChiTiet_Id", typeof(int));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang", deCuongChiTiet_IdParameter, noiDungParameter);
+        }
+    
+        public virtual int DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang(Nullable<int> deCuongChiTiet_Id, Nullable<int> sTT, string noiDung)
+        {
+            var deCuongChiTiet_IdParameter = deCuongChiTiet_Id.HasValue ?
+                new ObjectParameter("DeCuongChiTiet_Id", deCuongChiTiet_Id) :
+                new ObjectParameter("DeCuongChiTiet_Id", typeof(int));
+    
+            var sTTParameter = sTT.HasValue ?
+                new ObjectParameter("STT", sTT) :
+                new ObjectParameter("STT", typeof(int));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang", deCuongChiTiet_IdParameter, sTTParameter, noiDungParameter);
+        }
+    
         public virtual int DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh(Nullable<int> deCuongChiTiet_Id, Nullable<int> sTT, string noiDung)
         {
             var deCuongChiTiet_IdParameter = deCuongChiTiet_Id.HasValue ?
@@ -243,13 +273,30 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh", deCuongChiTiet_IdParameter, loaiParameter, noiDungParameter, sTTParameter);
         }
     
-        public virtual ObjectResult<Load_DCCT_Thinh_Result> Load_DCCT_Thinh(Nullable<int> id)
+        public virtual int DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang(Nullable<int> deCuongChiTiet_Id, Nullable<int> sTT, string noiDung)
+        {
+            var deCuongChiTiet_IdParameter = deCuongChiTiet_Id.HasValue ?
+                new ObjectParameter("DeCuongChiTiet_Id", deCuongChiTiet_Id) :
+                new ObjectParameter("DeCuongChiTiet_Id", typeof(int));
+    
+            var sTTParameter = sTT.HasValue ?
+                new ObjectParameter("STT", sTT) :
+                new ObjectParameter("STT", typeof(int));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang", deCuongChiTiet_IdParameter, sTTParameter, noiDungParameter);
+        }
+    
+        public virtual int Load_DCCT_Thinh(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
                 new ObjectParameter("id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_DCCT_Thinh_Result>("Load_DCCT_Thinh", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Load_DCCT_Thinh", idParameter);
         }
     
         public virtual ObjectResult<Load_KeHoachKiemTra_Thinh_Result> Load_KeHoachKiemTra_Thinh(Nullable<int> id)
@@ -259,6 +306,19 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_KeHoachKiemTra_Thinh_Result>("Load_KeHoachKiemTra_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<Load_KetHoachGiangDay_MonHoc_Thinh_Result> Load_KetHoachGiangDay_MonHoc_Thinh(Nullable<int> id, Nullable<int> hocKi)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var hocKiParameter = hocKi.HasValue ?
+                new ObjectParameter("HocKi", hocKi) :
+                new ObjectParameter("HocKi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_KetHoachGiangDay_MonHoc_Thinh_Result>("Load_KetHoachGiangDay_MonHoc_Thinh", idParameter, hocKiParameter);
         }
     
         public virtual ObjectResult<string> Load_LoaiTaiLieu_Thinh()
@@ -447,6 +507,11 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MONTIENQUYET_GET_Result>("SP_MONTIENQUYET_GET", ctdtParameter, hkParameter, idParameter);
+        }
+    
+        public virtual ObjectResult<SP_MONTIENQUYET_GETTRUE_Result> SP_MONTIENQUYET_GETTRUE()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MONTIENQUYET_GETTRUE_Result>("SP_MONTIENQUYET_GETTRUE");
         }
     
         public virtual int SP_MUCTIEUDAOTAO_DEL(Nullable<int> ctdt)

@@ -18,7 +18,7 @@ namespace Prototype_SEP_Team3
         public int DeCuongChiTiet_Id { get; set; }
         public string LoaiNoiDung { get; set; }
         public string SoLanDanhGia { get; set; }
-        public string TrongSo { get; set; }
+        public Nullable<int> TrongSo { get; set; }
         public string HinhThucDanhGia { get; set; }
     
         public virtual DeCuongChiTiet DeCuongChiTiet { get; set; }

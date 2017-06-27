@@ -323,7 +323,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(731, 627);
+            this.btnNext.Location = new System.Drawing.Point(724, 627);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(50, 30);
             this.btnNext.TabIndex = 1;
@@ -731,14 +731,14 @@
             // 
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(220, 18);
-            this.toolStripStatusLabel2.Text = "                                        Mục lục";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(208, 18);
+            this.toolStripStatusLabel2.Text = "                                     Mục lục";
             this.toolStripStatusLabel2.MouseHover += new System.EventHandler(this.HoverMucluc);
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem13.Text = "Cơ sở vật chất phục vụ học tập";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.ClickCosovatchat);
             // 
@@ -752,49 +752,49 @@
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem7.Text = "Thang điểm";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.ClickThangdiem);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem6.Text = "Quy trình đào tạo, điều kiện tốt nghiệp";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.ClickQuytrinhdaotao);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem5.Text = "Đối tượng tuyển sinh";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.ClickDoituongtuyensinh);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem4.Text = "Khối lượng kiến thức toàn khóa";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.ClickKhoiluongkienthuc);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem3.Text = "Thời gian đào tạo";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.ClickThoigiandaotao);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem2.Text = "Mục tiêu đào tạo";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.ClickMuctieudaotao);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(442, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(323, 22);
             this.toolStripMenuItem1.Text = "Thông tin chung";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.ClickThôngtinchung);
             // 
@@ -827,7 +827,7 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(478, 6);
+            this.panel3.Location = new System.Drawing.Point(461, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(185, 21);
             this.panel3.TabIndex = 18;
@@ -846,7 +846,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(619, 627);
+            this.btnPrevious.Location = new System.Drawing.Point(600, 627);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(50, 30);
             this.btnPrevious.TabIndex = 0;

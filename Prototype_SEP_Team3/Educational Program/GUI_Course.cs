@@ -35,7 +35,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 lhk.Add("Học kì " + (i + 1));
             }
             cboQuảnlí_họckỳ.DataSource = lhk.ToList();
-
+            btnQuảnlí_xóa.Visible = false;
             idcourse = id;
             //Set up khi form len là form edit
             if (id != 0)
@@ -63,10 +63,12 @@ namespace Prototype_SEP_Team3.Educational_Program
 
                 btnQuảnlí_lưu.Text = "Cập nhật";
                 txtQuảnlí_mã.ReadOnly = true;
+                btnQuảnlí_xóa.Visible = true;
             }
 
             idctdt = ctdt;
             hkc = hk;
+            
         }
 
 

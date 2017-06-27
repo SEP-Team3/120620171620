@@ -38,12 +38,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DeCuongChiTiet_Id" Type="int" />
+    <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
     <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
     <Property Name="DienThoai" Type="varchar" MaxLength="15" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="TroGiang_Id" Type="int" />
-    <Property Name="ThoiGian" Type="nchar" MaxLength="10" />
+    <Property Name="TroGiang" Type="varbinary" MaxLength="50" />
+    <Property Name="ThoiGian" Type="varbinary(max)" />
+    <Property Name="TenGVPT" Type="varbinary" MaxLength="50" />
   </EntityType>
   <EntityType Name="KeHoachGDHTCuThe">
     <Key>
@@ -157,7 +158,7 @@
     <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
     <Property Name="LoaiNoiDung" Type="nvarchar" MaxLength="200" />
     <Property Name="SoLanDanhGia" Type="varchar" MaxLength="30" />
-    <Property Name="TrongSo" Type="varchar" MaxLength="30" />
+    <Property Name="TrongSo" Type="int" />
     <Property Name="HinhThucDanhGia" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -240,18 +241,6 @@
       </Principal>
       <Dependent Role="DeCuongChiTiet">
         <PropertyRef Name="MonHoc_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_GiangVienGiangDay_TaiKhoan">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
-    <End Role="GiangVienGiangDay" Type="Self.GiangVienGiangDay" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TaiKhoan">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="GiangVienGiangDay">
-        <PropertyRef Name="TroGiang_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -411,6 +400,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
     <Parameter Name="STT" Type="int" Mode="In" />
@@ -467,12 +465,21 @@
     <Parameter Name="NoiDung" Type="nvarchar" Mode="In" />
     <Parameter Name="STT" Type="int" Mode="In" />
   </Function>
+  <Function Name="DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeCuongChiTiet_Id" Type="int" Mode="In" />
+    <Parameter Name="STT" Type="int" Mode="In" />
+    <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="Load_DCCT_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="Load_KeHoachKiemTra_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Load_KetHoachGiangDay_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="HocKi" Type="int" Mode="In" />
   </Function>
   <Function Name="Load_LoaiTaiLieu_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -531,6 +538,7 @@
     <Parameter Name="hk" Type="int" Mode="In" />
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
+  <Function Name="SP_MONTIENQUYET_GETTRUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_MUCTIEUDAOTAO_DEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ctdt" Type="int" Mode="In" />
   </Function>
@@ -577,10 +585,6 @@
     <AssociationSet Name="FK_DeCuongChiTiet_MonHoc" Association="Self.FK_DeCuongChiTiet_MonHoc">
       <End Role="MonHoc" EntitySet="MonHoc" />
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_GiangVienGiangDay_TaiKhoan" Association="Self.FK_GiangVienGiangDay_TaiKhoan">
-      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-      <End Role="GiangVienGiangDay" EntitySet="GiangVienGiangDay" />
     </AssociationSet>
     <AssociationSet Name="FK_KeHoachGDHTCuThe_DeCuongChiTiet" Association="Self.FK_KeHoachGDHTCuThe_DeCuongChiTiet">
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />

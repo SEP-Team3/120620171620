@@ -55,10 +55,10 @@ namespace Prototype_SEP_Team3.Educational_Program
         }
 
         // xu li khi thoi gian thay doi
-        public void handleThoigiandaotao(int ctdt,double tgdt)
+        public void handleThoigiandaotao(int ctdt, double tgdt)
         {
             DBEntities db = new DBEntities();
-            db.SP_THOIGIANDAOTAO_HANDLE(ctdt,tgdt);
+            db.SP_THOIGIANDAOTAO_HANDLE(ctdt, tgdt);
         }
 
         // ve table
@@ -668,7 +668,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 Label hki = new Label();
                 hki.Text = "HỌC KÌ " + (i + 1);
                 hki.Width = rs.Width;
-                rs.Controls.Add(hki);                
+                rs.Controls.Add(hki);
                 TableLayoutPanel Tablepanel = new TableLayoutPanel();
                 Tablepanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
                 Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
@@ -738,8 +738,8 @@ namespace Prototype_SEP_Team3.Educational_Program
                 Tablepanel.Controls.Add(lblts2, 4, row);
                 heighttb = row;
                 Tablepanel.Width = 1350;
-                Tablepanel.Height = heighttb * 30+30;
-                sumheight += Tablepanel.Height + 30*2+hki.Height;
+                Tablepanel.Height = heighttb * 30 + 30;
+                sumheight += Tablepanel.Height + 30 * 2 + hki.Height;
                 rs.Controls.Add(Tablepanel);
             }
             rs.Height = sumheight;
@@ -747,7 +747,7 @@ namespace Prototype_SEP_Team3.Educational_Program
 
         }
 
-        public TableLayoutPanel drawDSGD(List<MonHoc> ilst,List<TaiKhoan> itk)
+        public TableLayoutPanel drawDSGD(List<MonHoc> ilst, List<TaiKhoan> itk)
         {
             TableLayoutPanel Tablepanel = new TableLayoutPanel();
             Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
@@ -757,25 +757,25 @@ namespace Prototype_SEP_Team3.Educational_Program
             Tablepanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 500));
             Tablepanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
             Label a1 = new Label() { Text = "STT", AutoSize = true, Anchor = AnchorStyles.None };
-            Tablepanel.Controls.Add(a1,0,0);
+            Tablepanel.Controls.Add(a1, 0, 0);
             Label a2 = new Label() { Text = "Họ và tên", AutoSize = true, Anchor = AnchorStyles.None };
-            Tablepanel.Controls.Add(a2,1,0);
+            Tablepanel.Controls.Add(a2, 1, 0);
             Label a3 = new Label() { Text = "Năm sinh", AutoSize = true, Anchor = AnchorStyles.None };
-            Tablepanel.Controls.Add(a3,2,0);
+            Tablepanel.Controls.Add(a3, 2, 0);
             Label a4 = new Label() { Text = "Văn bằng cao nhất, ngành đào tạo", AutoSize = true, Anchor = AnchorStyles.None };
-            Tablepanel.Controls.Add(a4,3,0);
+            Tablepanel.Controls.Add(a4, 3, 0);
             Label a5 = new Label() { Text = "Các môn đảm trách", AutoSize = true, Anchor = AnchorStyles.None };
-            Tablepanel.Controls.Add(a5,4,0);
+            Tablepanel.Controls.Add(a5, 4, 0);
             int sttint = 1;
             int row = 1;
             foreach (TaiKhoan a in itk)
             {
                 List<MonHoc> drlst = ilst.Where(x => x.GiangVienPhuTrach_Id == a.Id).ToList();
-                string coursestr = "";               
+                string coursestr = "";
                 foreach (MonHoc b in drlst)
                 {
-                    coursestr += b.TenMonHoc.ToString()+" ,";
-                }              
+                    coursestr += b.TenMonHoc.ToString() + " ,";
+                }
                 if (drlst.Count > 0)
                 {
                     string coursers = coursestr.Substring(0, coursestr.Length - 2);
@@ -797,9 +797,53 @@ namespace Prototype_SEP_Team3.Educational_Program
                     sttint++;
                     row++;
                 }
-                
+
             }
             return Tablepanel;
+
+        }
+
+        public TableLayoutPanel drawNDVT(List<MonHoc> ilst, int ihk,List<SP_MONTIENQUYET_GETTRUE_Result>imtq)
+        {
+            TableLayoutPanel rs = new TableLayoutPanel();
+            int row = 0;
+            for (int i = 0; i < ihk; i++)
+            {
+                Label hki = new Label();
+                hki.Text = "HỌC KÌ " + (i + 1);
+                hki.Width = rs.Width;
+                rs.Controls.Add(hki,0,row);
+                row = row + 2;
+                List<MonHoc> drawlst = ilst.Where(x => x.HocKy == (i + 1)).ToList();
+
+                for (int m = 0; m < drawlst.Count; m++)
+                {
+                    string addstr = "   "+drawlst[m].TenMonHoc+"        ("+drawlst[m].SoTinChi+"TC:"+drawlst[m].SoGioLyThuyet+"lt+"+drawlst[m].SoGioThucHanh+"th)"+"\n Môn tiên quyết: ";
+                    if (imtq.Count != 0)
+                    {
+                        foreach (SP_MONTIENQUYET_GETTRUE_Result b in imtq)
+                        {
+                            if (b.MonHoc_Id == drawlst[m].Id)
+                            {
+                                addstr += b.TenMonHoc + ", ";
+                            }
+                        }
+                        addstr.Replace(", ", "");
+                    }
+                    else
+                    {
+                        addstr += "không có";
+                    }
+                    addstr += "\n Nội dung: " + drawlst[m].NoiDungVanTat.Trim();
+                    rs.Controls.Add(new Label() { Text = addstr, AutoSize = true, BackColor = Color.White, Anchor = AnchorStyles.Left,Dock =DockStyle.Left }, 0, row);
+                    addstr = "";
+                    rs.Controls.Add(new Label() { Text = "", AutoSize = true, BackColor = Color.White, Anchor = AnchorStyles.Left, Dock = DockStyle.Left }, 0, row);
+                }
+                row = row + 2;
+                
+            }
+            return rs;
+
 
         }
 

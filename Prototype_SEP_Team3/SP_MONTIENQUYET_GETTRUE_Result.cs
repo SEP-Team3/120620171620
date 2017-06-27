@@ -10,17 +10,10 @@
 namespace Prototype_SEP_Team3
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class GiangVienGiangDay
+    public partial class SP_MONTIENQUYET_GETTRUE_Result
     {
-        public int Id { get; set; }
-        public int DeCuongChiTiet_Id { get; set; }
-        public string DiaChi { get; set; }
-        public string DienThoai { get; set; }
-        public string Email { get; set; }
-        public byte[] TroGiang { get; set; }
-        public byte[] ThoiGian { get; set; }
-        public byte[] TenGVPT { get; set; }
+        public int MonHoc_Id { get; set; }
+        public string TenMonHoc { get; set; }
     }
 }
