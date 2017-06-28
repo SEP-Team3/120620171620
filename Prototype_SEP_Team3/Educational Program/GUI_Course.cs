@@ -83,7 +83,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             }
             if (cboQuảnlí_loạikt_1.SelectedItem.ToString() == "Kiến thức giáo dục chuyên nghiệp")
             {
-                List<string> arr = new List<string> { "Kiến thức cơ sở", "Kiến thức ngành chính", 
+                List<string> arr = new List<string> { "Kiến thức cơ sở", 
                     "Kiến thức chung của ngành chính", "Kiến thức chuyên sâu của ngành chính", 
                         "Kiến thức ngành thứ hai", "Kiến thức bổ trợ tự do", "Thực tập tốt nghiệp và làm khóa luận" };
                 cboQuảnlí_loạikt_2.DataSource = arr.ToList();

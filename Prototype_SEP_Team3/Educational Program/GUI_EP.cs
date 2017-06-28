@@ -37,10 +37,10 @@ namespace Prototype_SEP_Team3.Educational_Program
             this.WindowState = FormWindowState.Maximized;
 
             string c = Directory.GetCurrentDirectory();
-            wbCơsởvậtchất.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
-            wbKhốilượngkt.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
-            wbĐốitượng.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
-            wbQuytrình.Navigate(Path.Combine(c, "Educational Program\\EPCkeditor.html"));
+            wbCơsởvậtchất.Navigate(Path.Combine(c, "Educational Program\\1Ckeditor.html"));
+            wbKhốilượngkt.Navigate(Path.Combine(c, "Educational Program\\2Ckeditor.html"));
+            wbĐốitượng.Navigate(Path.Combine(c, "Educational Program\\3Ckeditor.html"));
+            wbQuytrình.Navigate(Path.Combine(c, "Educational Program\\4Ckeditor.html"));
 
 
             btnMụctiêu_hủy.Visible = false;
@@ -150,15 +150,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             tclMain.SelectedIndex = 2;
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
         }
@@ -168,15 +161,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             tclMain.SelectedIndex = 2;
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
         }
@@ -186,15 +172,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             tclMain.SelectedIndex = 2;
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
         }
@@ -204,15 +183,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             tclMain.SelectedIndex = 2;
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
         }
@@ -222,15 +194,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             tclMain.SelectedIndex = 2;
             if (checkck == 0)
             {
-                object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
         }
@@ -258,22 +223,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             }
             if (checkck == 0)
             {
-                try
-                {
-                    object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                    object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                    object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                    object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                    object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                    object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                    object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                    object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-                }
-                catch
-                {
-
-                }
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
                 checkck = 1;
             }
 
@@ -288,26 +239,12 @@ namespace Prototype_SEP_Team3.Educational_Program
             }
             if (checkck == 0)
             {
-                try
-                {
-                    object[] klktlst = new object[1] { load.KhoiLuongKienThucToanKhoa };
-                    object klkt = wbKhốilượngkt.Document.InvokeScript("setcontent", klktlst);
-                    object[] dtlst = new object[1] { load.DoiTuongTuyenSinh.ToString() };
-                    object dt = wbĐốitượng.Document.InvokeScript("setcontent", dtlst);
-                    object[] qtlst = new object[1] { load.QuyTrinhDaoTao.ToString() };
-                    object qt = wbQuytrình.Document.InvokeScript("setcontent", qtlst);
-                    object[] csvclst = new object[1] { load.CoSoVatChat.ToString() };
-                    object csvc = wbCơsởvậtchất.Document.InvokeScript("setcontent", csvclst);
-                }
-                catch
-                {
-
-                }
-
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr,idctdt);
                 checkck = 1;
             }
         }
-
+        
         //MỤC TIÊU ĐÀO TẠO
         //nút nhập
         //nút xóa
@@ -806,10 +743,10 @@ namespace Prototype_SEP_Team3.Educational_Program
                     DialogResult msrs = MessageBox.Show("Nếu thay đổi đối tượng này, học kì giảng dạy của các môn học sẽ đưa về Học kì 1, đồng thời tất cả quan hệ môn tiên quyết cũng bị hủy. Bạn có chắc chắn muốn thực hiện điều này không?", "Cảnh báo", MessageBoxButtons.YesNo);
                     if (msrs == System.Windows.Forms.DialogResult.Yes)
                     {
-                        bus.handleThoigiandaotao(idctdt,(double)nThờigian_năm.Value);
+                        bus.handleThoigiandaotao(idctdt, (double)nThờigian_năm.Value);
                         nThờigian_họckì.Value = (int)(nThờigian_năm.Value * 2);
                         loadCourseview();
-                        
+
                     }
                     else
                     {
@@ -832,7 +769,7 @@ namespace Prototype_SEP_Team3.Educational_Program
                 MessageBox.Show("Dữ liệu không đúng định dạng");
                 nThờigian_năm.Value = (decimal)(nThờigian_họckì.Value / 2);
             }
-            
+
         }
 
         //Edit CTDT
@@ -900,21 +837,77 @@ namespace Prototype_SEP_Team3.Educational_Program
             //Nhiều mục
             load.ThoiGianDaoTao = (double)nThờigian_năm.Value;
             load.ThangDiem = (int)nThangđiểm.Value;
-            object klkt = this.wbKhốilượngkt.Document.InvokeScript("getcontent").ToString();
-            load.KhoiLuongKienThucToanKhoa = klkt.ToString();
+            object klkt = this.wbKhốilượngkt.Document.InvokeScript("getcontent");
             object dt = wbĐốitượng.Document.InvokeScript("getcontent");
-            load.DoiTuongTuyenSinh = dt.ToString();
             object qt = wbQuytrình.Document.InvokeScript("getcontent");
-            load.QuyTrinhDaoTao = qt.ToString();
-
-            //quản lí môn học
-            //cở sở vật chất
             object csvc = wbCơsởvậtchất.Document.InvokeScript("getcontent");
-            load.CoSoVatChat = csvc.ToString();
+
+            string[] hdarr = new string[] { klkt.ToString(), dt.ToString(), qt.ToString(), csvc.ToString() };
+
+            handleCK(hdarr, load.ChuongTrinhDaoTao_Id);
+
+            load.KhoiLuongKienThucToanKhoa = convertUnicode(klkt.ToString());
+            load.DoiTuongTuyenSinh = convertUnicode(dt.ToString());
+            load.QuyTrinhDaoTao = convertUnicode(qt.ToString());
+            load.CoSoVatChat = convertUnicode(csvc.ToString());
+
             db.SaveChanges();
             MessageBox.Show("Chỉnh sửa thành công");
+
             this.Close();
         }
+
+        //CKEDITOR convert
+        private string convertUnicode(string istr)
+        {
+            istr = System.Net.WebUtility.HtmlDecode(istr);
+            istr = istr.Replace("<ul>", "").Replace("</ul>", "").Replace("<li>", "\n").Replace("</li>", "\n").
+                Replace("<ol>", "").Replace("</ol>", "").Replace("<em>", "").Replace("</em>", "").
+                    Replace("<s>", "").Replace("</s>", "").Replace("<strong>", "").Replace("</strong>", "").
+                        Replace("<p>", "").Replace("</p>", "").Replace("<br>","").Replace("/br","").Trim();
+            return istr;
+        }
+
+        //CKEDITOR save file
+        private void handleCK(string[] arr, int idctdt)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (arr[i] != "")
+                {
+                    string path = Application.StartupPath + @"\Educational Program\CK_" + idctdt + "_" + i + ".txt";
+                    if (System.IO.File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                    System.IO.FileStream fs = new FileStream(path, System.IO.FileMode.Create);
+                    StreamWriter sWriter = new StreamWriter(fs, Encoding.UTF8);
+                    sWriter.Write(arr[i].ToString());
+                    sWriter.Flush();
+                    fs.Close();
+                }
+            }
+        }
+        //CKEDITOR READ
+        private void readCK(WebBrowser[] iarr, int idctdt)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                string path = Application.StartupPath + @"\Educational Program\CK_" + idctdt + "_" + i + ".txt";
+                if (System.IO.File.Exists(path))
+                {
+                    FileStream fs = new FileStream(path, FileMode.Open);
+                    StreamReader sR = new StreamReader(fs, Encoding.UTF8);
+                    string a = sR.ReadToEnd();
+                    fs.Close();
+                    object[] arr = new object[1] { a.ToString() };
+                    object c = iarr[i].Document.InvokeScript("setcontent", arr);
+                }
+            }
+        }
+
+        //QUẢN LÍ MÔN HỌC
+        //Bảng tổng hop
 
         private void btnQuanli_view_Click(object sender, EventArgs e)
         {
@@ -928,8 +921,8 @@ namespace Prototype_SEP_Team3.Educational_Program
             List<TaiKhoan> ids = db.TaiKhoans.ToList();
             TableLayoutPanel rs3 = bus.drawDSGD(ilst3, ids);
             List<SP_MONTIENQUYET_GETTRUE_Result> mtq = db.SP_MONTIENQUYET_GETTRUE().ToList();
-            TableLayoutPanel rs4 = bus.drawNDVT(ilst3,ihk,mtq);
-            GUI_VIEW a = new GUI_VIEW(rs1, rs2,rs3,rs4);
+            TableLayoutPanel rs4 = bus.drawNDVT(ilst3, ihk, mtq);
+            GUI_VIEW a = new GUI_VIEW(rs1, rs2, rs3, rs4);
             a.ShowDialog();
         }
 

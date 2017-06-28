@@ -120,9 +120,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiangVienGiangDay.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="GUI_Chinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +131,9 @@
     </Compile>
     <Compile Include="GUI_Login.Designer.cs">
       <DependentUpon>GUI_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GVGD.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="KeHoachGDHTCuThe.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -154,6 +154,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Load_MucTieuMonHoc_Thinh_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_NoiDungChuongTrinh_MonHoc_Thinh_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Load_NoiDungVanTat_MonHoc_Thinh_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Load_PPDanhGia_Thinh_Result.cs">
@@ -1280,7 +1286,16 @@
     <Content Include="Educational Program\ckeditor\styles.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Educational Program\EPCkeditor.html">
+    <Content Include="Educational Program\3Ckeditor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Educational Program\4Ckeditor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Educational Program\2Ckeditor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Educational Program\1Ckeditor.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

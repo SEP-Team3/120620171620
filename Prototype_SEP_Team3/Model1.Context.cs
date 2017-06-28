@@ -30,7 +30,7 @@ namespace Prototype_SEP_Team3
         public virtual DbSet<ChuanDauRaMonHoc> ChuanDauRaMonHocs { get; set; }
         public virtual DbSet<ChuongTrinhDaoTao> ChuongTrinhDaoTaos { get; set; }
         public virtual DbSet<DeCuongChiTiet> DeCuongChiTiets { get; set; }
-        public virtual DbSet<GiangVienGiangDay> GiangVienGiangDays { get; set; }
+        public virtual DbSet<GVGD> GVGDs { get; set; }
         public virtual DbSet<KeHoachGDHTCuThe> KeHoachGDHTCuThes { get; set; }
         public virtual DbSet<KeHoanKiemTra> KeHoanKiemTras { get; set; }
         public virtual DbSet<MaTran_CDRMH_CDRCTDT> MaTran_CDRMH_CDRCTDT { get; set; }
@@ -335,6 +335,15 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result>("Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh", idParameter);
         }
     
+        public virtual ObjectResult<string> Load_MonHocTienQuyet_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Load_MonHocTienQuyet_Thinh", idParameter);
+        }
+    
         public virtual ObjectResult<Load_MucTieuMonHoc_Thinh_Result> Load_MucTieuMonHoc_Thinh(Nullable<int> id, string loai)
         {
             var idParameter = id.HasValue ?
@@ -346,6 +355,32 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("Loai", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_MucTieuMonHoc_Thinh_Result>("Load_MucTieuMonHoc_Thinh", idParameter, loaiParameter);
+        }
+    
+        public virtual ObjectResult<Load_NoiDungChuongTrinh_MonHoc_Thinh_Result> Load_NoiDungChuongTrinh_MonHoc_Thinh(Nullable<int> id, string loai)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var loaiParameter = loai != null ?
+                new ObjectParameter("loai", loai) :
+                new ObjectParameter("loai", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_NoiDungChuongTrinh_MonHoc_Thinh_Result>("Load_NoiDungChuongTrinh_MonHoc_Thinh", idParameter, loaiParameter);
+        }
+    
+        public virtual ObjectResult<Load_NoiDungVanTat_MonHoc_Thinh_Result> Load_NoiDungVanTat_MonHoc_Thinh(Nullable<int> id, Nullable<int> hocKi)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var hocKiParameter = hocKi.HasValue ?
+                new ObjectParameter("HocKi", hocKi) :
+                new ObjectParameter("HocKi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_NoiDungVanTat_MonHoc_Thinh_Result>("Load_NoiDungVanTat_MonHoc_Thinh", idParameter, hocKiParameter);
         }
     
         public virtual ObjectResult<Load_PPDanhGia_Thinh_Result> Load_PPDanhGia_Thinh(Nullable<int> id)
@@ -377,6 +412,15 @@ namespace Prototype_SEP_Team3
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Load_TaiLieuMonHoc_Thinh_Result>("Load_TaiLieuMonHoc_Thinh", idParameter);
+        }
+    
+        public virtual ObjectResult<string> Load_TienQuyet_MonHoc_Thinh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Load_TienQuyet_MonHoc_Thinh", idParameter);
         }
     
         public virtual ObjectResult<LoadChuanDauRaCTDTTheoMonHoc_Result> LoadChuanDauRaCTDTTheoMonHoc()

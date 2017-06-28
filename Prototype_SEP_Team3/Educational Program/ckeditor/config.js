@@ -16,5 +16,5 @@ CKEDITOR.editorConfig = function (config) {
 		{ name: 'about', groups: ['about'] }
     ];
 
-    config.removeButtons = 'Underline,Link,Unlink,Anchor,Image,Maximize,Source,About';
+    config.removeButtons = 'Underline,Link,Unlink,Anchor,Image,Maximize,Source,About,Scayt,Table,HorizontalRule,SpecialChar,Subscript,Superscript,Blockquote,Styles,Format';
 };

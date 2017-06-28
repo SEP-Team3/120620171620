@@ -17,6 +17,7 @@ namespace Prototype_SEP_Team3
         public DeCuongChiTiet()
         {
             this.ChuanDauRaMonHocs = new HashSet<ChuanDauRaMonHoc>();
+            this.GVGDs = new HashSet<GVGD>();
             this.KeHoachGDHTCuThes = new HashSet<KeHoachGDHTCuThe>();
             this.KeHoanKiemTras = new HashSet<KeHoanKiemTra>();
             this.MucTieuMonHocs = new HashSet<MucTieuMonHoc>();
@@ -37,6 +38,7 @@ namespace Prototype_SEP_Team3
     
         public virtual ICollection<ChuanDauRaMonHoc> ChuanDauRaMonHocs { get; set; }
         public virtual MonHoc MonHoc { get; set; }
+        public virtual ICollection<GVGD> GVGDs { get; set; }
         public virtual ICollection<KeHoachGDHTCuThe> KeHoachGDHTCuThes { get; set; }
         public virtual ICollection<KeHoanKiemTra> KeHoanKiemTras { get; set; }
         public virtual ICollection<MucTieuMonHoc> MucTieuMonHocs { get; set; }

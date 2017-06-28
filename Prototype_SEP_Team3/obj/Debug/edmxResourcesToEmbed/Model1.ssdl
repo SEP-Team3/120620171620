@@ -33,18 +33,18 @@
     <Property Name="GiangVienPhuTrach" Type="nvarchar(max)" />
     <Property Name="KhoiKienThuc" Type="int" />
   </EntityType>
-  <EntityType Name="GiangVienGiangDay">
+  <EntityType Name="GVGD">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
-    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
-    <Property Name="DienThoai" Type="varchar" MaxLength="15" />
-    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="DCCT_Id" Type="int" Nullable="false" />
+    <Property Name="DiaChi" Type="varbinary" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="13" />
+    <Property Name="Email" Type="varbinary" MaxLength="50" />
     <Property Name="TroGiang" Type="varbinary" MaxLength="50" />
-    <Property Name="ThoiGian" Type="varbinary(max)" />
-    <Property Name="TenGVPT" Type="varbinary" MaxLength="50" />
+    <Property Name="ThoiGian" Type="varchar" MaxLength="50" />
+    <Property Name="GVPT" Type="varbinary" MaxLength="50" />
   </EntityType>
   <EntityType Name="KeHoachGDHTCuThe">
     <Key>
@@ -203,10 +203,10 @@
     <Property Name="LoaiHinh" Type="nvarchar" MaxLength="100" />
     <Property Name="ThoiGianDaoTao" Type="float" />
     <Property Name="ThangDiem" Type="int" />
-    <Property Name="KhoiLuongKienThucToanKhoa" Type="nvarchar" MaxLength="200" />
-    <Property Name="DoiTuongTuyenSinh" Type="nvarchar" MaxLength="100" />
-    <Property Name="QuyTrinhDaoTao" Type="nvarchar" MaxLength="200" />
-    <Property Name="CoSoVatChat" Type="nvarchar" MaxLength="200" />
+    <Property Name="KhoiLuongKienThucToanKhoa" Type="ntext" />
+    <Property Name="DoiTuongTuyenSinh" Type="nvarchar(max)" />
+    <Property Name="QuyTrinhDaoTao" Type="nvarchar(max)" />
+    <Property Name="CoSoVatChat" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK_ChuanDauRaMonHoc_DeCuongChiTiet">
     <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="0..1" />
@@ -241,6 +241,18 @@
       </Principal>
       <Dependent Role="DeCuongChiTiet">
         <PropertyRef Name="MonHoc_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GVGD_DeCuongChiTiet">
+    <End Role="DeCuongChiTiet" Type="Self.DeCuongChiTiet" Multiplicity="1" />
+    <End Role="GVGD" Type="Self.GVGD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeCuongChiTiet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GVGD">
+        <PropertyRef Name="DCCT_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -485,9 +497,20 @@
   <Function Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
+  <Function Name="Load_MonHocTienQuyet_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
   <Function Name="Load_MucTieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
     <Parameter Name="Loai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Load_NoiDungChuongTrinh_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="loai" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Load_NoiDungVanTat_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="HocKi" Type="int" Mode="In" />
   </Function>
   <Function Name="Load_PPDanhGia_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
@@ -497,6 +520,9 @@
     <Parameter Name="Loai" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="Load_TaiLieuMonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Load_TienQuyet_MonHoc_Thinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="LoadChuanDauRaCTDTTheoMonHoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -559,7 +585,7 @@
     <EntitySet Name="ChuanDauRaMonHoc" EntityType="Self.ChuanDauRaMonHoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChuongTrinhDaoTao" EntityType="Self.ChuongTrinhDaoTao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeCuongChiTiet" EntityType="Self.DeCuongChiTiet" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="GiangVienGiangDay" EntityType="Self.GiangVienGiangDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GVGD" EntityType="Self.GVGD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeHoachGDHTCuThe" EntityType="Self.KeHoachGDHTCuThe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KeHoanKiemTra" EntityType="Self.KeHoanKiemTra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaTran_CDRMH_CDRCTDT" EntityType="Self.MaTran_CDRMH_CDRCTDT" Schema="dbo" store:Type="Tables" />
@@ -585,6 +611,10 @@
     <AssociationSet Name="FK_DeCuongChiTiet_MonHoc" Association="Self.FK_DeCuongChiTiet_MonHoc">
       <End Role="MonHoc" EntitySet="MonHoc" />
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GVGD_DeCuongChiTiet" Association="Self.FK_GVGD_DeCuongChiTiet">
+      <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />
+      <End Role="GVGD" EntitySet="GVGD" />
     </AssociationSet>
     <AssociationSet Name="FK_KeHoachGDHTCuThe_DeCuongChiTiet" Association="Self.FK_KeHoachGDHTCuThe_DeCuongChiTiet">
       <End Role="DeCuongChiTiet" EntitySet="DeCuongChiTiet" />

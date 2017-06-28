@@ -1056,7 +1056,6 @@ D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\D
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\skins\moono-lisa\images\refresh.png
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\skins\moono-lisa\images\spinner.gif
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\styles.js
-D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\EPCkeditor.html
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\CHANGES.md
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\LICENSE.md
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\ckeditor\plugins\scayt\CHANGELOG.md
@@ -1094,3 +1093,7 @@ D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\D
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Properties.Resources.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csproj.GenerateResource.Cache
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_VIEW.resources
+D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\3Ckeditor.html
+D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\4Ckeditor.html
+D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\2Ckeditor.html
+D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\bin\Debug\Educational Program\1Ckeditor.html

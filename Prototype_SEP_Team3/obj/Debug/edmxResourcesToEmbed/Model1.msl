@@ -37,17 +37,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GiangVienGiangDays">
-      <EntityTypeMapping TypeName="team3Model.GiangVienGiangDay">
-        <MappingFragment StoreEntitySet="GiangVienGiangDay">
+    <EntitySetMapping Name="GVGDs">
+      <EntityTypeMapping TypeName="team3Model.GVGD">
+        <MappingFragment StoreEntitySet="GVGD">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
+          <ScalarProperty Name="DCCT_Id" ColumnName="DCCT_Id" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="TroGiang" ColumnName="TroGiang" />
           <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-          <ScalarProperty Name="TenGVPT" ColumnName="TenGVPT" />
+          <ScalarProperty Name="GVPT" ColumnName="GVPT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -270,11 +270,34 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_MonHocTienQuyet_Thinh" FunctionName="team3Model.Store.Load_MonHocTienQuyet_Thinh" />
     <FunctionImportMapping FunctionImportName="Load_MucTieuMonHoc_Thinh" FunctionName="team3Model.Store.Load_MucTieuMonHoc_Thinh">
       <ResultMapping>
         <ComplexTypeMapping TypeName="team3Model.Load_MucTieuMonHoc_Thinh_Result">
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
           <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_NoiDungChuongTrinh_MonHoc_Thinh" FunctionName="team3Model.Store.Load_NoiDungChuongTrinh_MonHoc_Thinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Load_NoiDungChuongTrinh_MonHoc_Thinh_Result">
+          <ScalarProperty Name="LoaiKienThuc" ColumnName="LoaiKienThuc" />
+          <ScalarProperty Name="MonHoc_Id" ColumnName="MonHoc_Id" />
+          <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+          <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+          <ScalarProperty Name="HocKy" ColumnName="HocKy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_NoiDungVanTat_MonHoc_Thinh" FunctionName="team3Model.Store.Load_NoiDungVanTat_MonHoc_Thinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Load_NoiDungVanTat_MonHoc_Thinh_Result">
+          <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+          <ScalarProperty Name="NoiDungVanTat" ColumnName="NoiDungVanTat" />
+          <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+          <ScalarProperty Name="SoGioLyThuyet" ColumnName="SoGioLyThuyet" />
+          <ScalarProperty Name="SoGioThucHanh" ColumnName="SoGioThucHanh" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -305,6 +328,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_TienQuyet_MonHoc_Thinh" FunctionName="team3Model.Store.Load_TienQuyet_MonHoc_Thinh" />
     <FunctionImportMapping FunctionImportName="LoadChuanDauRaCTDTTheoMonHoc" FunctionName="team3Model.Store.LoadChuanDauRaCTDTTheoMonHoc">
       <ResultMapping>
         <ComplexTypeMapping TypeName="team3Model.LoadChuanDauRaCTDTTheoMonHoc_Result">
