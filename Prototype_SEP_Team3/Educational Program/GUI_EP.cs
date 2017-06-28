@@ -775,86 +775,94 @@ namespace Prototype_SEP_Team3.Educational_Program
         //Edit CTDT
         private void btnSave_Click(object sender, EventArgs e)
         {
-            load.TenChuongTrinh = txtTên.Text;
-            load.TenTiengAnh = txtTênEL.Text;
-            load.TrinhDo = cboTrìnhđộ.Text;
-            load.Nganh = txtNgành.Text;
-            load.LoaiHinh = txtLoạiđàotạo.Text;
-
-            //Mục tiêu đào tạo
-            db.SP_MUCTIEUDAOTAO_DEL(idctdt);
-            for (int i = 0; i < mtc.Count; i++)
+            if (checkck == 1)
             {
-                MucTieuDaoTao add = new MucTieuDaoTao();
-                add.Loai = "Chung";
-                add.NoiDung = mtc[i];
-                add.STT = i + 1;
-                add.ChuongTrinhDaoTao_Id = idctdt;
-                db.MucTieuDaoTaos.Add(add);
+                load.TenChuongTrinh = txtTên.Text;
+                load.TenTiengAnh = txtTênEL.Text;
+                load.TrinhDo = cboTrìnhđộ.Text;
+                load.Nganh = txtNgành.Text;
+                load.LoaiHinh = txtLoạiđàotạo.Text;
+
+                //Mục tiêu đào tạo
+                db.SP_MUCTIEUDAOTAO_DEL(idctdt);
+                for (int i = 0; i < mtc.Count; i++)
+                {
+                    MucTieuDaoTao add = new MucTieuDaoTao();
+                    add.Loai = "Chung";
+                    add.NoiDung = mtc[i];
+                    add.STT = i + 1;
+                    add.ChuongTrinhDaoTao_Id = idctdt;
+                    db.MucTieuDaoTaos.Add(add);
+                    db.SaveChanges();
+                }
+                for (int i = 0; i < mtct_pc.Count; i++)
+                {
+                    MucTieuDaoTao add = new MucTieuDaoTao();
+                    add.Loai = "Phẩm chất";
+                    add.NoiDung = mtct_pc[i];
+                    add.STT = i + 1;
+                    add.ChuongTrinhDaoTao_Id = idctdt;
+                    db.MucTieuDaoTaos.Add(add);
+                    db.SaveChanges();
+                }
+                for (int i = 0; i < mtct_kt.Count; i++)
+                {
+                    MucTieuDaoTao add = new MucTieuDaoTao();
+                    add.Loai = "Kiến thức";
+                    add.NoiDung = mtct_kt[i];
+                    add.STT = i + 1;
+                    add.ChuongTrinhDaoTao_Id = idctdt;
+                    db.MucTieuDaoTaos.Add(add);
+                    db.SaveChanges();
+                }
+                for (int i = 0; i < mtct_kn.Count; i++)
+                {
+                    MucTieuDaoTao add = new MucTieuDaoTao();
+                    add.Loai = "Kĩ năng";
+                    add.NoiDung = mtct_kn[i];
+                    add.STT = i + 1;
+                    add.ChuongTrinhDaoTao_Id = idctdt;
+                    db.MucTieuDaoTaos.Add(add);
+                    db.SaveChanges();
+                }
+                for (int i = 0; i < mtct_td.Count; i++)
+                {
+                    MucTieuDaoTao add = new MucTieuDaoTao();
+                    add.Loai = "Thái độ";
+                    add.NoiDung = mtct_td[i];
+                    add.STT = i + 1;
+                    add.ChuongTrinhDaoTao_Id = idctdt;
+                    db.MucTieuDaoTaos.Add(add);
+                    db.SaveChanges();
+                }
+
+                //Nhiều mục
+                load.ThoiGianDaoTao = (double)nThờigian_năm.Value;
+                load.ThangDiem = (int)nThangđiểm.Value;
+                object klkt = this.wbKhốilượngkt.Document.InvokeScript("getcontent");
+                object dt = wbĐốitượng.Document.InvokeScript("getcontent");
+                object qt = wbQuytrình.Document.InvokeScript("getcontent");
+                object csvc = wbCơsởvậtchất.Document.InvokeScript("getcontent");
+
+                string[] hdarr = new string[] { klkt.ToString(), dt.ToString(), qt.ToString(), csvc.ToString() };
+
+                handleCK(hdarr, load.ChuongTrinhDaoTao_Id);
+
+                load.KhoiLuongKienThucToanKhoa = convertUnicode(klkt.ToString());
+                load.DoiTuongTuyenSinh = convertUnicode(dt.ToString());
+                load.QuyTrinhDaoTao = convertUnicode(qt.ToString());
+                load.CoSoVatChat = convertUnicode(csvc.ToString());
+
                 db.SaveChanges();
+                MessageBox.Show("Chỉnh sửa thành công");
+
+                this.Close();
             }
-            for (int i = 0; i < mtct_pc.Count; i++)
+            else
             {
-                MucTieuDaoTao add = new MucTieuDaoTao();
-                add.Loai = "Phẩm chất";
-                add.NoiDung = mtct_pc[i];
-                add.STT = i + 1;
-                add.ChuongTrinhDaoTao_Id = idctdt;
-                db.MucTieuDaoTaos.Add(add);
-                db.SaveChanges();
+                MessageBox.Show("Chỉnh sửa thành công");
+                this.Close();
             }
-            for (int i = 0; i < mtct_kt.Count; i++)
-            {
-                MucTieuDaoTao add = new MucTieuDaoTao();
-                add.Loai = "Kiến thức";
-                add.NoiDung = mtct_kt[i];
-                add.STT = i + 1;
-                add.ChuongTrinhDaoTao_Id = idctdt;
-                db.MucTieuDaoTaos.Add(add);
-                db.SaveChanges();
-            }
-            for (int i = 0; i < mtct_kn.Count; i++)
-            {
-                MucTieuDaoTao add = new MucTieuDaoTao();
-                add.Loai = "Kĩ năng";
-                add.NoiDung = mtct_kn[i];
-                add.STT = i + 1;
-                add.ChuongTrinhDaoTao_Id = idctdt;
-                db.MucTieuDaoTaos.Add(add);
-                db.SaveChanges();
-            }
-            for (int i = 0; i < mtct_td.Count; i++)
-            {
-                MucTieuDaoTao add = new MucTieuDaoTao();
-                add.Loai = "Thái độ";
-                add.NoiDung = mtct_td[i];
-                add.STT = i + 1;
-                add.ChuongTrinhDaoTao_Id = idctdt;
-                db.MucTieuDaoTaos.Add(add);
-                db.SaveChanges();
-            }
-
-            //Nhiều mục
-            load.ThoiGianDaoTao = (double)nThờigian_năm.Value;
-            load.ThangDiem = (int)nThangđiểm.Value;
-            object klkt = this.wbKhốilượngkt.Document.InvokeScript("getcontent");
-            object dt = wbĐốitượng.Document.InvokeScript("getcontent");
-            object qt = wbQuytrình.Document.InvokeScript("getcontent");
-            object csvc = wbCơsởvậtchất.Document.InvokeScript("getcontent");
-
-            string[] hdarr = new string[] { klkt.ToString(), dt.ToString(), qt.ToString(), csvc.ToString() };
-
-            handleCK(hdarr, load.ChuongTrinhDaoTao_Id);
-
-            load.KhoiLuongKienThucToanKhoa = convertUnicode(klkt.ToString());
-            load.DoiTuongTuyenSinh = convertUnicode(dt.ToString());
-            load.QuyTrinhDaoTao = convertUnicode(qt.ToString());
-            load.CoSoVatChat = convertUnicode(csvc.ToString());
-
-            db.SaveChanges();
-            MessageBox.Show("Chỉnh sửa thành công");
-
-            this.Close();
         }
 
         //CKEDITOR convert
@@ -862,9 +870,10 @@ namespace Prototype_SEP_Team3.Educational_Program
         {
             istr = System.Net.WebUtility.HtmlDecode(istr);
             istr = istr.Replace("<ul>", "").Replace("</ul>", "").Replace("<li>", "\n").Replace("</li>", "\n").
-                Replace("<ol>", "").Replace("</ol>", "").Replace("<em>", "").Replace("</em>", "").
+                Replace("<ol>", "").Replace("</ol>", "\n").Replace("<em>", "").Replace("</em>", "").
                     Replace("<s>", "").Replace("</s>", "").Replace("<strong>", "").Replace("</strong>", "").
-                        Replace("<p>", "").Replace("</p>", "").Replace("<br>","").Replace("/br","").Trim();
+                        Replace("<p>", "").Replace("</p>", "").Replace("<br>", "").Replace("/br", "").Replace("\t","").Trim();            
+            istr = istr.Replace("\n\n", "");
             return istr;
         }
 
