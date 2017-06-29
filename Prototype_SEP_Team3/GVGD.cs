@@ -16,12 +16,12 @@ namespace Prototype_SEP_Team3
     {
         public int Id { get; set; }
         public int DCCT_Id { get; set; }
-        public byte[] DiaChi { get; set; }
+        public string DiaChi { get; set; }
         public string DienThoai { get; set; }
-        public byte[] Email { get; set; }
-        public byte[] TroGiang { get; set; }
+        public string Email { get; set; }
+        public string TroGiang { get; set; }
         public string ThoiGian { get; set; }
-        public byte[] GVPT { get; set; }
+        public string GVPT { get; set; }
     
         public virtual DeCuongChiTiet DeCuongChiTiet { get; set; }
     }

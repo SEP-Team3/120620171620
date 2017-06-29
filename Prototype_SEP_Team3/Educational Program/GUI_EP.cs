@@ -125,11 +125,6 @@ namespace Prototype_SEP_Team3.Educational_Program
         }
 
         //SET UP MỤC LỤC
-        private void ClickKehoachgiangday(object sender, EventArgs e)
-        {
-            tclMain.SelectedIndex = 5;
-        }
-
         private void HoverMucluc(object sender, EventArgs e)
         {
             msMụclục.ShowDropDown();
@@ -138,11 +133,23 @@ namespace Prototype_SEP_Team3.Educational_Program
         private void ClickThôngtinchung(object sender, EventArgs e)
         {
             tclMain.SelectedIndex = 0;
+            if (checkck == 0)
+            {
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
+                checkck = 1;
+            }
         }
 
         private void ClickMuctieudaotao(object sender, EventArgs e)
         {
             tclMain.SelectedIndex = 1;
+            if (checkck == 0)
+            {
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
+                checkck = 1;
+            }
         }
 
         private void ClickThoigiandaotao(object sender, EventArgs e)
@@ -204,10 +211,22 @@ namespace Prototype_SEP_Team3.Educational_Program
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             tclMain.SelectedIndex = 3;
+            if (checkck == 0)
+            {
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
+                checkck = 1;
+            }
         }
         private void ClickCosovatchat(object sender, EventArgs e)
         {
             tclMain.SelectedIndex = 4;
+            if (checkck == 0)
+            {
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
+                checkck = 1;
+            }
         }
 
 
@@ -929,7 +948,7 @@ namespace Prototype_SEP_Team3.Educational_Program
             List<MonHoc> ilst3 = db.MonHocs.Where(x => x.ChuongTrinhDaoTao_Id == idctdt).ToList();
             List<TaiKhoan> ids = db.TaiKhoans.ToList();
             TableLayoutPanel rs3 = bus.drawDSGD(ilst3, ids);
-            List<SP_MONTIENQUYET_GETTRUE_Result> mtq = db.SP_MONTIENQUYET_GETTRUE().ToList();
+            List<SP_MONTIENQUYET_GETTRUE_Result> mtq = db.SP_MONTIENQUYET_GETTRUE(idctdt).ToList();
             TableLayoutPanel rs4 = bus.drawNDVT(ilst3, ihk, mtq);
             GUI_VIEW a = new GUI_VIEW(rs1, rs2, rs3, rs4);
             a.ShowDialog();

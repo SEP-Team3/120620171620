@@ -15,11 +15,13 @@ namespace Prototype_SEP_Team3
     public partial class MaTran_CDRMH_CDRCTDT
     {
         public int Id { get; set; }
-        public Nullable<int> ChuanDauRaMonHoc_Id { get; set; }
-        public Nullable<int> MucTieuDaoTao_Id { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public int DCCT_Id { get; set; }
+        public int CDRMH_Id { get; set; }
+        public int CDRCTDT_Id { get; set; }
+        public bool Mapped { get; set; }
     
         public virtual ChuanDauRaMonHoc ChuanDauRaMonHoc { get; set; }
+        public virtual DeCuongChiTiet DeCuongChiTiet { get; set; }
         public virtual MucTieuDaoTao MucTieuDaoTao { get; set; }
     }
 }

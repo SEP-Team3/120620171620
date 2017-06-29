@@ -20,6 +20,7 @@ namespace Prototype_SEP_Team3
             this.GVGDs = new HashSet<GVGD>();
             this.KeHoachGDHTCuThes = new HashSet<KeHoachGDHTCuThe>();
             this.KeHoanKiemTras = new HashSet<KeHoanKiemTra>();
+            this.MaTran_CDRMH_CDRCTDT = new HashSet<MaTran_CDRMH_CDRCTDT>();
             this.MucTieuMonHocs = new HashSet<MucTieuMonHoc>();
             this.PPDanhGiaKQHTs = new HashSet<PPDanhGiaKQHT>();
             this.TaiLieuMonHocs = new HashSet<TaiLieuMonHoc>();
@@ -41,6 +42,7 @@ namespace Prototype_SEP_Team3
         public virtual ICollection<GVGD> GVGDs { get; set; }
         public virtual ICollection<KeHoachGDHTCuThe> KeHoachGDHTCuThes { get; set; }
         public virtual ICollection<KeHoanKiemTra> KeHoanKiemTras { get; set; }
+        public virtual ICollection<MaTran_CDRMH_CDRCTDT> MaTran_CDRMH_CDRCTDT { get; set; }
         public virtual ICollection<MucTieuMonHoc> MucTieuMonHocs { get; set; }
         public virtual ICollection<PPDanhGiaKQHT> PPDanhGiaKQHTs { get; set; }
         public virtual ICollection<TaiLieuMonHoc> TaiLieuMonHocs { get; set; }

@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="35805c29da9244adbbf3b085209fdfdd" Name="Diagram1">
-        <EntityTypeShape EntityType="team3Model.ChuanDauRaMonHoc" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+      <Diagram DiagramId="eea76efae190454a90757f6d455bc2e8" Name="Diagram1">
+        <EntityTypeShape EntityType="team3Model.ChuanDauRaMonHoc" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.ChuongTrinhDaoTao" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.DeCuongChiTiet" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.GVGD" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.KeHoachGDHTCuThe" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.KeHoanKiemTra" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MaTran_CDRMH_CDRCTDT" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.DeCuongChiTiet" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.GVGD" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.KeHoachGDHTCuThe" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.KeHoanKiemTra" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MaTran_CDRMH_CDRCTDT" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.MaTran_ChuanDauRaMH_HDGDPPDG" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MonHoc" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MonTienQuyet" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MonHoc" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MonTienQuyet" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.MucTieuDaoTao" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.MucTieuMonHoc" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.MucTieuMonHoc" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.PhanQuyenTaiKhoan" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.PPDanhGiaKQHT" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.sysdiagram" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.PPDanhGiaKQHT" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.sysdiagram" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.TaiKhoan" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="team3Model.TaiLieuMonHoc" Width="1.5" PointX="5.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="team3Model.TaiLieuMonHoc" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="team3Model.ThongTinChung_CTDT" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
         <AssociationConnector Association="team3Model.FK_ChuanDauRaMonHoc_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_MaTran_CDRMH_CDRCTDT_ChuanDauRaMonHoc" ManuallyRouted="false" />
@@ -33,6 +33,7 @@
         <AssociationConnector Association="team3Model.FK_GVGD_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_KeHoachGDHTCuThe_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_KeHoanKiemTra_DeCuongChiTiet" ManuallyRouted="false" />
+        <AssociationConnector Association="team3Model.FK_MaTran_CDRMH_CDRCTDT_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_MucTieuMonHoc_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_PPDanhGiaKQHT_DeCuongChiTiet" ManuallyRouted="false" />
         <AssociationConnector Association="team3Model.FK_TaiLieuMonHoc_DeCuongChiTiet" ManuallyRouted="false" />

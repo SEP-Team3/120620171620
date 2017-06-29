@@ -13,6 +13,7 @@ namespace Prototype_SEP_Team3
     
     public partial class Load_NoiDungVanTat_MonHoc_Thinh_Result
     {
+        public int Id { get; set; }
         public string TenMonHoc { get; set; }
         public string NoiDungVanTat { get; set; }
         public int SoTinChi { get; set; }

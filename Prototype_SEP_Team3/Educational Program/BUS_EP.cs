@@ -828,9 +828,14 @@ namespace Prototype_SEP_Team3.Educational_Program
                                 addstr += b.TenMonHoc + ", ";
                             }
                         }
-                        addstr.Replace(", ", "");
+                        addstr.Trim();
                     }
-                    else
+                    if (addstr.Substring(addstr.Length-2,2)==", ")
+                    {
+                        addstr.Trim();
+                        addstr.Remove(addstr.Length-2);
+                    }
+                    if (addstr.Substring(addstr.Length - 2, 2) == ": ")
                     {
                         addstr += "không có";
                     }

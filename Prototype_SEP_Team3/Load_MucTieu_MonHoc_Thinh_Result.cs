@@ -11,10 +11,12 @@ namespace Prototype_SEP_Team3
 {
     using System;
     
-    public partial class Load_TaiLieuMonHoc_Thinh_Result
+    public partial class Load_MucTieu_MonHoc_Thinh_Result
     {
-        public string Loai { get; set; }
-        public string NoiDung { get; set; }
-        public Nullable<int> STT { get; set; }
+        public string MonHoc_Id { get; set; }
+        public string TenMonHoc { get; set; }
+        public int SoTinChi { get; set; }
+        public int SoGioLyThuyet { get; set; }
+        public int SoGioThucHanh { get; set; }
     }
 }

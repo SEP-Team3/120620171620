@@ -16,5 +16,10 @@ namespace Prototype_SEP_Team3.Admin
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
