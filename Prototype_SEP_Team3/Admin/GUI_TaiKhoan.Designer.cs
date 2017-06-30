@@ -39,12 +39,12 @@
             this.txtRMK = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dtgvTK = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bACKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUẢNLÝPHÂNQUYỀNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +109,7 @@
             this.txtMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMK.Location = new System.Drawing.Point(163, 243);
             this.txtMK.Name = "txtMK";
+            this.txtMK.PasswordChar = '*';
             this.txtMK.Size = new System.Drawing.Size(385, 24);
             this.txtMK.TabIndex = 17;
             // 
@@ -127,6 +128,7 @@
             this.txtRMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRMK.Location = new System.Drawing.Point(163, 291);
             this.txtRMK.Name = "txtRMK";
+            this.txtRMK.PasswordChar = '*';
             this.txtRMK.Size = new System.Drawing.Size(385, 24);
             this.txtRMK.TabIndex = 19;
             // 
@@ -151,21 +153,23 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Tìm kiếm";
             // 
-            // dataGridView1
+            // dtgvTK
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(595, 137);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(625, 335);
-            this.dataGridView1.TabIndex = 23;
+            this.dtgvTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTK.Location = new System.Drawing.Point(595, 137);
+            this.dtgvTK.Name = "dtgvTK";
+            this.dtgvTK.Size = new System.Drawing.Size(625, 335);
+            this.dtgvTK.TabIndex = 23;
+            this.dtgvTK.DoubleClick += new System.EventHandler(this.dtgvTK_DoubleClick);
             // 
-            // textBox5
+            // txtSearch
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(888, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(332, 24);
-            this.textBox5.TabIndex = 22;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(888, 105);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(332, 24);
+            this.txtSearch.TabIndex = 22;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // menuStrip1
             // 
@@ -196,8 +200,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 496);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.dtgvTK);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtRMK);
@@ -212,7 +216,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GUI_TaiKhoan";
             this.Text = "GUI_TaiKhoan";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -233,8 +237,8 @@
         private System.Windows.Forms.TextBox txtRMK;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DataGridView dtgvTK;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem bACKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem qUẢNLÝPHÂNQUYỀNToolStripMenuItem;

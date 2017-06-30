@@ -56,13 +56,11 @@
         <MappingFragment StoreEntitySet="KeHoachGDHTCuThe">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
-          <ScalarProperty Name="Tuan" ColumnName="Tuan" />
           <ScalarProperty Name="Buoi" ColumnName="Buoi" />
-          <ScalarProperty Name="LyThuyet" ColumnName="LyThuyet" />
-          <ScalarProperty Name="ThaoLuan" ColumnName="ThaoLuan" />
-          <ScalarProperty Name="BaiTap" ColumnName="BaiTap" />
-          <ScalarProperty Name="TuHoc" ColumnName="TuHoc" />
-          <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+          <ScalarProperty Name="SoTietLenLop" ColumnName="SoTietLenLop" />
+          <ScalarProperty Name="NoiDungBaiHoc" ColumnName="NoiDungBaiHoc" />
+          <ScalarProperty Name="HoatDongDayVaHoc" ColumnName="HoatDongDayVaHoc" />
+          <ScalarProperty Name="TaiLieuCanDoc" ColumnName="TaiLieuCanDoc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -424,6 +422,16 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SP_MUCTIEUDAOTAO_DEL" FunctionName="team3Model.Store.SP_MUCTIEUDAOTAO_DEL" />
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="team3Model.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="SP_TAIKHOAN_SEARCH" FunctionName="team3Model.Store.SP_TAIKHOAN_SEARCH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.SP_TAIKHOAN_SEARCH_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SP_TEXT" FunctionName="team3Model.Store.SP_TEXT">
       <ResultMapping>
         <ComplexTypeMapping TypeName="team3Model.SP_TEXT_Result">

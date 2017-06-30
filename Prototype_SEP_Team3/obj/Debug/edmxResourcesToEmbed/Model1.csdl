@@ -68,13 +68,11 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DeCuongChiTiet_Id" Type="Int32" Nullable="false" />
-    <Property Name="Tuan" Type="Int32" />
-    <Property Name="Buoi" Type="Int32" />
-    <Property Name="LyThuyet" Type="Int32" />
-    <Property Name="ThaoLuan" Type="Int32" />
-    <Property Name="BaiTap" Type="Int32" />
-    <Property Name="TuHoc" Type="Int32" />
-    <Property Name="Noidung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoTietLenLop" Type="Int32" />
+    <Property Name="NoiDungBaiHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HoatDongDayVaHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaiLieuCanDoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DeCuongChiTiet" Relationship="Self.FK_KeHoachGDHTCuThe_DeCuongChiTiet" FromRole="KeHoachGDHTCuThe" ToRole="DeCuongChiTiet" />
   </EntityType>
   <EntityType Name="KeHoanKiemTra">
@@ -208,7 +206,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -694,6 +692,9 @@
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="SP_TAIKHOAN_SEARCH" ReturnType="Collection(team3Model.SP_TAIKHOAN_SEARCH_Result)">
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="SP_TEXT" ReturnType="Collection(team3Model.SP_TEXT_Result)">
       <Parameter Name="idmonhoc" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -817,6 +818,12 @@
   <ComplexType Name="SP_MONTIENQUYET_GETTRUE_Result">
     <Property Type="Int32" Name="MonHoc_Id" Nullable="false" />
     <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_TAIKHOAN_SEARCH_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="MatKhau" Nullable="false" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="SP_TEXT_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />

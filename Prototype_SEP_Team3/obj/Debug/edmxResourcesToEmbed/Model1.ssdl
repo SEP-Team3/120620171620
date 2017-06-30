@@ -52,13 +52,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
-    <Property Name="Tuan" Type="int" />
-    <Property Name="Buoi" Type="int" />
-    <Property Name="LyThuyet" Type="int" />
-    <Property Name="ThaoLuan" Type="int" />
-    <Property Name="BaiTap" Type="int" />
-    <Property Name="TuHoc" Type="int" />
-    <Property Name="Noidung" Type="nvarchar" MaxLength="500" />
+    <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoTietLenLop" Type="int" />
+    <Property Name="NoiDungBaiHoc" Type="nvarchar(max)" />
+    <Property Name="HoatDongDayVaHoc" Type="nvarchar(max)" />
+    <Property Name="TaiLieuCanDoc" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="KeHoanKiemTra">
     <Key>
@@ -176,7 +174,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
@@ -567,6 +565,9 @@
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TAIKHOAN_SEARCH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="search" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="SP_TEXT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idmonhoc" Type="int" Mode="In" />

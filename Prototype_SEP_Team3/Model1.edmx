@@ -57,13 +57,11 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeCuongChiTiet_Id" Type="int" Nullable="false" />
-          <Property Name="Tuan" Type="int" />
-          <Property Name="Buoi" Type="int" />
-          <Property Name="LyThuyet" Type="int" />
-          <Property Name="ThaoLuan" Type="int" />
-          <Property Name="BaiTap" Type="int" />
-          <Property Name="TuHoc" Type="int" />
-          <Property Name="Noidung" Type="nvarchar" MaxLength="500" />
+          <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoTietLenLop" Type="int" />
+          <Property Name="NoiDungBaiHoc" Type="nvarchar(max)" />
+          <Property Name="HoatDongDayVaHoc" Type="nvarchar(max)" />
+          <Property Name="TaiLieuCanDoc" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="KeHoanKiemTra">
           <Key>
@@ -181,7 +179,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
@@ -573,6 +571,9 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_TAIKHOAN_SEARCH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="search" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SP_TEXT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idmonhoc" Type="int" Mode="In" />
         </Function>
@@ -746,13 +747,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DeCuongChiTiet_Id" Type="Int32" Nullable="false" />
-          <Property Name="Tuan" Type="Int32" />
-          <Property Name="Buoi" Type="Int32" />
-          <Property Name="LyThuyet" Type="Int32" />
-          <Property Name="ThaoLuan" Type="Int32" />
-          <Property Name="BaiTap" Type="Int32" />
-          <Property Name="TuHoc" Type="Int32" />
-          <Property Name="Noidung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoTietLenLop" Type="Int32" />
+          <Property Name="NoiDungBaiHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HoatDongDayVaHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaiLieuCanDoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DeCuongChiTiet" Relationship="Self.FK_KeHoachGDHTCuThe_DeCuongChiTiet" FromRole="KeHoachGDHTCuThe" ToRole="DeCuongChiTiet" />
         </EntityType>
         <EntityType Name="KeHoanKiemTra">
@@ -886,7 +885,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1372,6 +1371,9 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_TAIKHOAN_SEARCH" ReturnType="Collection(team3Model.SP_TAIKHOAN_SEARCH_Result)">
+            <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="SP_TEXT" ReturnType="Collection(team3Model.SP_TEXT_Result)">
             <Parameter Name="idmonhoc" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1496,6 +1498,12 @@
           <Property Type="Int32" Name="MonHoc_Id" Nullable="false" />
           <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <ComplexType Name="SP_TAIKHOAN_SEARCH_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MatKhau" Nullable="false" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="SP_TEXT_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Monhoc_Id" Nullable="false" MaxLength="50" />
@@ -1565,13 +1573,11 @@
               <MappingFragment StoreEntitySet="KeHoachGDHTCuThe">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DeCuongChiTiet_Id" ColumnName="DeCuongChiTiet_Id" />
-                <ScalarProperty Name="Tuan" ColumnName="Tuan" />
                 <ScalarProperty Name="Buoi" ColumnName="Buoi" />
-                <ScalarProperty Name="LyThuyet" ColumnName="LyThuyet" />
-                <ScalarProperty Name="ThaoLuan" ColumnName="ThaoLuan" />
-                <ScalarProperty Name="BaiTap" ColumnName="BaiTap" />
-                <ScalarProperty Name="TuHoc" ColumnName="TuHoc" />
-                <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+                <ScalarProperty Name="SoTietLenLop" ColumnName="SoTietLenLop" />
+                <ScalarProperty Name="NoiDungBaiHoc" ColumnName="NoiDungBaiHoc" />
+                <ScalarProperty Name="HoatDongDayVaHoc" ColumnName="HoatDongDayVaHoc" />
+                <ScalarProperty Name="TaiLieuCanDoc" ColumnName="TaiLieuCanDoc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1933,6 +1939,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_MUCTIEUDAOTAO_DEL" FunctionName="team3Model.Store.SP_MUCTIEUDAOTAO_DEL" />
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="team3Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SP_TAIKHOAN_SEARCH" FunctionName="team3Model.Store.SP_TAIKHOAN_SEARCH">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="team3Model.SP_TAIKHOAN_SEARCH_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_TEXT" FunctionName="team3Model.Store.SP_TEXT">
             <ResultMapping>
               <ComplexTypeMapping TypeName="team3Model.SP_TEXT_Result">

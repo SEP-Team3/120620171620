@@ -16,13 +16,11 @@ namespace Prototype_SEP_Team3
     {
         public int Id { get; set; }
         public int DeCuongChiTiet_Id { get; set; }
-        public Nullable<int> Tuan { get; set; }
-        public Nullable<int> Buoi { get; set; }
-        public Nullable<int> LyThuyet { get; set; }
-        public Nullable<int> ThaoLuan { get; set; }
-        public Nullable<int> BaiTap { get; set; }
-        public Nullable<int> TuHoc { get; set; }
-        public string Noidung { get; set; }
+        public string Buoi { get; set; }
+        public Nullable<int> SoTietLenLop { get; set; }
+        public string NoiDungBaiHoc { get; set; }
+        public string HoatDongDayVaHoc { get; set; }
+        public string TaiLieuCanDoc { get; set; }
     
         public virtual DeCuongChiTiet DeCuongChiTiet { get; set; }
     }

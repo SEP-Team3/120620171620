@@ -520,6 +520,15 @@ namespace Prototype_SEP_Team3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
         }
     
+        public virtual ObjectResult<SP_TAIKHOAN_SEARCH_Result> SP_TAIKHOAN_SEARCH(string search)
+        {
+            var searchParameter = search != null ?
+                new ObjectParameter("search", search) :
+                new ObjectParameter("search", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_TAIKHOAN_SEARCH_Result>("SP_TAIKHOAN_SEARCH", searchParameter);
+        }
+    
         public virtual ObjectResult<SP_TEXT_Result> SP_TEXT(Nullable<int> idmonhoc)
         {
             var idmonhocParameter = idmonhoc.HasValue ?
