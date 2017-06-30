@@ -544,6 +544,7 @@ namespace Prototype_SEP_Team3.Detailed_Syllabus
 
 
         }
+
         ////CKEDITOR CONVERT
         //private string ConvertUnicdoe(string istr)
         //{
@@ -2260,93 +2261,155 @@ namespace Prototype_SEP_Team3.Detailed_Syllabus
         }
         #endregion
 
+        #region KE HOACH KIEM TRA CU THE LIST
+
         
+
+        //// NUT NHAP
+        //// NUT XOA
+
+        string getBuoi;
+
+        List<string> lstNoiDung;
+        List<string> lstHoatDong;
+        List<string> lstTaiLieuCanDoc;
+
+        private void btnKHGDCT_Them_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        ////TAI LIEU LIST
+        ////Hàm vẽ list view
+        private void showKeHoachGiangDay()
+        {
+            foreach (KeHoachGiangDayCuThe_List khgd in khgd_Lst)
+            {
+                lstKHGDCT.Items.Add("+ Buổi/Tuần/ngày: " + khgd.buoi);
+                lstKHGDCT.Items.Add("    + Số tiết trên lớp: " + khgd.tiet);
+
+                List<KeHoachGiangDayCuThe_List> khgd_ND = khgd_Lst.Where(x => x.buoi == khgd.buoi).ToList();
+
+                lstKHGDCT.Items.Add("    + Nội dung bài học:");
+                foreach (var ndItem in khgd_ND)
+                {
+                    for (int i = 0; i < ndItem.noiDung.Count; i++)
+                        lstKHGDCT.Items.Add("           - " + ndItem.noiDung[i]);
+                }
+
+                lstKHGDCT.Items.Add("    + Hoạt động dạy và học:");
+                foreach (var hdItem in khgd_ND)
+                {
+                    for (int i = 0; i < hdItem.hoatDong.Count; i++)
+                        lstKHGDCT.Items.Add("           - " + hdItem.hoatDong[i]);
+                }
+
+                lstKHGDCT.Items.Add("    + Tài liệu cần đọc:");
+                foreach (var tlItem in khgd_ND)
+                {
+                    for (int i = 0; i < tlItem.taiLieu.Count; i++)
+                        lstKHGDCT.Items.Add("           - " + tlItem.taiLieu[i]);
+                }
+
+                lstKHGDCT.Items.Add("\n");
+            }
+        }
+
+        ////TAI LIEU LIST
+        ////load dữ liệu item dc chọn trong view
+        string buoiLength = "";
+        string getBuoi_FDelete = ""; // lúc xóa lstKHGD từ dưới lên tới cái trên cùng bị lỗi
+        private void lstKHGDCT_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnKHGDCT_Sua_Click(object sender, EventArgs e)
+        {
+            DialogResult a = MessageBox.Show("Bạn có muốn sửa đối tượng này không?", "Thông báo", MessageBoxButtons.OKCancel);
+            if (a == DialogResult.OK)
+            {
+                
+
+            }
+        }
+        #endregion
 
         #region MA TRAN CDR MH - CDR CTDT
 
         private void btnMaTran_2CDR_Click(object sender, EventArgs e)
         {
             DBEntities model = new DBEntities();
+            //List<ChuanDauRaMonHoc> lstCDRMH = model.ChuanDauRaMonHocs.Where(x => x.DeCuongChiTiet_Id == getId).ToList();
 
-            DeCuongChiTiet dcct = model.DeCuongChiTiets.Single(x => x.Id == getId);
-            //if (checkck == 1)
+            //bool flagAdd = false;
+
+            //foreach (var item in lstCDRMH)
             //{
+            //    foreach (DataGridViewRow row in lstMaTran_ChuanDauRaCTDT.Rows)
+            //    {
+            //        flagAdd = bus.Add_MaTran_2CDR(getId, item.STT.Value, int.Parse(row.Cells["STT"].Value.ToString()), false);
+            //    }
+            //}
 
-            //dcct
-            string tenChuongTrinh = txtTenChuongTrinh.Text;
-            string tenTiengAnh = txtTenTiengAnh.Text;
-            string trinhDo = txtTrinhDo.Text;
+            //if (flagAdd == false) MessageBox.Show("Thêm dữ liệu vào CSDL thất bại");
+            //else MessageBox.Show("Đã lưu");
 
-            // BUS 
-            bool flag = bus.Update_DCCT(getId, tenChuongTrinh, tenTiengAnh, trinhDo);
+            int cdrmh_Id = int.Parse(cboMaTran_ChuanDauRaMonHoc.SelectedValue.ToString());
 
-            //mon hoc
-            string maHocPhan = txtMaHocPhan.Text;
-            string vanTat = txtMoTaVanTat.Text;
+            int stt_CDRMH = model.ChuanDauRaMonHocs.FirstOrDefault(x => x.Id == cdrmh_Id).STT.Value;
 
-            // BUS 
-            bool flag1 = bus.Update_Course(dcct.MonHoc_Id.Value, tenChuongTrinh, tenTiengAnh, vanTat, maHocPhan);
+            bool flagAdd = false;
 
-            //?????????????????????????????????
-            int tinChi = int.Parse(nbrSoTinChi.Value.ToString());
+            List<bool> lstCheckDelete = new List<bool>();
 
-
-            //gvgd
-            string GVPTMH = txtGVPTMH.Text;
-            string diachi = txtDCCQ.Text;
-            string sdt = txtDCLH.Text;
-            string email = txtDCLH.Text;
-            string troGiang = txtGVTG.Text;
-
-            GVGD gv = model.GVGDs.FirstOrDefault(x => x.DCCT_Id == getId);
-
-            // BUS
-            bool flag2 = false;
-            bool flag3 = false;
-
-            if (gv == null)
+            foreach (DataGridViewRow row in lstMaTran_ChuanDauRaCTDT.Rows)
             {
-                flag2 = bus.CreateGVGD(getId, diachi, sdt, email, troGiang, GVPTMH);
+                if (row.Cells[0].Value == null)
+                {
+                    row.Cells[0].Value = false;
+                }
+                lstCheckDelete.Add((bool)row.Cells[0].Value);
+            }
 
+            bool flagAllowToAdd = false;
+
+            for (int i = 0; i < lstCheckDelete.Count; i++)
+            {
+                if (lstCheckDelete[i] == true)
+                {
+                    flagAllowToAdd = true;
+                }
+            }
+
+            if (flagAllowToAdd)
+            {
+                foreach (DataGridViewRow row in lstMaTran_ChuanDauRaCTDT.Rows)
+                {
+                    bool map;
+
+                    if ((bool)row.Cells[0].Value == false)
+                    {
+                        map = false;
+                    }
+                    else
+                    {
+                        map = true;
+                    }
+
+                    int stt_CDRCTDT = (int)row.Cells["STT"].Value;
+
+                    int cdrCTDT_Id = model.MucTieuDaoTaos.FirstOrDefault(x => x.ChuongTrinhDaoTao_Id == getCTDT_ID && x.STT == stt_CDRCTDT).Id;
+
+                    flagAdd = bus.Add_MaTran_2CDR(getId, cdrmh_Id, cdrCTDT_Id, map);
+
+                }
+                if (flagAdd == false) MessageBox.Show("Cập nhật dữ liệu vào CSDL thất bại");
+                else MessageBox.Show("Đã lưu");
             }
             else
             {
-                flag3 = bus.UpdateGVGD(getId, diachi, sdt, email, troGiang, GVPTMH);
-
-            }
-
-            if ((flag == true) && (flag1 == true) && ((flag2 == true) || (flag3 == true)))
-            {
-                MessageBox.Show("Đã lưu");
-            }
-            else
-            {
-                MessageBox.Show("Lưu thất bại");
-            }
-
-            //object ob1 = wbPhanbothoigian.Document.InvokeScript("getcontent");
-            //object ob2 = wbThoiGianHoc.Document.InvokeScript("getcontent");
-            //object ob3 = wbYeuCauMH.Document.InvokeScript("getcontent");
-
-            //string[] hdarr = new string[] { ob1.ToString(), ob2.ToString(), ob3.ToString() };
-
-            //handleCK(hdarr, getId);
-
-            //DBEntities db = new DBEntities();
-            //DeCuongChiTiet add = db.DeCuongChiTiets.Single(x => x.Id == getId);
-            //add.PhanBoThoiGian = ConvertUnicdoe(ob1.ToString());
-            //GVDG add2 = db.GVDGs.Single(x => x.DCCT_Id == getId);
-            //add2.ThoiGian = ConvertUnicdoe(ob2.ToString());
-            //add.YeuCauMonHoc = ConvertUnicdoe(ob3.ToString());
-            //db.SaveChanges();
-
-            int getMH_ID = model.DeCuongChiTiets.FirstOrDefault(x => x.Id == getId).MonHoc_Id.Value;
-
-            foreach (DataGridViewRow row in lstHocPhanTruoc.Rows)
-            {
-                int ma = int.Parse(row.Cells[0].Value.ToString());
-                int mtq = int.Parse(row.Cells[2].Value.ToString());
-                bool flagUpdate = bus.Update_HocPhan(ma, getMH_ID, mtq, (bool)row.Cells[3].Value);
+                MessageBox.Show("Chuẩn đầu ra môn học chưa được liên kết với chuẩn đầu ra chương trình đào tạo!");
             }
 
         }

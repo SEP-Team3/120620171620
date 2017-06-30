@@ -6,7 +6,7 @@
    <Modules>
     <Module Name="prototype_sep_team3.exe">
      <Messages>
-      <Message TypeName="MarkWindowsFormsEntryPointsWithStaThread" Category="Microsoft.Usage" CheckId="CA2232" Status="Active" Created="2017-06-30 09:26:46Z" FixCategory="NonBreaking">
+      <Message TypeName="MarkWindowsFormsEntryPointsWithStaThread" Category="Microsoft.Usage" CheckId="CA2232" Status="Active" Created="2017-06-30 10:18:56Z" FixCategory="NonBreaking">
        <Issue Certainty="95" Level="Error" Path="d:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3" File="Program.cs" Line="18">Mark the entry point method 'Program.Main()' in assembly 'Prototype_SEP_Team3.exe' with an STAThreadAttribute.</Issue>
       </Message>
      </Messages>
@@ -15,14 +15,14 @@
        <Types>
         <Type Name="BUS_Admin_CTĐT" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 09:26:46Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 10:18:56Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'BUS_Admin_CTĐT' because it creates members of the following IDisposable types: 'DBEntities'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="BUS_PhanQuyen" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 09:26:46Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 10:18:56Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'BUS_PhanQuyen' because it creates members of the following IDisposable types: 'DBEntities'.</Issue>
           </Message>
          </Messages>
@@ -33,7 +33,7 @@
        <Types>
         <Type Name="BUS_DCCT" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 09:26:46Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-06-30 10:18:56Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'BUS_DCCT' because it creates members of the following IDisposable types: 'DBEntities'.</Issue>
           </Message>
          </Messages>
@@ -42,7 +42,7 @@
          <Members>
           <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
            <Messages>
-            <Message Id="model" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2017-06-30 09:26:46Z" FixCategory="NonBreaking">
+            <Message Id="model" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2017-06-30 10:18:56Z" FixCategory="NonBreaking">
              <Issue Certainty="75" Level="Warning" Path="d:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\Detailed Syllabus" File="GUI_DS.Designer.cs" Line="15">'GUI_DS' contains field 'GUI_DS.model' that is of IDisposable type: 'DBEntities'. Change the Dispose method on 'GUI_DS' to call Dispose or Close on this field.</Issue>
             </Message>
            </Messages>

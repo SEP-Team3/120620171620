@@ -202,9 +202,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
-            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnForm.SuspendLayout();
@@ -1827,9 +1824,6 @@
             // pnYCMH
             // 
             this.pnYCMH.AutoScroll = true;
-            this.pnYCMH.Controls.Add(this.webBrowser3);
-            this.pnYCMH.Controls.Add(this.webBrowser2);
-            this.pnYCMH.Controls.Add(this.webBrowser1);
             this.pnYCMH.Controls.Add(this.label47);
             this.pnYCMH.Controls.Add(this.label4);
             this.pnYCMH.Controls.Add(this.txtKHGDCT_Buoi);
@@ -1985,30 +1979,6 @@
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(106, 764);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1123, 250);
-            this.webBrowser1.TabIndex = 104;
-            // 
-            // webBrowser2
-            // 
-            this.webBrowser2.Location = new System.Drawing.Point(106, 1080);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1123, 250);
-            this.webBrowser2.TabIndex = 105;
-            // 
-            // webBrowser3
-            // 
-            this.webBrowser3.Location = new System.Drawing.Point(106, 1426);
-            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser3.Name = "webBrowser3";
-            this.webBrowser3.Size = new System.Drawing.Size(1123, 212);
-            this.webBrowser3.TabIndex = 106;
             // 
             // GUI_DS
             // 
@@ -2237,9 +2207,6 @@
         private System.Windows.Forms.Button btnMT2CDR_Update;
         private System.Windows.Forms.Panel pnMT2CDR;
         private System.Windows.Forms.Button btnHoanThanh;
-        private System.Windows.Forms.WebBrowser webBrowser3;
-        private System.Windows.Forms.WebBrowser webBrowser2;
-        private System.Windows.Forms.WebBrowser webBrowser1;
 
     }
 }
