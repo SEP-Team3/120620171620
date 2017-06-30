@@ -1087,9 +1087,6 @@ D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\D
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Detailed_Syllabus.GUI_DS.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_Course.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_EP.resources
-D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Form1.resources
-D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Chinh.resources
-D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Login.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Properties.Resources.resources
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csproj.GenerateResource.Cache
 D:\Data\Dữ liệu cũ\CMU\SEP\SourceSEP\120620171620\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_VIEW.resources

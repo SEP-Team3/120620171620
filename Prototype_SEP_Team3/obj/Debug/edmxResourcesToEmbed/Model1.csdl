@@ -21,6 +21,7 @@
     <Property Name="NguoiPhuTrach_Id" Type="Int32" Nullable="false" />
     <Property Name="CopyTuCTDT" Type="Int32" />
     <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_ChuongTrinhDaoTao_TaiKhoan" FromRole="ChuongTrinhDaoTao" ToRole="TaiKhoan" />
+    <NavigationProperty Name="MonHocs" Relationship="Self.FK_MonHoc_ChuongTrinhDaoTao" FromRole="ChuongTrinhDaoTao" ToRole="MonHoc" />
     <NavigationProperty Name="MucTieuDaoTaos" Relationship="Self.FK_MucTieuDaoTao_ChuongTrinhDaoTao" FromRole="ChuongTrinhDaoTao" ToRole="MucTieuDaoTao" />
     <NavigationProperty Name="ThongTinChung_CTDT" Relationship="Self.FK_ThongTinChung_CTDT_ChuongTrinhDaoTao" FromRole="ChuongTrinhDaoTao" ToRole="ThongTinChung_CTDT" />
   </EntityType>
@@ -38,6 +39,7 @@
     <Property Name="YeuCauMonHoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="GiangVienPhuTrach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="KhoiKienThuc" Type="Int32" />
+    <Property Name="Finish" Type="Boolean" />
     <NavigationProperty Name="ChuanDauRaMonHocs" Relationship="Self.FK_ChuanDauRaMonHoc_DeCuongChiTiet" FromRole="DeCuongChiTiet" ToRole="ChuanDauRaMonHoc" />
     <NavigationProperty Name="MonHoc" Relationship="Self.FK_DeCuongChiTiet_MonHoc" FromRole="DeCuongChiTiet" ToRole="MonHoc" />
     <NavigationProperty Name="GVGDs" Relationship="Self.FK_GVGD_DeCuongChiTiet" FromRole="DeCuongChiTiet" ToRole="GVGD" />
@@ -55,11 +57,11 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DCCT_Id" Type="Int32" Nullable="false" />
     <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DienThoai" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TroGiang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ThoiGian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GVPT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGian" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenGV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DeCuongChiTiet" Relationship="Self.FK_GVGD_DeCuongChiTiet" FromRole="GVGD" ToRole="DeCuongChiTiet" />
   </EntityType>
   <EntityType Name="KeHoachGDHTCuThe">
@@ -106,9 +108,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ChuanDauRaMonHoc_Id" Type="Int32" />
-    <Property Name="PhuongPhapDanhGia" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="HoatDongDanhGia" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" />
+    <Property Name="Loai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChuanDauRaMonHoc" Relationship="Self.FK_MaTran_ChuanDauRaMH_HDGDPPDG_ChuanDauRaMonHoc" FromRole="MaTran_ChuanDauRaMH_HDGDPPDG" ToRole="ChuanDauRaMonHoc" />
   </EntityType>
   <EntityType Name="MonHoc">
@@ -127,6 +128,7 @@
     <Property Name="SoGioLyThuyet" Type="Int32" Nullable="false" />
     <Property Name="SoGioThucHanh" Type="Int32" Nullable="false" />
     <Property Name="MonHoc_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ChuongTrinhDaoTao" Relationship="Self.FK_MonHoc_ChuongTrinhDaoTao" FromRole="MonHoc" ToRole="ChuongTrinhDaoTao" />
     <NavigationProperty Name="DeCuongChiTiets" Relationship="Self.FK_DeCuongChiTiet_MonHoc" FromRole="MonHoc" ToRole="DeCuongChiTiet" />
     <NavigationProperty Name="MonTienQuyets" Relationship="Self.FK_MonTienQuyet_MonHoc" FromRole="MonHoc" ToRole="MonTienQuyet" />
     <NavigationProperty Name="MonTienQuyets1" Relationship="Self.FK_MonTienQuyet_MonHoc1" FromRole="MonHoc" ToRole="MonTienQuyet" />
@@ -167,17 +169,11 @@
   </EntityType>
   <EntityType Name="PhanQuyenTaiKhoan">
     <Key>
-      <PropertyRef Name="TaiKhoan_Id" />
-      <PropertyRef Name="TenPhanQuyen" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TaiKhoan_Id" Type="Int32" Nullable="false" />
-    <Property Name="TenPhanQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="EditCTDT" Type="Boolean" Nullable="false" />
-    <Property Name="EditDCCT" Type="Boolean" Nullable="false" />
-    <Property Name="ViewCTDT" Type="Boolean" Nullable="false" />
-    <Property Name="ViewDCCT" Type="Boolean" Nullable="false" />
-    <Property Name="CreateCTDT" Type="Boolean" Nullable="false" />
-    <Property Name="CreateDCCT" Type="Boolean" Nullable="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_PhanQuyenTaiKhoan_TaiKhoan" FromRole="PhanQuyenTaiKhoan" ToRole="TaiKhoan" />
   </EntityType>
   <EntityType Name="PPDanhGiaKQHT">
@@ -288,6 +284,18 @@
       </Principal>
       <Dependent Role="ChuongTrinhDaoTao">
         <PropertyRef Name="NguoiPhuTrach_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonHoc_ChuongTrinhDaoTao">
+    <End Role="ChuongTrinhDaoTao" Type="Self.ChuongTrinhDaoTao" Multiplicity="1" />
+    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuongTrinhDaoTao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MonHoc">
+        <PropertyRef Name="ChuongTrinhDaoTao_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -494,6 +502,10 @@
       <End Role="TaiKhoan" EntitySet="TaiKhoans" />
       <End Role="ChuongTrinhDaoTao" EntitySet="ChuongTrinhDaoTaos" />
     </AssociationSet>
+    <AssociationSet Name="FK_MonHoc_ChuongTrinhDaoTao" Association="Self.FK_MonHoc_ChuongTrinhDaoTao">
+      <End Role="ChuongTrinhDaoTao" EntitySet="ChuongTrinhDaoTaos" />
+      <End Role="MonHoc" EntitySet="MonHocs" />
+    </AssociationSet>
     <AssociationSet Name="FK_MucTieuDaoTao_ChuongTrinhDaoTao" Association="Self.FK_MucTieuDaoTao_ChuongTrinhDaoTao">
       <End Role="ChuongTrinhDaoTao" EntitySet="ChuongTrinhDaoTaos" />
       <End Role="MucTieuDaoTao" EntitySet="MucTieuDaoTaos" />
@@ -550,10 +562,85 @@
       <End Role="TaiKhoan" EntitySet="TaiKhoans" />
       <End Role="PhanQuyenTaiKhoan" EntitySet="PhanQuyenTaiKhoans" />
     </AssociationSet>
+    <FunctionImport Name="Admin_createCTDT_Thinh">
+      <Parameter Name="TenCTDT" Mode="In" Type="String" />
+      <Parameter Name="NguoiPhuTrachID" Mode="In" Type="Int32" />
+      <Parameter Name="CopyTuCTDT" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_CTDTSearch" ReturnType="Collection(team3Model.Admin_CTDTSearch_Result)">
+      <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_CTDTSelectAll" ReturnType="Collection(team3Model.Admin_CTDTSelectAll_Result)" />
+    <FunctionImport Name="Admin_updateCTDT_Thinh">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="TenCTDT" Mode="In" Type="String" />
+      <Parameter Name="NguoiPhuTrachID" Mode="In" Type="Int32" />
+      <Parameter Name="CopyTuCTDT" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Authorize_Create_Sang">
+      <Parameter Name="TK_Id" Mode="In" Type="Int32" />
+      <Parameter Name="ChucVu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Authorize_Search_Sang" ReturnType="Collection(team3Model.Authorize_Search_Sang_Result)">
+      <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Authorize_Select_Sang" ReturnType="Collection(team3Model.Authorize_Select_Sang_Result)" />
+    <FunctionImport Name="Authorize_Update_Sang">
+      <Parameter Name="TK_Id" Mode="In" Type="Int32" />
+      <Parameter Name="ChucVu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Course_Update_Sang">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="TenDCCT" Mode="In" Type="String" />
+      <Parameter Name="TenTiengAnh" Mode="In" Type="String" />
+      <Parameter Name="NDVT" Mode="In" Type="String" />
+      <Parameter Name="MaHP" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_CreateDetailedSyllabus_MaTran2CDR_Sang">
+      <Parameter Name="DCCT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CDRMH_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CDRCTDT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mapping" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_CreateDetailedSyllabus_MaTranCDRHDDG_Sang">
+      <Parameter Name="CDRMH_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Loai" Mode="In" Type="String" />
+      <Parameter Name="NoiDung" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_CreateGVGD_Sang">
+      <Parameter Name="DCCT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="DChi" Mode="In" Type="String" />
+      <Parameter Name="Dthoai" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="TroG" Mode="In" Type="String" />
+      <Parameter Name="TenGV" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang">
+      <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
+      <Parameter Name="NoiDung" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_DeleteDetailedSyllabus_MaTran2CDR_Sang">
+      <Parameter Name="DCCT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CDRMH_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_DeleteDetailedSyllabus_MaTranCDRvsHDGD_Sang">
+      <Parameter Name="CDRMH_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang">
+      <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
+      <Parameter Name="STT" Mode="In" Type="Int32" />
+      <Parameter Name="NoiDung" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh">
       <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
       <Parameter Name="STT" Mode="In" Type="Int32" />
       <Parameter Name="NoiDung" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_UpdateDetailedSyllabus_HPHT_Sang">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="MH_ID" Mode="In" Type="Int32" />
+      <Parameter Name="MTQ_ID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh">
       <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
@@ -573,6 +660,12 @@
       <Parameter Name="HoatDongDanhGia" Mode="In" Type="String" />
       <Parameter Name="STT" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_UpdateDetailedSyllabus_MaTran2CDR_Sang">
+      <Parameter Name="DCCT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CDRMH_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CDRCTDT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mapping" Mode="In" Type="Boolean" />
+    </FunctionImport>
     <FunctionImport Name="DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh">
       <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
       <Parameter Name="Loai" Mode="In" Type="String" />
@@ -586,11 +679,25 @@
       <Parameter Name="TrongSo" Mode="In" Type="String" />
       <Parameter Name="HinhThucDanhGia" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_UpdateDetailedSyllabus_Sang">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="TenDCCT" Mode="In" Type="String" />
+      <Parameter Name="TenTiengAnh" Mode="In" Type="String" />
+      <Parameter Name="TrinhDo" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh">
       <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
       <Parameter Name="Loai" Mode="In" Type="String" />
       <Parameter Name="NoiDung" Mode="In" Type="String" />
       <Parameter Name="STT" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DetailedSyllabus_UpdateGVGD_Sang">
+      <Parameter Name="DCCT_Id" Mode="In" Type="Int32" />
+      <Parameter Name="DChi" Mode="In" Type="String" />
+      <Parameter Name="Dthoai" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="TroG" Mode="In" Type="String" />
+      <Parameter Name="TenGV" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang">
       <Parameter Name="DeCuongChiTiet_Id" Mode="In" Type="Int32" />
@@ -608,7 +715,7 @@
       <Parameter Name="HocKi" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Load_LoaiTaiLieu_Thinh" ReturnType="Collection(String)" />
-    <FunctionImport Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" ReturnType="Collection(team3Model.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result)">
+    <FunctionImport Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh">
       <Parameter Name="id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Load_MonHocTienQuyet_Thinh" ReturnType="Collection(String)">
@@ -643,6 +750,9 @@
       <Parameter Name="hk" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="LoadChuanDauRaCTDTTheoMonHoc" ReturnType="Collection(team3Model.LoadChuanDauRaCTDTTheoMonHoc_Result)" />
+    <FunctionImport Name="MonTienQuyet_Select_Sang" ReturnType="Collection(team3Model.MonTienQuyet_Select_Sang_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -704,18 +814,40 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
+  <ComplexType Name="Admin_CTDTSearch_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Tên_CTÐT" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Tên_ngu_i_ph__trách" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Copy_T__CTDT" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Admin_CTDTSelectAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Tên_CTÐT" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Tên_ngu_i_ph__trách" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Copy_T__CTDT" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Authorize_Search_Sang_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ChucVu" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Authorize_Select_Sang_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ChucVu" Nullable="false" MaxLength="50" />
+  </ComplexType>
   <ComplexType Name="Load_DCCT_Thinh_Result">
     <Property Type="String" Name="TenDCCT" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
     <Property Type="String" Name="TenTiengAnh" Nullable="false" MaxLength="100" />
     <Property Type="String" Name="MonHoc_Id" Nullable="false" MaxLength="50" />
     <Property Type="Int32" Name="KhoiKienThuc" Nullable="true" />
-    <Property Type="String" Name="GVPT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenGV" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="TroGiang" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ThoiGian" Nullable="true" />
     <Property Type="Int32" Name="SoTinChi" Nullable="false" />
     <Property Type="String" Name="TrinhDo" Nullable="true" MaxLength="200" />
     <Property Type="String" Name="PhanBoThoiGian" Nullable="true" MaxLength="200" />
@@ -737,11 +869,6 @@
     <Property Type="Int32" Name="SoTinChi" Nullable="false" />
     <Property Type="Int32" Name="SoGioLyThuyet" Nullable="false" />
     <Property Type="Int32" Name="SoGioThucHanh" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result">
-    <Property Type="Int32" Name="STT" Nullable="true" />
-    <Property Type="String" Name="HoatDongDanhGia" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="PhuongPhapDanhGia" Nullable="true" MaxLength="200" />
   </ComplexType>
   <ComplexType Name="Load_MucTieu_MonHoc_Thinh_Result">
     <Property Type="String" Name="MonHoc_Id" Nullable="false" MaxLength="50" />
@@ -782,6 +909,12 @@
   <ComplexType Name="LoadChuanDauRaCTDTTheoMonHoc_Result">
     <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="500" />
     <Property Type="Int32" Name="STT" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="MonTienQuyet_Select_Sang_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="TenMonHoc" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="MonTienQuyet_Id" Nullable="false" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
   </ComplexType>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />

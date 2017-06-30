@@ -794,6 +794,12 @@ namespace Prototype_SEP_Team3.Educational_Program
         //Edit CTDT
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (checkck == 0)
+            {
+                WebBrowser[] iarr = new WebBrowser[] { wbKhốilượngkt, wbĐốitượng, wbQuytrình, wbCơsởvậtchất };
+                readCK(iarr, idctdt);
+                checkck = 1;
+            }
             if (checkck == 1)
             {
                 load.TenChuongTrinh = txtTên.Text;

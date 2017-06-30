@@ -34,6 +34,7 @@
           <ScalarProperty Name="YeuCauMonHoc" ColumnName="YeuCauMonHoc" />
           <ScalarProperty Name="GiangVienPhuTrach" ColumnName="GiangVienPhuTrach" />
           <ScalarProperty Name="KhoiKienThuc" ColumnName="KhoiKienThuc" />
+          <ScalarProperty Name="Finish" ColumnName="Finish" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -47,7 +48,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="TroGiang" ColumnName="TroGiang" />
           <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-          <ScalarProperty Name="GVPT" ColumnName="GVPT" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -92,9 +93,8 @@
         <MappingFragment StoreEntitySet="MaTran_ChuanDauRaMH_HDGDPPDG">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ChuanDauRaMonHoc_Id" ColumnName="ChuanDauRaMonHoc_Id" />
-          <ScalarProperty Name="PhuongPhapDanhGia" ColumnName="PhuongPhapDanhGia" />
-          <ScalarProperty Name="HoatDongDanhGia" ColumnName="HoatDongDanhGia" />
-          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -151,14 +151,9 @@
     <EntitySetMapping Name="PhanQuyenTaiKhoans">
       <EntityTypeMapping TypeName="team3Model.PhanQuyenTaiKhoan">
         <MappingFragment StoreEntitySet="PhanQuyenTaiKhoan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TaiKhoan_Id" ColumnName="TaiKhoan_Id" />
-          <ScalarProperty Name="TenPhanQuyen" ColumnName="TenPhanQuyen" />
-          <ScalarProperty Name="EditCTDT" ColumnName="EditCTDT" />
-          <ScalarProperty Name="EditDCCT" ColumnName="EditDCCT" />
-          <ScalarProperty Name="ViewCTDT" ColumnName="ViewCTDT" />
-          <ScalarProperty Name="ViewDCCT" ColumnName="ViewDCCT" />
-          <ScalarProperty Name="CreateCTDT" ColumnName="CreateCTDT" />
-          <ScalarProperty Name="CreateDCCT" ColumnName="CreateDCCT" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -225,13 +220,67 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Admin_createCTDT_Thinh" FunctionName="team3Model.Store.Admin_createCTDT_Thinh" />
+    <FunctionImportMapping FunctionImportName="Admin_CTDTSearch" FunctionName="team3Model.Store.Admin_CTDTSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Admin_CTDTSearch_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tên_CTÐT" ColumnName="Tên CTÐT" />
+          <ScalarProperty Name="Tên_ngu_i_ph__trách" ColumnName="Tên ngu?i ph? trách" />
+          <ScalarProperty Name="Copy_T__CTDT" ColumnName="Copy T? CTDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_CTDTSelectAll" FunctionName="team3Model.Store.Admin_CTDTSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Admin_CTDTSelectAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tên_CTÐT" ColumnName="Tên CTÐT" />
+          <ScalarProperty Name="Tên_ngu_i_ph__trách" ColumnName="Tên ngu?i ph? trách" />
+          <ScalarProperty Name="Copy_T__CTDT" ColumnName="Copy T? CTDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_updateCTDT_Thinh" FunctionName="team3Model.Store.Admin_updateCTDT_Thinh" />
+    <FunctionImportMapping FunctionImportName="Authorize_Create_Sang" FunctionName="team3Model.Store.Authorize_Create_Sang" />
+    <FunctionImportMapping FunctionImportName="Authorize_Search_Sang" FunctionName="team3Model.Store.Authorize_Search_Sang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Authorize_Search_Sang_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Authorize_Select_Sang" FunctionName="team3Model.Store.Authorize_Select_Sang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.Authorize_Select_Sang_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Authorize_Update_Sang" FunctionName="team3Model.Store.Authorize_Update_Sang" />
+    <FunctionImportMapping FunctionImportName="Course_Update_Sang" FunctionName="team3Model.Store.Course_Update_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_CreateDetailedSyllabus_MaTran2CDR_Sang" FunctionName="team3Model.Store.DetailedSyllabus_CreateDetailedSyllabus_MaTran2CDR_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_CreateDetailedSyllabus_MaTranCDRHDDG_Sang" FunctionName="team3Model.Store.DetailedSyllabus_CreateDetailedSyllabus_MaTranCDRHDDG_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_CreateGVGD_Sang" FunctionName="team3Model.Store.DetailedSyllabus_CreateGVGD_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang" FunctionName="team3Model.Store.DetailedSyllabus_deleteDetailedSyllabus_ChuanDauRaMonHoc_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_DeleteDetailedSyllabus_MaTran2CDR_Sang" FunctionName="team3Model.Store.DetailedSyllabus_DeleteDetailedSyllabus_MaTran2CDR_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_DeleteDetailedSyllabus_MaTranCDRvsHDGD_Sang" FunctionName="team3Model.Store.DetailedSyllabus_DeleteDetailedSyllabus_MaTranCDRvsHDGD_Sang" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Sang" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_ChuanDauRaMonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_UpdateDetailedSyllabus_HPHT_Sang" FunctionName="team3Model.Store.DetailedSyllabus_UpdateDetailedSyllabus_HPHT_Sang" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_KeHoanKiemTra_Thinh" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MaTran_CDRMH_CDRCTDT_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MaTran_CDRMH_CDRCTDT_Thinh" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_UpdateDetailedSyllabus_MaTran2CDR_Sang" FunctionName="team3Model.Store.DetailedSyllabus_UpdateDetailedSyllabus_MaTran2CDR_Sang" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_MucTieuMonHoc_Thinh" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_PPDanhGia_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_PPDanhGia_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_UpdateDetailedSyllabus_Sang" FunctionName="team3Model.Store.DetailedSyllabus_UpdateDetailedSyllabus_Sang" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh" FunctionName="team3Model.Store.DetailedSyllabus_updateDetailedSyllabus_TaiLieuMonHoc_Thinh" />
+    <FunctionImportMapping FunctionImportName="DetailedSyllabus_UpdateGVGD_Sang" FunctionName="team3Model.Store.DetailedSyllabus_UpdateGVGD_Sang" />
     <FunctionImportMapping FunctionImportName="DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang" FunctionName="team3Model.Store.DetailedSyllabus_updateSTTDetailedSyllabus_ChuanDauRaMonHoc_Sang" />
     <FunctionImportMapping FunctionImportName="Load_DCCT_Thinh" FunctionName="team3Model.Store.Load_DCCT_Thinh">
       <ResultMapping>
@@ -241,7 +290,7 @@
           <ScalarProperty Name="TenTiengAnh" ColumnName="TenTiengAnh" />
           <ScalarProperty Name="MonHoc_Id" ColumnName="MonHoc_Id" />
           <ScalarProperty Name="KhoiKienThuc" ColumnName="KhoiKienThuc" />
-          <ScalarProperty Name="GVPT" ColumnName="GVPT" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="TroGiang" ColumnName="TroGiang" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
@@ -280,15 +329,7 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Load_LoaiTaiLieu_Thinh" FunctionName="team3Model.Store.Load_LoaiTaiLieu_Thinh" />
-    <FunctionImportMapping FunctionImportName="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" FunctionName="team3Model.Store.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="team3Model.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh_Result">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="HoatDongDanhGia" ColumnName="HoatDongDanhGia" />
-          <ScalarProperty Name="PhuongPhapDanhGia" ColumnName="PhuongPhapDanhGia" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" FunctionName="team3Model.Store.Load_MaTran_ChuanDauRaMH_HDGDPPDG_Thinh" />
     <FunctionImportMapping FunctionImportName="Load_MonHocTienQuyet_Thinh" FunctionName="team3Model.Store.Load_MonHocTienQuyet_Thinh" />
     <FunctionImportMapping FunctionImportName="Load_MucTieu_MonHoc_Thinh" FunctionName="team3Model.Store.Load_MucTieu_MonHoc_Thinh">
       <ResultMapping>
@@ -356,6 +397,16 @@
         <ComplexTypeMapping TypeName="team3Model.LoadChuanDauRaCTDTTheoMonHoc_Result">
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
           <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MonTienQuyet_Select_Sang" FunctionName="team3Model.Store.MonTienQuyet_Select_Sang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="team3Model.MonTienQuyet_Select_Sang_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+          <ScalarProperty Name="MonTienQuyet_Id" ColumnName="MonTienQuyet_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
