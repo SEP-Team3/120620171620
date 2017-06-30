@@ -54,3 +54,29 @@ C:\Users\DELL\Documents\GitHub\Educational-Program\Prototype_SEP_Team3\obj\Debug
 C:\Users\DELL\Documents\GitHub\Educational-Program\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Login.resources
 C:\Users\DELL\Documents\GitHub\Educational-Program\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Properties.Resources.resources
 C:\Users\DELL\Documents\GitHub\Educational-Program\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csproj.GenerateResource.Cache
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Prototype_SEP_Team3.exe.config
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.exe
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.pdb
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Detailed Syllabus\DSCkeditor.html
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Educational Program\EPCkeditor.html
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Prototype_SEP_Team3.exe
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Prototype_SEP_Team3.pdb
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csprojResolveAssemblyReference.cache
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Admin.GUI_Admin.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Admin.GUI_Admin_CTĐT.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Admin.GUI_PhanQuyen.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Admin.GUI_TaiKhoan.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Detailed_Syllabus.GUI_DS.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_Course.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Educational_Program.GUI_EP.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Login.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.Properties.Resources.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\SEP_Team3.csproj.GenerateResource.Cache
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\EntityFramework.dll
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\EntityFramework.SqlServer.dll
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\EntityFramework.xml
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\EntityFramework.SqlServer.xml
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Chinh_BST_GVGD.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\obj\Debug\Prototype_SEP_Team3.GUI_Chinh_GV.resources
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Prototype_SEP_Team3.exe.CodeAnalysisLog.xml
+D:\Sang's Document\SEP\Prototype\Educational-Program-master\Prototype_SEP_Team3\bin\Debug\Prototype_SEP_Team3.exe.lastcodeanalysissucceeded
